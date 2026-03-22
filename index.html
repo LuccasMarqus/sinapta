@@ -116,7 +116,7 @@
 <!-- Section 1: Top Micro-bar -->
 <div class="h-8 bg-[#050D1A] flex items-center justify-between px-8 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 border-b border-outline-variant/5">
 <div class="flex items-center gap-6">
-<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">mail</span> <span id="landing-top-email">sinaptacode@gmail.com</span></span>
+<span class="hidden sm:flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">mail</span> <span id="landing-top-email">sinaptacode@gmail.com</span></span>
 <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">phone</span> <span id="landing-top-phone">+55 (11) 99999-9999</span></span>
 </div>
 <div class="flex items-center gap-4">
@@ -135,7 +135,7 @@
         SINAPTA
     </div>
 </div>
-<div class="hidden md:flex items-center gap-10">
+<div class="hidden md:flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-10">
 <a class="text-[#00A3FF] font-bold border-b-2 border-[#00A3FF] pb-1 font-black uppercase tracking-widest text-[11px]" href="#produtos">Produtos</a>
 <a class="text-slate-300 hover:text-white transition-colors font-black uppercase tracking-widest text-[11px]" href="#solucoes">Soluções</a>
 <a class="text-slate-300 hover:text-white transition-colors font-black uppercase tracking-widest text-[11px]" href="#segmentos">Segmentos</a>
@@ -155,27 +155,27 @@
 <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 blur-[120px] rounded-full"></div>
 <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tertiary/20 blur-[120px] rounded-full"></div>
 </div>
-<div class="max-w-7xl mx-auto px-12 grid grid-cols-12 gap-12 relative z-10">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-12 gap-12 relative z-10">
 <!-- Left: Hero Text -->
-<div class="col-span-7 flex flex-col justify-center">
-<h1 id="landing-hero-title" class="text-7xl font-black leading-[1.05] tracking-tight mb-8">
+<div class="w-full lg:w-full lg:col-span-7 flex flex-col justify-center">
+<h1 id="landing-hero-title" class="text-5xl lg:text-7xl font-black leading-[1.05] tracking-tight mb-8">
                     TECNOLOGIA QUE <br/>
 <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary">TRANSFORMA.</span>
 </h1>
 <p class="text-xl text-on-surface-variant max-w-xl leading-relaxed mb-12" id="landing-hero-sub">
                     Desenvolvemos ecossistemas digitais de alta performance para líderes de mercado. Inteligência, automação e escalabilidade no centro da sua estratégia.
                 </p>
-<div class="flex items-center gap-6">
-<button id="landing-hero-btn" onclick="document.getElementById('produtos').scrollIntoView()" class="bg-primary hover:bg-primary/90 text-on-primary px-8 py-4 rounded-xl font-bold flex items-center gap-3 transition-all glow-blue">
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 w-full sm:w-auto">
+<button id="landing-hero-btn" onclick="document.getElementById('produtos').scrollIntoView()" class="bg-primary hover:bg-primary/90 text-on-primary px-6 py-4 rounded-xl font-bold flex items-center justify-center gap-3 transition-all glow-blue w-full sm:w-auto">
                         <span id="landing-hero-btn-text">Explorar o Ecossistema</span> <span class="material-symbols-outlined">arrow_forward</span>
 </button>
-<button id="landing-hero-btn2" onclick="document.getElementById('sobre').scrollIntoView()" class="ghost-border bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 transition-all">
+<button id="landing-hero-btn2" onclick="document.getElementById('sobre').scrollIntoView()" class="ghost-border bg-white/5 hover:bg-white/10 text-white px-6 py-4 rounded-xl font-bold flex items-center justify-center gap-3 transition-all w-full sm:w-auto">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span> <span id="landing-hero-btn2-text">Ver como funciona</span>
                     </button>
 </div>
 </div>
 <!-- Right: Orbit Diagram -->
-<div class="col-span-5 relative flex items-center justify-center">
+<div class="w-full lg:col-span-5 relative flex items-center justify-center hidden lg:flex">
 <div class="relative w-[450px] h-[450px] flex items-center justify-center">
 <!-- Central Glow -->
 <div class="absolute inset-0 bg-primary/20 rounded-full blur-[80px]"></div>
@@ -232,32 +232,32 @@
 </div>
 </div>
 <!-- Section 5: Impact Numbers Section -->
-<section id="sobre" class="bg-[#0D1F3C] py-24">
-<div class="max-w-7xl mx-auto px-12">
-<div class="grid grid-cols-4 gap-12">
+<section id="sobre" class="bg-[#0D1F3C] py-16 lg:py-24">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
 <div class="text-center group">
-<div id="landing-stat-1-val" class="text-6xl font-black text-primary mb-2 group-hover:scale-110 transition-transform">50+</div>
+<div id="landing-stat-1-val" class="text-4xl lg:text-6xl font-black text-primary mb-2 group-hover:scale-110 transition-transform">50+</div>
 <div id="landing-stat-1-desc" class="text-slate-400 font-extrabold text-xs uppercase tracking-widest">Projetos</div>
 </div>
 <div class="text-center group">
-<div id="landing-stat-2-val" class="text-6xl font-black text-primary mb-2 group-hover:scale-110 transition-transform">20+</div>
+<div id="landing-stat-2-val" class="text-4xl lg:text-6xl font-black text-primary mb-2 group-hover:scale-110 transition-transform">20+</div>
 <div id="landing-stat-2-desc" class="text-slate-400 font-extrabold text-xs uppercase tracking-widest">Clientes</div>
 </div>
 <div class="text-center group">
-<div id="landing-stat-3-val" class="text-6xl font-black text-primary mb-2 group-hover:scale-110 transition-transform">4</div>
+<div id="landing-stat-3-val" class="text-4xl lg:text-6xl font-black text-primary mb-2 group-hover:scale-110 transition-transform">4</div>
 <div id="landing-stat-3-desc" class="text-slate-400 font-extrabold text-xs uppercase tracking-widest">Produtos</div>
 </div>
 <div class="text-center group">
-<div id="landing-stat-4-val" class="text-6xl font-black text-primary mb-2 group-hover:scale-110 transition-transform">99,9%</div>
+<div id="landing-stat-4-val" class="text-4xl lg:text-6xl font-black text-primary mb-2 group-hover:scale-110 transition-transform">99,9%</div>
 <div id="landing-stat-4-desc" class="text-slate-400 font-extrabold text-xs uppercase tracking-widest">Uptime</div>
 </div>
 </div>
 </div>
 </section>
 <!-- Section 6: Ecosystem Products Section -->
-<section id="produtos" class="py-32 bg-surface">
-<div class="max-w-7xl mx-auto px-12">
-<div class="flex flex-col md:flex-row justify-between items-end mb-16">
+<section id="produtos" class="py-20 lg:py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 lg:mb-16">
 <div>
 <h2 id="landing-eco-title" class="text-4xl font-extrabold mb-4">O Nosso Ecossistema</h2>
 <p id="landing-eco-sub" class="text-on-surface-variant max-w-lg">Soluções modulares desenhadas para cada estágio da sua jornada digital.</p>
@@ -270,14 +270,14 @@
 <button class="px-5 py-2 bg-surface-container-high text-on-surface-variant hover:text-white rounded-full font-bold text-sm transition-all">Web &amp; Digital</button>
 </div>
 </div>
-<div class="grid md:grid-cols-2 gap-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <!-- Card 1 -->
 <div class="bg-[#1E293B] p-10 rounded-[16px] border border-outline-variant/10 hover:shadow-[0_0_40px_rgba(0,163,255,0.15)] transition-all group relative overflow-hidden">
 <div class="absolute top-4 right-4 opacity-[0.07] group-hover:opacity-[0.12] transition-opacity">
 <span class="material-symbols-outlined text-5xl">description</span>
 </div>
 <div class="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-wider mb-6">LegalTech</div>
-<h3 class="text-3xl font-black mb-4">Contractfy</h3>
+<h3 class="text-2xl lg:text-3xl font-black mb-4">Contractfy</h3>
 <p class="text-on-surface-variant mb-8 leading-relaxed">Gestão inteligente de contratos com IA para automatização de minutas e fluxos de aprovação.</p>
 <ul class="space-y-4 mb-10">
 <li class="flex items-center gap-3 text-sm font-medium"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Assinatura Digital Integrada</li>
@@ -292,7 +292,7 @@
 <span class="material-symbols-outlined text-5xl">school</span>
 </div>
 <div class="inline-block px-3 py-1 rounded-full bg-tertiary/10 border border-tertiary/20 text-tertiary text-[10px] font-black uppercase tracking-wider mb-6">EdTech</div>
-<h3 class="text-3xl font-black mb-4">Medtrack</h3>
+<h3 class="text-2xl lg:text-3xl font-black mb-4">Medtrack</h3>
 <p class="text-on-surface-variant mb-8 leading-relaxed">Plataforma educacional avançada focada em performance e acompanhamento individualizado.</p>
 <ul class="space-y-4 mb-10">
 <li class="flex items-center gap-3 text-sm font-medium"><span class="material-symbols-outlined text-tertiary text-lg">check_circle</span> Dashboard de Evolução</li>
@@ -307,7 +307,7 @@
 <span class="material-symbols-outlined text-5xl">smart_toy</span>
 </div>
 <div class="inline-block px-3 py-1 rounded-full bg-[#F97316]/10 border border-[#F97316]/20 text-[#F97316] text-[10px] font-black uppercase tracking-wider mb-6">Automa&#231;&#227;o &middot; IA</div>
-<h3 class="text-3xl font-black mb-4">Automa&#231;&#245;es &amp; IA</h3>
+<h3 class="text-2xl lg:text-3xl font-black mb-4">Automa&#231;&#245;es &amp; IA</h3>
 <p class="text-on-surface-variant mb-8 leading-relaxed">Fluxos inteligentes que integram ferramentas, eliminam tarefas manuais e escalam opera&#231;&#245;es com IA aplicada ao seu neg&#243;cio.</p>
 <ul class="space-y-4 mb-10">
 <li class="flex items-center gap-3 text-sm font-medium"><span class="material-symbols-outlined text-[#F97316] text-lg">check_circle</span> Integra&#231;&#227;o entre sistemas</li>
@@ -322,7 +322,7 @@
 <span class="material-symbols-outlined text-5xl">language</span>
 </div>
 <div class="inline-block px-3 py-1 rounded-full bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981] text-[10px] font-black uppercase tracking-wider mb-6">Web &middot; Convers&#227;o</div>
-<h3 class="text-3xl font-black mb-4">Sites &amp; Landing Pages</h3>
+<h3 class="text-2xl lg:text-3xl font-black mb-4">Sites &amp; Landing Pages</h3>
 <p class="text-on-surface-variant mb-8 leading-relaxed">Sites institucionais e landing pages de alta performance com SEO, design premium e otimiza&#231;&#227;o de convers&#227;o.</p>
 <ul class="space-y-4 mb-10">
 <li class="flex items-center gap-3 text-sm font-medium"><span class="material-symbols-outlined text-[#10B981] text-lg">check_circle</span> Alta performance (PageSpeed 90+)</li>
@@ -335,13 +335,13 @@
 </div>
 </section>
 <!-- Section 7: Segments Section -->
-<section id="segmentos" class="py-24 bg-surface-container-low">
-<div class="max-w-7xl mx-auto px-12">
+<section id="segmentos" class="py-16 lg:py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
 <div class="text-center mb-16">
 <h2 class="text-4xl font-extrabold mb-4">Segmentos de Atuação</h2>
 <div class="w-20 h-1.5 bg-primary mx-auto rounded-full"></div>
 </div>
-<div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 <div class="bg-surface-container-high p-8 rounded-2xl hover:bg-surface-bright transition-all cursor-default border border-outline-variant/5">
 <span class="material-symbols-outlined text-primary text-4xl mb-4">gavel</span>
 <h4 class="text-xl font-bold">Jurídico</h4>
@@ -370,8 +370,8 @@
 </div>
 </section>
 <!-- Section 8: Methodology Timeline -->
-<section id="solucoes" class="py-32 bg-surface">
-<div class="max-w-7xl mx-auto px-12">
+<section id="solucoes" class="py-20 lg:py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
 <h2 class="text-4xl font-extrabold text-center mb-24">Nossa Metodologia</h2>
 <div class="relative flex flex-col md:flex-row justify-between items-start gap-12">
 <!-- Line -->
@@ -415,31 +415,31 @@
 </div>
 </section>
 <!-- Section 9: Differentials (Bento Style) -->
-<section class="py-24 bg-surface-container-low">
-<div class="max-w-7xl mx-auto px-12">
+<section class="py-16 lg:py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
 <h2 class="text-4xl font-extrabold mb-12">Diferenciais Sinapta</h2>
-<div class="grid grid-cols-12 gap-6 h-[600px]">
-<div class="col-span-8 bg-surface-container-high rounded-[16px] p-12 relative overflow-hidden group">
+<div class="flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:h-[600px]">
+<div class="w-full lg:col-span-8 bg-surface-container-high rounded-[16px] p-8 lg:p-12 relative overflow-hidden group">
 <div class="relative z-10">
 <span class="material-symbols-outlined text-primary text-5xl mb-6">shield</span>
-<h3 class="text-3xl font-black mb-4">Segurança de Nível Bancário</h3>
+<h3 class="text-2xl lg:text-3xl font-black mb-4">Segurança de Nível Bancário</h3>
 <p class="text-on-surface-variant max-w-md">Nossos sistemas utilizam criptografia de ponta a ponta e compliance LGPD rigoroso para garantir a integridade dos seus ativos digitais.</p>
 </div>
 <div class="absolute bottom-0 right-0 w-1/2 h-1/2 bg-primary/5 blur-3xl rounded-full"></div>
 </div>
-<div class="col-span-4 bg-primary rounded-[16px] p-12 text-on-primary flex flex-col justify-end">
+<div class="w-full lg:col-span-4 bg-primary rounded-[16px] p-8 lg:p-12 text-on-primary flex flex-col justify-end">
 <span class="material-symbols-outlined text-5xl mb-6" style="font-variation-settings: 'FILL' 1;">speed</span>
 <h3 class="text-2xl font-black mb-2">Alta Velocidade</h3>
 <p class="text-on-primary-container text-sm">Infraestrutura otimizada para zero latência.</p>
 </div>
-<div class="col-span-4 bg-surface-container-high rounded-[16px] p-12 border border-outline-variant/10">
+<div class="w-full lg:col-span-4 bg-surface-container-high rounded-[16px] p-8 lg:p-12 border border-outline-variant/10">
 <span class="material-symbols-outlined text-tertiary text-5xl mb-6">hub</span>
 <h3 class="text-xl font-bold mb-2">Ecossistema Conectado</h3>
 <p class="text-on-surface-variant text-sm">Integrações nativas com as principais ferramentas do mercado.</p>
 </div>
-<div class="col-span-8 bg-[#0D1F3C] rounded-[16px] p-12 flex items-center justify-between">
+<div class="w-full lg:col-span-8 bg-[#0D1F3C] rounded-[16px] p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-between text-center lg:text-left gap-8 lg:gap-0">
 <div>
-<h3 class="text-3xl font-black mb-4">Suporte Premium 24/7</h3>
+<h3 class="text-2xl lg:text-3xl font-black mb-4">Suporte Premium 24/7</h3>
 <p class="text-on-surface-variant max-w-sm">Nossa equipe de engenharia está sempre a postos para garantir que sua operação nunca pare.</p>
 </div>
 <span class="material-symbols-outlined text-primary text-7xl opacity-20">support_agent</span>
@@ -448,30 +448,30 @@
 </div>
 </section>
 <!-- Section 10: Cases/Results -->
-<section class="py-32 bg-surface">
-<div class="max-w-7xl mx-auto px-12">
+<section class="py-20 lg:py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
 <h2 class="text-4xl font-extrabold mb-16">Resultados Reais</h2>
 <div class="space-y-6">
-<div class="bg-surface-container-high p-8 rounded-2xl flex items-center justify-between border-l-4 border-primary">
-<div class="flex items-center gap-10">
+<div class="bg-surface-container-high p-6 lg:p-8 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-0 border-l-4 border-primary">
+<div class="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-10">
 <div class="w-32 shrink-0 text-4xl font-black text-primary" id="landing-kpi-1-val">01 Min</div>
-<div class="h-10 w-px bg-outline-variant"></div>
+<div class="w-full h-px md:h-10 md:w-px bg-outline-variant"></div>
 <p class="text-xl font-bold" id="landing-kpi-1-desc">Tempo m&#233;dio para gera&#231;&#227;o de contratos complexos na Contractfy.</p>
 </div>
 <span class="material-symbols-outlined text-slate-500">trending_up</span>
 </div>
-<div class="bg-surface-container-high p-8 rounded-2xl flex items-center justify-between border-l-4 border-secondary">
-<div class="flex items-center gap-10">
+<div class="bg-surface-container-high p-6 lg:p-8 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-0 border-l-4 border-secondary">
+<div class="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-10">
 <div class="w-32 shrink-0 text-4xl font-black text-secondary" id="landing-kpi-2-val">312%</div>
-<div class="h-10 w-px bg-outline-variant"></div>
+<div class="w-full h-px md:h-10 md:w-px bg-outline-variant"></div>
 <p class="text-xl font-bold" id="landing-kpi-2-desc">Crescimento de leads qualificados em sites otimizados pela Sinapta.</p>
 </div>
 <span class="material-symbols-outlined text-slate-500">trending_up</span>
 </div>
-<div class="bg-surface-container-high p-8 rounded-2xl flex items-center justify-between border-l-4 border-[#F97316]">
-<div class="flex items-center gap-10">
+<div class="bg-surface-container-high p-6 lg:p-8 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-0 border-l-4 border-[#F97316]">
+<div class="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-10">
 <div class="w-32 shrink-0 text-4xl font-black text-[#F97316]" id="landing-kpi-3-val">+30</div>
-<div class="h-10 w-px bg-outline-variant"></div>
+<div class="w-full h-px md:h-10 md:w-px bg-outline-variant"></div>
 <p class="text-xl font-bold" id="landing-kpi-3-desc">Processos automatizados.</p>
 </div>
 <span class="material-symbols-outlined text-slate-500">trending_up</span>
@@ -480,18 +480,18 @@
 </div>
 </section>
 <!-- Section 11: Testimonials Carousel -->
-<section class="py-24 bg-surface-container-low">
-<div class="max-w-7xl mx-auto px-12">
+<section class="py-16 lg:py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="landing-testimonials-list">
 <!-- Depoimentos dinâmicos serão injetados aqui via LocalStorage -->
 </div>
 </div>
 </section>
 <!-- Section 12: Blog/Insights -->
-<section class="py-32 bg-surface">
-<div class="max-w-7xl mx-auto px-12">
+<section class="py-20 lg:py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
 <h2 class="text-4xl font-extrabold mb-12">Insights da Fronteira</h2>
-<div class="grid grid-cols-3 gap-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 <div class="group cursor-pointer">
 <div class="aspect-video bg-surface-container-highest rounded-2xl mb-6 overflow-hidden">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Imagem abstrata de inteligência artificial azul" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4KfmNYsfT_1NSsWyw3UDACLYtWHk6ccxXVvhqAIFbd38pKrhpvfoCqn5uU88rzprwQYZfvZc1JutmE3Pf-BJzwt7DZa-D91MpQGg1RtHV-TS9iilkSd1EiI9IkpCMqvAqW30vk39FUOsE8ePbx2y8etFdQsVYvq-9PZbbOt-a3-KEo7I7qMLGKicUKc53yDs2vy9V7jOkX4kU0XmWNl7hIbe2VS8-ye-Jq4FW0YmYs2lzkie_9nZ0hfAU8GAvwpT5wHi0mszABQ"/>
@@ -526,11 +526,11 @@
 </div>
 </section>
 <!-- Section 13: Lead Capture Section -->
-<section class="py-32 bg-gradient-to-br from-[#0A1628] to-[#1a0a2e]">
-<div class="max-w-7xl mx-auto px-12 grid grid-cols-12 gap-20">
-<div class="col-span-7">
-<h2 class="text-5xl font-black mb-8">Pronto para a <br/><span class="text-primary">Próxima Fronteira?</span></h2>
-<form action="https://formsubmit.co/sinaptacode@gmail.com" method="POST" class="grid grid-cols-2 gap-6">
+<section class="py-20 lg:py-32 bg-gradient-to-br from-[#0A1628] to-[#1a0a2e]">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col lg:grid lg:grid-cols-12 gap-12 lg:gap-20">
+<div class="w-full lg:col-span-7">
+<h2 class="text-4xl lg:text-5xl font-black mb-8">Pronto para a <br/><span class="text-primary">Próxima Fronteira?</span></h2>
+<form action="https://formsubmit.co/sinaptacode@gmail.com" method="POST" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 <input type="hidden" name="_subject" value="Novo lead - Sinapta Landing Page">
 <input type="hidden" name="_captcha" value="false">
 <input name="nome" class="bg-surface-container-lowest border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/50 transition-all text-on-surface" placeholder="Seu Nome" type="text" required/>
@@ -552,7 +552,7 @@
 <button type="submit" class="col-span-2 bg-gradient-to-r from-[#F97316] to-[#FBBF24] py-5 rounded-xl text-on-secondary font-black text-lg uppercase tracking-widest hover:scale-[1.02] transition-all">Enviar Proposta</button>
 </form>
 </div>
-<div class="col-span-5 flex flex-col justify-center">
+<div class="w-full lg:col-span-5 flex flex-col justify-center">
 <div class="space-y-12">
 <div class="flex gap-6 items-start">
 <div class="p-3 bg-white/5 rounded-xl border border-white/10"><span class="material-symbols-outlined text-primary text-3xl">verified_user</span></div>
@@ -581,7 +581,7 @@
 </section>
 <!-- Section 14: Footer -->
 <footer id="contato" class="bg-[#050D1A] pt-20 pb-10 border-t border-outline-variant/10">
-<div class="max-w-7xl mx-auto px-12 grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
 <div class="col-span-1">
 <div class="flex items-center gap-3 mb-6">
     <img src="" class="dynamic-logo h-10 w-auto object-contain hidden" alt="Logo">
@@ -622,7 +622,7 @@
 </ul>
 </div>
 </div>
-<div class="max-w-7xl mx-auto px-12 pt-10 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 pt-10 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-6">
 <p id="landing-footer-copy" class="text-slate-500 text-xs">© 2024 Sinapta. Todos os direitos reservados.</p>
 <p class="text-slate-500 text-[10px] font-black uppercase tracking-[0.2em]">Crafted with Precision by Sinapta Engineering</p>
 </div>
@@ -698,7 +698,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if(desc) met.nextElementSibling.innerText = desc;
     });
 
-    const diffs = document.querySelectorAll('.py-24.bg-surface-container-low h3');
+    const diffs = document.querySelectorAll('.py-16 lg:py-24.bg-surface-container-low h3');
     let dIndex = 0;
     diffs.forEach((diff) => {
         if(!diff.closest('#segmentos') && !diff.closest('#solucoes') && diff.innerText !== 'Diferenciais Sinapta') {
@@ -710,7 +710,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    const blogs = document.querySelectorAll('#sec-9 h4, .py-32.bg-surface h4'); // wait, let's use a clear selector
+    const blogs = document.querySelectorAll('#sec-9 h4, .py-20 lg:py-32.bg-surface h4'); // wait, let's use a clear selector
     const blogNodes = document.querySelectorAll('.aspect-video');
     blogNodes.forEach((bNode, i) => {
         const p = bNode.parentElement;
@@ -722,7 +722,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if(title && titleNode) titleNode.innerText = title;
     });
 
-    const feats = document.querySelectorAll('.max-w-7xl.mx-auto.px-12.grid.grid-cols-12 > div.col-span-5 h4');
+    const feats = document.querySelectorAll('.max-w-7xl.mx-auto.px-6 lg:px-12.grid.grid-cols-12 > div.col-span-5 h4');
     feats.forEach((feat, i) => {
         const title = localStorage.getItem('sinapta_feat_'+i+'_title');
         const desc = localStorage.getItem('sinapta_feat_'+i+'_desc');
