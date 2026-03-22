@@ -584,7 +584,7 @@
 </div>
 </section>
 <!-- Section 13: Lead Capture Section -->
-<section class="py-16 lg:py-32 bg-gradient-to-br from-[#0A1628] to-[#1a0a2e]">
+<section id="contato" class="py-16 lg:py-32 bg-gradient-to-br from-[#0A1628] to-[#1a0a2e]">
 <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-20">
 <div class="w-full lg:col-span-7">
 <h2 class="text-3xl lg:text-5xl font-black mb-6">Pronto para a <br/><span class="text-primary">Próxima Fronteira?</span></h2>
@@ -783,12 +783,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         if(title && titleNode) titleNode.innerText = title;
     });
 
-    const feats = document.querySelectorAll('.max-w-7xl h4');
+    const feats = document.querySelectorAll('#contato h4');
     feats.forEach((feat, i) => {
         const title = localStorage.getItem('sinapta_feat_'+i+'_title');
         const desc = localStorage.getItem('sinapta_feat_'+i+'_desc');
         if(title) feat.innerText = title;
-        if(desc) feat.nextElementSibling.innerText = desc;
+        if(desc && feat.nextElementSibling) feat.nextElementSibling.innerText = desc;
     });
     // 1.1 Títulos em HTML (mantem coloração)
     const htmlFields = ['hero-title'];
