@@ -933,25 +933,98 @@
             }
         });
 
-        // 4. Salvar tudo
-        document.getElementById('btn-save-changes').addEventListener('click', () => {
+        // 4. Salvar tudo → Supabase Cloud
+        const SUPABASE_URL = 'https://euybkvjsqfzjojhnquqo.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV1eWJrdmpzcWZ6am9qaG5xdXFvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxODg0MTYsImV4cCI6MjA4OTc2NDQxNn0.Hx9qp8gS7lTqy0BoxWanJjXMUfFUADiHJm6xLVViSFc';
+
+        async function saveToCloud() {
+            const btnText = document.getElementById('btn-save-text');
+            const btn = document.getElementById('btn-save-changes');
+            btnText.innerText = '☁️ Salvando na nuvem...';
+            btn.classList.replace('bg-secondary', 'bg-yellow-500');
+
+            const rows = [];
+
+            // Campos simples
             fields.forEach(f => {
                 const el = document.getElementById('admin-' + f);
-                if (el) localStorage.setItem('sinapta_' + f, el.value);
+                if (el) {
+                    const v = el.tagName === 'TEXTAREA' ? el.value : el.value;
+                    localStorage.setItem('sinapta_' + f, v);
+                    rows.push({ id: 'sinapta_' + f, value: { data: v } });
+                }
             });
-            localStorage.setItem('sinapta_testimonials', JSON.stringify(testimonials));
 
-            // Feedback Visual
-            const btnText = document.getElementById('btn-save-text');
-            const originalText = btnText.innerText;
-            btnText.innerText = 'Salvo com sucesso!';
-            document.getElementById('btn-save-changes').classList.replace('bg-secondary', 'bg-green-500');
+            // Listas (produtos, segmentos, metodologia, diferenciais, blog, features)
+            for(let i=0; i<4; i++) {
+                ['title','tag','desc','b1','b2','b3'].forEach(k => {
+                    let el = document.getElementById('admin-prod-'+i+'-'+k);
+                    if(el) { localStorage.setItem('sinapta_prod_'+i+'_'+k, el.value); rows.push({id:'sinapta_prod_'+i+'_'+k, value:{data:el.value}}); }
+                });
+            }
+            for(let i=0; i<6; i++) {
+                let el = document.getElementById('admin-seg-'+i+'-title');
+                if(el) { localStorage.setItem('sinapta_seg_'+i+'_title', el.value); rows.push({id:'sinapta_seg_'+i+'_title', value:{data:el.value}}); }
+            }
+            for(let i=0; i<5; i++) {
+                ['title','desc'].forEach(k => {
+                    let el = document.getElementById('admin-met-'+i+'-'+k);
+                    if(el) { localStorage.setItem('sinapta_met_'+i+'_'+k, el.value); rows.push({id:'sinapta_met_'+i+'_'+k, value:{data:el.value}}); }
+                });
+                if(i<4) {
+                    ['title','desc'].forEach(k => {
+                        let el = document.getElementById('admin-diff-'+i+'-'+k);
+                        if(el) { localStorage.setItem('sinapta_diff_'+i+'_'+k, el.value); rows.push({id:'sinapta_diff_'+i+'_'+k, value:{data:el.value}}); }
+                    });
+                }
+                if(i<3) {
+                    ['tag','title','url'].forEach(k => {
+                        let el = document.getElementById('admin-blog-'+i+'-'+k);
+                        if(el) { localStorage.setItem('sinapta_blog_'+i+'_'+k, el.value); rows.push({id:'sinapta_blog_'+i+'_'+k, value:{data:el.value}}); }
+                    });
+                    ['title','desc'].forEach(k => {
+                        let el = document.getElementById('admin-feat-'+i+'-'+k);
+                        if(el) { localStorage.setItem('sinapta_feat_'+i+'_'+k, el.value); rows.push({id:'sinapta_feat_'+i+'_'+k, value:{data:el.value}}); }
+                    });
+                }
+            }
+
+            // Testimonials
+            localStorage.setItem('sinapta_testimonials', JSON.stringify(testimonials));
+            rows.push({ id: 'sinapta_testimonials', value: { data: JSON.stringify(testimonials) } });
+
+            // Logo
+            const savedLogo = localStorage.getItem('sinapta_logo');
+            if (savedLogo) rows.push({ id: 'sinapta_logo', value: { data: savedLogo } });
+
+            // UPSERT no Supabase via REST
+            try {
+                const res = await fetch(SUPABASE_URL + '/rest/v1/site_settings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': 'Bearer ' + SUPABASE_KEY,
+                        'Prefer': 'resolution=merge-duplicates'
+                    },
+                    body: JSON.stringify(rows)
+                });
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                btnText.innerText = '✅ Salvo na nuvem!';
+                btn.classList.replace('bg-yellow-500', 'bg-green-500');
+            } catch (err) {
+                console.error('Supabase save error:', err);
+                btnText.innerText = '❌ Erro ao salvar';
+                btn.classList.replace('bg-yellow-500', 'bg-red-500');
+            }
 
             setTimeout(() => {
-                btnText.innerText = originalText;
-                document.getElementById('btn-save-changes').classList.replace('bg-green-500', 'bg-secondary');
-            }, 2000);
-        });
+                btnText.innerText = 'Salvar Alterações';
+                btn.className = btn.className.replace(/bg-(green|red|yellow)-500/, 'bg-secondary');
+            }, 2500);
+        }
+
+        document.getElementById('btn-save-changes').addEventListener('click', saveToCloud);
         // --- LOGICA DE UPLOAD DE LOGO ---
         const logoInput = document.getElementById('logo-upload-input');
         const removeLogoBtn = document.getElementById('btn-remove-logo');
