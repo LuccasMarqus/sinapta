@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
-
-<head>
+<!DOCTYPE html><html lang="pt-BR" class="dark"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard | SINAPTA</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD,opsz@300,0,0,24&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD,opsz@300,0,0,24&amp;display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -93,8 +87,7 @@
 <body class="selection:bg-primary/30 flex h-screen w-full text-sm">
 
     <!-- Sidebar Navigation -->
-    <aside
-        class="w-72 bg-surface border-r border-outline-variant/30 flex flex-col h-full shrink-0 shadow-2xl relative z-20">
+    <aside class="w-72 bg-surface border-r border-outline-variant/30 flex flex-col h-full shrink-0 shadow-2xl relative z-20">
         <div class="h-20 flex items-center px-8 border-b border-outline-variant/30 gap-3">
             <img src="" class="dynamic-logo h-8 w-auto object-contain hidden" alt="Logo">
             <div class="dynamic-logo-text text-xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-[#00A3FF] to-[#7C3AED]">
@@ -105,61 +98,50 @@
         <nav class="flex-1 overflow-y-auto py-6 flex flex-col gap-1 px-4" id="sidebar-nav">
             <div class="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-2 px-4 mt-2">Páginas</div>
 
-            <button data-target="sec-1"
-                class="nav-item active flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left">
+            <button data-target="sec-1" class="nav-item active flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left">
                 <span class="material-symbols-outlined text-[18px]">settings</span>
-                <span>Config. Globais & Header</span>
+                <span>Config. Globais &amp; Header</span>
             </button>
-            <button data-target="sec-2"
-                class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left">
+            <button data-target="sec-2" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left">
                 <span class="material-symbols-outlined text-[18px]">view_carousel</span>
                 <span>Hero Section</span>
             </button>
-            <button data-target="sec-3"
-                class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left">
+            <button data-target="sec-3" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left">
                 <span class="material-symbols-outlined text-[18px]">query_stats</span>
                 <span>Estatísticas</span>
             </button>
-            <button data-target="sec-4"
-                class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left">
+            <button data-target="sec-4" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left">
                 <span class="material-symbols-outlined text-[18px]">category</span>
                 <span>O Nosso Ecossistema</span>
             </button>
-            <button data-target="sec-5"
-                class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left">
+            <button data-target="sec-5" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left">
                 <span class="material-symbols-outlined text-[18px]">pie_chart</span>
                 <span>Segmentos de Atuação</span>
             </button>
-            <button data-target="sec-6"
-                class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left">
+            <button data-target="sec-6" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left">
                 <span class="material-symbols-outlined text-[18px]">rebase</span>
                 <span>Nossa Metodologia</span>
             </button>
-            <button data-target="sec-7"
-                class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left">
+            <button data-target="sec-7" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left">
                 <span class="material-symbols-outlined text-[18px]">verified</span>
                 <span>Diferenciais Sinapta</span>
             </button>
-            <button data-target="sec-8"
-                class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left">
+            <button data-target="sec-8" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left">
                 <span class="material-symbols-outlined text-[18px]">reviews</span>
-                <span>Resultados & Depoimentos</span>
+                <span>Resultados &amp; Depoimentos</span>
             </button>
-            <button data-target="sec-9"
-                class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left">
+            <button data-target="sec-9" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left">
                 <span class="material-symbols-outlined text-[18px]">article</span>
                 <span>Insights da Fronteira</span>
             </button>
-            <button data-target="sec-10"
-                class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left mb-6">
+            <button data-target="sec-10" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-high transition-colors w-full text-left mb-6">
                 <span class="material-symbols-outlined text-[18px]">contact_mail</span>
-                <span>Contato & Footer</span>
+                <span>Contato &amp; Footer</span>
             </button>
         </nav>
 
         <div class="px-6 py-6 border-t border-outline-variant/30 flex items-center gap-4">
-            <div
-                class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/50 text-primary font-bold">
+            <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/50 text-primary font-bold">
                 A</div>
             <div>
                 <div class="font-bold text-on-surface">Admin User</div>
@@ -172,20 +154,17 @@
     <main class="flex-1 flex flex-col h-full overflow-hidden relative">
 
         <!-- Global Top Header -->
-        <header
-            class="h-20 bg-[#071325]/80 backdrop-blur-md border-b border-outline-variant/20 flex items-center justify-between px-10 shrink-0 z-10 sticky top-0">
+        <header class="h-20 bg-[#071325]/80 backdrop-blur-md border-b border-outline-variant/20 flex items-center justify-between px-10 shrink-0 z-10 sticky top-0">
             <div>
                 <h1 class="text-xl font-bold text-white flex items-center gap-2" id="current-section-title">
-                    Configurações Globais & Header</h1>
+                    Configurações Globais &amp; Header</h1>
                 <p class="text-xs text-slate-400">Edite as informações em tempo real e salve para publicar.</p>
             </div>
             <div class="flex items-center gap-4">
-                <a href="index.html" target="_blank"
-                    class="px-5 py-2.5 rounded-lg border border-outline-variant hover:bg-surface-high transition-colors text-on-surface font-semibold flex items-center gap-2">
+                <a href="index.html" target="_blank" class="px-5 py-2.5 rounded-lg border border-outline-variant hover:bg-surface-high transition-colors text-on-surface font-semibold flex items-center gap-2">
                     <span class="material-symbols-outlined text-[16px]">visibility</span> Ver Página ao Vivo
                 </a>
-                <button id="btn-save-changes"
-                    class="px-6 py-2.5 rounded-lg bg-secondary text-white font-bold hover:scale-105 transition-all shadow-[0_0_15px_rgba(249,115,22,0.4)] flex items-center gap-2">
+                <button id="btn-save-changes" class="px-6 py-2.5 rounded-lg bg-secondary text-white font-bold hover:scale-105 transition-all shadow-[0_0_15px_rgba(249,115,22,0.4)] flex items-center gap-2">
                     <span class="material-symbols-outlined text-[16px]">save</span> <span id="btn-save-text">Salvar
                         Alterações</span>
                 </button>
@@ -200,34 +179,29 @@
                 <section id="sec-1" class="section-content active">
                     <div class="space-y-8">
                         <div class="bg-surface-high p-8 rounded-2xl border border-outline-variant/20 shadow-lg">
-                            <h3
-                                class="text-lg font-bold mb-6 flex items-center gap-2 border-b border-outline-variant/20 pb-4">
+                            <h3 class="text-lg font-bold mb-6 flex items-center gap-2 border-b border-outline-variant/20 pb-4">
                                 <span class="material-symbols-outlined text-primary">contact_phone</span> Contato do
                                 Topo (Micro-bar)</h3>
                             <div class="grid grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-400 mb-2">E-mail de
                                         Contato</label>
-                                    <input type="email" id="admin-top-email" value="sinaptacode@gmail.com"
-class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all">
+                                    <input type="email" id="admin-top-email" value="sinaptacode@gmail.com" class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-400 mb-2">Telefone</label>
-                                    <input type="text" id="admin-top-phone" value="+55 (11) 99999-9999"
-                                        class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all">
+                                    <input type="text" id="admin-top-phone" value="+55 (11) 99999-9999" class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all">
                                 </div>
                             </div>
                         </div>
 
                         <div class="bg-surface-high p-8 rounded-2xl border border-outline-variant/20 shadow-lg">
-                            <h3
-                                class="text-lg font-bold mb-6 flex items-center gap-2 border-b border-outline-variant/20 pb-4">
+                            <h3 class="text-lg font-bold mb-6 flex items-center gap-2 border-b border-outline-variant/20 pb-4">
                                 <span class="material-symbols-outlined text-primary">image</span> Identidade Visual</h3>
                             <div>
                                 <label class="block text-xs font-semibold text-slate-400 mb-2">Logo Principal</label>
                                 <input type="file" id="logo-upload-input" accept="image/png, image/jpeg, image/svg+xml" class="hidden">
-                                <div onclick="document.getElementById('logo-upload-input').click()"
-                                    class="border-2 border-dashed border-outline-variant/50 rounded-xl p-8 text-center hover:bg-background/50 transition-colors cursor-pointer group relative overflow-hidden">
+                                <div onclick="document.getElementById('logo-upload-input').click()" class="border-2 border-dashed border-outline-variant/50 rounded-xl p-8 text-center hover:bg-background/50 transition-colors cursor-pointer group relative overflow-hidden">
                                     <img src="" class="dynamic-logo absolute inset-0 w-full h-full object-contain p-4 hidden opacity-20 group-hover:opacity-10 transition-opacity">
                                     <div class="relative z-10">
                                         <span class="material-symbols-outlined text-4xl text-slate-500 mb-2 group-hover:text-primary transition-colors">upload_file</span>
@@ -243,59 +217,42 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
 
                         <div class="bg-surface-high p-8 rounded-2xl border border-outline-variant/20 shadow-lg">
                             <div class="flex items-center justify-between mb-6 border-b border-outline-variant/20 pb-4">
-                                <h3 class="text-lg font-bold flex items-center gap-2"><span
-                                        class="material-symbols-outlined text-primary">link</span> Links de Navegação
+                                <h3 class="text-lg font-bold flex items-center gap-2"><span class="material-symbols-outlined text-primary">link</span> Links de Navegação
                                 </h3>
-                                <button
-                                    class="text-xs font-bold bg-primary/20 text-primary px-3 py-1.5 rounded hover:bg-primary/30">+
+                                <button class="text-xs font-bold bg-primary/20 text-primary px-3 py-1.5 rounded hover:bg-primary/30">+
                                     Adicionar Link</button>
                             </div>
                             <!-- Repeater List -->
                             <div class="space-y-3">
-                                <div
-                                    class="flex items-center gap-4 bg-background p-3 rounded-lg border border-outline-variant/20">
-                                    <span
-                                        class="material-symbols-outlined text-slate-500 cursor-move">drag_indicator</span>
-                                    <input type="text" value="Produtos"
-                                        class="form-input w-1/3 bg-transparent border-b border-outline-variant/40 focus:border-primary outline-none px-2 py-1 placeholder-slate-600"
-                                        placeholder="Nome do Link">
-                                    <input type="text" value="#produtos"
-                                        class="form-input flex-1 bg-transparent border-b border-outline-variant/40 focus:border-primary outline-none px-2 py-1 placeholder-slate-600"
-                                        placeholder="URL ou #ID">
-                                    <button class="text-red-400 hover:text-red-300 p-2"><span
-                                            class="material-symbols-outlined text-[18px]">delete</span></button>
+                                <div class="flex items-center gap-4 bg-background p-3 rounded-lg border border-outline-variant/20">
+                                    <span class="material-symbols-outlined text-slate-500 cursor-move">drag_indicator</span>
+                                    <input type="text" value="Produtos" class="form-input w-1/3 bg-transparent border-b border-outline-variant/40 focus:border-primary outline-none px-2 py-1 placeholder-slate-600" placeholder="Nome do Link">
+                                    <input type="text" value="#produtos" class="form-input flex-1 bg-transparent border-b border-outline-variant/40 focus:border-primary outline-none px-2 py-1 placeholder-slate-600" placeholder="URL ou #ID">
+                                    <button class="text-red-400 hover:text-red-300 p-2"><span class="material-symbols-outlined text-[18px]">delete</span></button>
                                 </div>
-                                <div
-                                    class="flex items-center gap-4 bg-background p-3 rounded-lg border border-outline-variant/20">
-                                    <span
-                                        class="material-symbols-outlined text-slate-500 cursor-move">drag_indicator</span>
-                                    <input type="text" value="Soluções"
-                                        class="form-input w-1/3 bg-transparent border-b border-outline-variant/40 focus:border-primary outline-none px-2 py-1 placeholder-slate-600">
-                                    <input type="text" value="#solucoes"
-                                        class="form-input flex-1 bg-transparent border-b border-outline-variant/40 focus:border-primary outline-none px-2 py-1 placeholder-slate-600">
-                                    <button class="text-red-400 hover:text-red-300 p-2"><span
-                                            class="material-symbols-outlined text-[18px]">delete</span></button>
+                                <div class="flex items-center gap-4 bg-background p-3 rounded-lg border border-outline-variant/20">
+                                    <span class="material-symbols-outlined text-slate-500 cursor-move">drag_indicator</span>
+                                    <input type="text" value="Soluções" class="form-input w-1/3 bg-transparent border-b border-outline-variant/40 focus:border-primary outline-none px-2 py-1 placeholder-slate-600">
+                                    <input type="text" value="#solucoes" class="form-input flex-1 bg-transparent border-b border-outline-variant/40 focus:border-primary outline-none px-2 py-1 placeholder-slate-600">
+                                    <button class="text-red-400 hover:text-red-300 p-2"><span class="material-symbols-outlined text-[18px]">delete</span></button>
                                 </div>
                             </div>
                         </div>
 
                         <div class="bg-surface-high p-8 rounded-2xl border border-outline-variant/20 shadow-lg">
-                            <h3
-                                class="text-lg font-bold mb-6 flex items-center gap-2 border-b border-outline-variant/20 pb-4">
+                            <h3 class="text-lg font-bold mb-6 flex items-center gap-2 border-b border-outline-variant/20 pb-4">
                                 <span class="material-symbols-outlined text-primary">smart_button</span> Botão Principal
                                 do Header</h3>
                             <div class="grid grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-400 mb-2">Texto do
                                         Botão</label>
-                                    <input type="text" id="admin-btn-text" value="Fale com um Especialista"
-                                        class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary text-on-surface">
+                                    <input type="text" id="admin-btn-text" value="Fale com um Especialista" class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary text-on-surface">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-400 mb-2">URL de
                                         Destino</label>
-                                    <input type="text" id="admin-btn-url" value="#contato"
-                                        class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary text-on-surface">
+                                    <input type="text" id="admin-btn-url" value="#contato" class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary text-on-surface">
                                 </div>
                             </div>
                         </div>
@@ -306,55 +263,48 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                 <section id="sec-2" class="section-content">
                     <div class="space-y-8">
                         <div class="bg-surface-high p-8 rounded-2xl border border-outline-variant/20 shadow-lg">
-                            <h3
-                                class="text-lg font-bold mb-6 flex items-center gap-2 border-b border-outline-variant/20 pb-4">
+                            <h3 class="text-lg font-bold mb-6 flex items-center gap-2 border-b border-outline-variant/20 pb-4">
                                 Textos Principais</h3>
                             <div class="mb-6">
                                 <label class="block text-xs font-semibold text-slate-400 mb-2">Título Principal
                                     (H1)</label>
-                                <textarea id="admin-hero-title" rows="3"
-                                    class="form-textarea w-full bg-background border border-outline-variant/40 rounded-lg p-4 font-bold text-lg focus:border-primary text-on-surface">TECNOLOGIA QUE &#13;&#10;<span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary">TRANSFORMA.</span></textarea>
+                                <textarea id="admin-hero-title" rows="3" class="form-textarea w-full bg-background border border-outline-variant/40 rounded-lg p-4 font-bold text-lg focus:border-primary text-on-surface">TECNOLOGIA QUE 
+&lt;span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary"&gt;TRANSFORMA.&lt;/span&gt;</textarea>
                                 <p class="text-xs text-slate-500 mt-2">Dica: Use
                                     <code>&lt;span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary"&gt;Palavra&lt;/span&gt;</code>
                                     para o efeito de gradiente.</p>
                             </div>
                             <div>
                                 <label class="block text-xs font-semibold text-slate-400 mb-2">Subtítulo</label>
-                                <textarea id="admin-hero-sub" rows="3"
-                                    class="form-textarea w-full bg-background border border-outline-variant/40 rounded-lg p-4 focus:border-primary text-on-surface">Desenvolvemos ecossistemas digitais de alta performance para líderes de mercado. Inteligência, automação e escalabilidade no centro da sua estratégia.</textarea>
+                                <textarea id="admin-hero-sub" rows="3" class="form-textarea w-full bg-background border border-outline-variant/40 rounded-lg p-4 focus:border-primary text-on-surface">Desenvolvemos ecossistemas digitais de alta performance para líderes de mercado. Inteligência, automação e escalabilidade no centro da sua estratégia.</textarea>
                             </div>
                         </div>
 
                         <div class="bg-surface-high p-8 rounded-2xl border border-outline-variant/20 shadow-lg">
-                            <h3
-                                class="text-lg font-bold mb-6 flex items-center gap-2 border-b border-outline-variant/20 pb-4">
+                            <h3 class="text-lg font-bold mb-6 flex items-center gap-2 border-b border-outline-variant/20 pb-4">
                                 Call to Actions (CTAs)</h3>
                             <div class="grid grid-cols-2 gap-8">
                                 <div class="space-y-4">
                                     <h4 class="font-bold text-primary">Botão Primário (Azul)</h4>
                                     <div>
                                         <label class="block text-xs font-semibold text-slate-400 mb-1">Texto</label>
-                                        <input type="text" id="admin-hero-btn-text" value="Explorar o Ecossistema"
-                                            class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary text-on-surface">
+                                        <input type="text" id="admin-hero-btn-text" value="Explorar o Ecossistema" class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary text-on-surface">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-semibold text-slate-400 mb-1">URL</label>
-                                        <input type="text" id="admin-hero-btn-url" value="#ecossistema"
-                                            class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary text-on-surface">
+                                        <input type="text" id="admin-hero-btn-url" value="#ecossistema" class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary text-on-surface">
                                     </div>
                                 </div>
                                 <div class="space-y-4 border-l border-outline-variant/20 pl-8">
                                     <h4 class="font-bold text-slate-300">Botão Secundário (Fantasma)</h4>
                                     <div>
                                         <label class="block text-xs font-semibold text-slate-400 mb-1">Texto</label>
-                                        <input type="text" id="admin-hero-btn2-text" value="Ver como funciona"
-                                            class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary text-on-surface">
+                                        <input type="text" id="admin-hero-btn2-text" value="Ver como funciona" class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary text-on-surface">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-semibold text-slate-400 mb-1">URL (Ex: Vídeo
                                             Modal)</label>
-                                        <input type="text" id="admin-hero-btn2-url" value="#"
-                                            class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary text-on-surface">
+                                        <input type="text" id="admin-hero-btn2-url" value="#" class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary text-on-surface">
                                     </div>
                                 </div>
                             </div>
@@ -365,24 +315,19 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                 <!-- Section 3: Estatísticas -->
                 <section id="sec-3" class="section-content">
                     <div class="bg-surface-high p-8 rounded-2xl border border-outline-variant/20 shadow-lg">
-                        <h3
-                            class="text-lg font-bold mb-6 flex items-center gap-2 border-b border-outline-variant/20 pb-4">
+                        <h3 class="text-lg font-bold mb-6 flex items-center gap-2 border-b border-outline-variant/20 pb-4">
                             Faixa de Números (Impacto)</h3>
                         <div class="grid grid-cols-2 gap-6">
                             <!-- Block 1 -->
                             <div class="bg-background p-6 rounded-xl border border-outline-variant/20">
                                 <div class="flex gap-4 mb-2">
                                     <div class="w-1/2">
-                                        <label
-                                            class="block text-[10px] font-bold text-slate-500 uppercase">Número/Valor</label>
-                                        <input type="text" id="admin-stat-1-val" value="50+"
-                                            class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-xl font-black text-primary px-1 py-2">
+                                        <label class="block text-[10px] font-bold text-slate-500 uppercase">Número/Valor</label>
+                                        <input type="text" id="admin-stat-1-val" value="50+" class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-xl font-black text-primary px-1 py-2">
                                     </div>
                                     <div class="w-1/2">
-                                        <label
-                                            class="block text-[10px] font-bold text-slate-500 uppercase">Rótulo</label>
-                                        <input type="text" id="admin-stat-1-desc" value="Projetos"
-                                            class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-sm font-bold text-on-surface px-1 py-2 uppercase tracking-widest mt-[5px]">
+                                        <label class="block text-[10px] font-bold text-slate-500 uppercase">Rótulo</label>
+                                        <input type="text" id="admin-stat-1-desc" value="Projetos" class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-sm font-bold text-on-surface px-1 py-2 uppercase tracking-widest mt-[5px]">
                                     </div>
                                 </div>
                             </div>
@@ -390,16 +335,12 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                             <div class="bg-background p-6 rounded-xl border border-outline-variant/20">
                                 <div class="flex gap-4 mb-2">
                                     <div class="w-1/2">
-                                        <label
-                                            class="block text-[10px] font-bold text-slate-500 uppercase">Número/Valor</label>
-                                        <input type="text" id="admin-stat-2-val" value="20+"
-                                            class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-xl font-black text-primary px-1 py-2">
+                                        <label class="block text-[10px] font-bold text-slate-500 uppercase">Número/Valor</label>
+                                        <input type="text" id="admin-stat-2-val" value="20+" class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-xl font-black text-primary px-1 py-2">
                                     </div>
                                     <div class="w-1/2">
-                                        <label
-                                            class="block text-[10px] font-bold text-slate-500 uppercase">Rótulo</label>
-                                        <input type="text" id="admin-stat-2-desc" value="Clientes"
-                                            class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-sm font-bold text-on-surface px-1 py-2 uppercase tracking-widest mt-[5px]">
+                                        <label class="block text-[10px] font-bold text-slate-500 uppercase">Rótulo</label>
+                                        <input type="text" id="admin-stat-2-desc" value="Clientes" class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-sm font-bold text-on-surface px-1 py-2 uppercase tracking-widest mt-[5px]">
                                     </div>
                                 </div>
                             </div>
@@ -407,16 +348,12 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                             <div class="bg-background p-6 rounded-xl border border-outline-variant/20">
                                 <div class="flex gap-4 mb-2">
                                     <div class="w-1/2">
-                                        <label
-                                            class="block text-[10px] font-bold text-slate-500 uppercase">Número/Valor</label>
-                                        <input type="text" id="admin-stat-3-val" value="4"
-                                            class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-xl font-black text-primary px-1 py-2">
+                                        <label class="block text-[10px] font-bold text-slate-500 uppercase">Número/Valor</label>
+                                        <input type="text" id="admin-stat-3-val" value="4" class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-xl font-black text-primary px-1 py-2">
                                     </div>
                                     <div class="w-1/2">
-                                        <label
-                                            class="block text-[10px] font-bold text-slate-500 uppercase">Rótulo</label>
-                                        <input type="text" id="admin-stat-3-desc" value="Produtos"
-                                            class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-sm font-bold text-on-surface px-1 py-2 uppercase tracking-widest mt-[5px]">
+                                        <label class="block text-[10px] font-bold text-slate-500 uppercase">Rótulo</label>
+                                        <input type="text" id="admin-stat-3-desc" value="Produtos" class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-sm font-bold text-on-surface px-1 py-2 uppercase tracking-widest mt-[5px]">
                                     </div>
                                 </div>
                             </div>
@@ -424,16 +361,12 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                             <div class="bg-background p-6 rounded-xl border border-outline-variant/20">
                                 <div class="flex gap-4 mb-2">
                                     <div class="w-1/2">
-                                        <label
-                                            class="block text-[10px] font-bold text-slate-500 uppercase">Número/Valor</label>
-                                        <input type="text" id="admin-stat-4-val" value="99,9%"
-                                            class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-xl font-black text-primary px-1 py-2">
+                                        <label class="block text-[10px] font-bold text-slate-500 uppercase">Número/Valor</label>
+                                        <input type="text" id="admin-stat-4-val" value="99,9%" class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-xl font-black text-primary px-1 py-2">
                                     </div>
                                     <div class="w-1/2">
-                                        <label
-                                            class="block text-[10px] font-bold text-slate-500 uppercase">Rótulo</label>
-                                        <input type="text" id="admin-stat-4-desc" value="Uptime"
-                                            class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-sm font-bold text-on-surface px-1 py-2 uppercase tracking-widest mt-[5px]">
+                                        <label class="block text-[10px] font-bold text-slate-500 uppercase">Rótulo</label>
+                                        <input type="text" id="admin-stat-4-desc" value="Uptime" class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-sm font-bold text-on-surface px-1 py-2 uppercase tracking-widest mt-[5px]">
                                     </div>
                                 </div>
                             </div>
@@ -446,20 +379,16 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                     <div class="space-y-8">
                         <!-- Cabecalho -->
                         <div class="bg-surface-high p-8 rounded-2xl border border-outline-variant/20 shadow-lg">
-                            <h3
-                                class="text-lg font-bold mb-6 flex items-center gap-2 border-b border-outline-variant/20 pb-4">
+                            <h3 class="text-lg font-bold mb-6 flex items-center gap-2 border-b border-outline-variant/20 pb-4">
                                 Cabeçalho da Seção</h3>
                             <div class="grid grid-cols-2 gap-6">
                                 <div class="col-span-2">
                                     <label class="block text-xs font-semibold text-slate-400 mb-2">Título</label>
-                                    <input type="text" id="admin-eco-title" value="O Nosso Ecossistema"
-                                        class="w-full bg-background border border-outline-variant/40 rounded-lg p-3 text-2xl font-black focus:border-primary outline-none">
+                                    <input type="text" id="admin-eco-title" value="O Nosso Ecossistema" class="w-full bg-background border border-outline-variant/40 rounded-lg p-3 text-2xl font-black focus:border-primary outline-none">
                                 </div>
                                 <div class="col-span-2">
                                     <label class="block text-xs font-semibold text-slate-400 mb-2">Subtítulo</label>
-                                    <input type="text" id="admin-eco-sub"
-                                        value="Soluções modulares desenhadas para cada estágio da sua jornada digital."
-                                        class="w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary outline-none text-slate-300">
+                                    <input type="text" id="admin-eco-sub" value="Soluções modulares desenhadas para cada estágio da sua jornada digital." class="w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary outline-none text-slate-300">
                                 </div>
                             </div>
                         </div>
@@ -468,63 +397,132 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                         <div class="bg-surface-high p-8 rounded-2xl border border-outline-variant/20 shadow-lg">
                             <div class="flex items-center justify-between mb-6 border-b border-outline-variant/20 pb-4">
                                 <h3 class="text-lg font-bold">Gestão de Produtos</h3>
-                                <button
-                                    class="bg-primary hover:bg-primary/90 text-on-primary font-bold px-4 py-2 rounded-lg text-xs">+
+                                <button class="bg-primary hover:bg-primary/90 text-on-primary font-bold px-4 py-2 rounded-lg text-xs">+
                                     Novo Produto</button>
                             </div>
 
                             <!-- Mockup de Tabela de CRUD em Cards horizontais -->
-                            <div class="space-y-4">
-                                <!-- Produto 1 -->
-                                <div
-                                    class="border border-outline-variant/20 bg-background rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start relative overflow-hidden group">
-                                    <div
-                                        class="w-16 h-16 bg-[#1f2a3d] rounded-lg shrink-0 flex items-center justify-center border border-primary/20">
+                            <div class="space-y-4"><div class="border border-outline-variant/20 bg-background rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start relative overflow-hidden group">
+                                    <div class="w-16 h-16 bg-[#1f2a3d] rounded-lg shrink-0 flex items-center justify-center border border-primary/20">
                                         <span class="material-symbols-outlined text-primary text-3xl">description</span>
                                     </div>
                                     <div class="flex-1 grid grid-cols-2 gap-4">
                                         <div>
                                             <label class="block text-[10px] text-slate-500 mb-1">Título do
                                                 Produto</label>
-                                            <input type="text" value="Contractfy"
-                                                class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm font-bold">
+                                            <input type="text" value="Contractfy" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm font-bold">
                                         </div>
                                         <div>
                                             <label class="block text-[10px] text-slate-500 mb-1">Tag/Categoria</label>
-                                            <input type="text" value="LegalTech"
-                                                class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm text-primary">
+                                            <input type="text" value="LegalTech" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm text-primary" id="admin-prod-0-tag">
                                         </div>
                                         <div class="col-span-2">
                                             <label class="block text-[10px] text-slate-500 mb-1">Descrição</label>
-                                            <textarea rows="2"
-                                                class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-xs">Gestão inteligente de contratos com IA para automatização de minutas e fluxos de aprovação.</textarea>
+                                            <textarea rows="2" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-xs" id="admin-prod-0-desc">Gestão inteligente de contratos com IA para automatização de minutas e fluxos de aprovação.</textarea>
                                         </div>
-                                        <div
-                                            class="col-span-2 text-xs border border-outline-variant/20 rounded p-3 space-y-2">
+                                        <div class="col-span-2 text-xs border border-outline-variant/20 rounded p-3 space-y-2">
                                             <div class="text-[10px] font-bold text-slate-400">BULLET POINTS</div>
-                                            <input type="text" value="Assinatura Digital Integrada"
-                                                class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs">
-                                            <input type="text" value="Workflow de Aprovações"
-                                                class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs">
-                                            <input type="text" value="Repositório em Nuvem"
-                                                class="w-full bg-transparent border-b border-outline-variant/30 py-1 outline-none text-xs">
+                                            <input type="text" value="Assinatura Digital Integrada" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs" id="admin-prod-0-b1">
+                                            <input type="text" value="Workflow de Aprovações" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs" id="admin-prod-0-b2">
+                                            <input type="text" value="Repositório em Nuvem" class="w-full bg-transparent border-b border-outline-variant/30 py-1 outline-none text-xs" id="admin-prod-0-b3">
                                         </div>
                                     </div>
-                                    <div
-                                        class="flex flex-col gap-2 shrink-0 md:ml-4 border-l border-outline-variant/20 pl-6 border-dashed">
-                                        <button
-                                            class="bg-primary/20 text-primary px-3 py-1.5 rounded font-bold text-xs hover:bg-primary/30 w-full">Salvar
+                                    <div class="flex flex-col gap-2 shrink-0 md:ml-4 border-l border-outline-variant/20 pl-6 border-dashed">
+                                        <button class="bg-primary/20 text-primary px-3 py-1.5 rounded font-bold text-xs hover:bg-primary/30 w-full">Salvar
                                             Ítem</button>
-                                        <button
-                                            class="text-red-400 hover:text-red-300 font-bold text-xs py-1.5 w-full">Excluir</button>
+                                        <button class="text-red-400 hover:text-red-300 font-bold text-xs py-1.5 w-full">Excluir</button>
                                     </div>
-                                </div>
-                                <!-- Repete para outros -->
-                                <div
-                                    class="text-center p-4 border-2 border-dashed border-outline-variant/30 rounded-xl text-slate-500 cursor-pointer hover:bg-background/20 transition-all">
-                                    + Clique aqui para adicionar um novo card de produto
-                                </div>
-                            </div>
+                                </div><div class="border border-outline-variant/20 bg-background rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start relative overflow-hidden group">
+                                    <div class="w-16 h-16 bg-[#1f2a3d] rounded-lg shrink-0 flex items-center justify-center border border-primary/20">
+                                        <span class="material-symbols-outlined text-primary text-3xl">description</span>
+                                    </div>
+                                    <div class="flex-1 grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-[10px] text-slate-500 mb-1">Título do
+                                                Produto</label>
+                                            <input type="text" value="Contractfy" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm font-bold">
+                                        </div>
+                                        <div>
+                                            <label class="block text-[10px] text-slate-500 mb-1">Tag/Categoria</label>
+                                            <input type="text" value="LegalTech" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm text-primary" id="admin-prod-1-tag">
+                                        </div>
+                                        <div class="col-span-2">
+                                            <label class="block text-[10px] text-slate-500 mb-1">Descrição</label>
+                                            <textarea rows="2" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-xs" id="admin-prod-1-desc">Gestão inteligente de contratos com IA para automatização de minutas e fluxos de aprovação.</textarea>
+                                        </div>
+                                        <div class="col-span-2 text-xs border border-outline-variant/20 rounded p-3 space-y-2">
+                                            <div class="text-[10px] font-bold text-slate-400">BULLET POINTS</div>
+                                            <input type="text" value="Assinatura Digital Integrada" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs" id="admin-prod-1-b1">
+                                            <input type="text" value="Workflow de Aprovações" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs" id="admin-prod-1-b2">
+                                            <input type="text" value="Repositório em Nuvem" class="w-full bg-transparent border-b border-outline-variant/30 py-1 outline-none text-xs" id="admin-prod-1-b3">
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col gap-2 shrink-0 md:ml-4 border-l border-outline-variant/20 pl-6 border-dashed">
+                                        <button class="bg-primary/20 text-primary px-3 py-1.5 rounded font-bold text-xs hover:bg-primary/30 w-full">Salvar
+                                            Ítem</button>
+                                        <button class="text-red-400 hover:text-red-300 font-bold text-xs py-1.5 w-full">Excluir</button>
+                                    </div>
+                                </div><div class="border border-outline-variant/20 bg-background rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start relative overflow-hidden group">
+                                    <div class="w-16 h-16 bg-[#1f2a3d] rounded-lg shrink-0 flex items-center justify-center border border-primary/20">
+                                        <span class="material-symbols-outlined text-primary text-3xl">description</span>
+                                    </div>
+                                    <div class="flex-1 grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-[10px] text-slate-500 mb-1">Título do
+                                                Produto</label>
+                                            <input type="text" value="Contractfy" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm font-bold">
+                                        </div>
+                                        <div>
+                                            <label class="block text-[10px] text-slate-500 mb-1">Tag/Categoria</label>
+                                            <input type="text" value="LegalTech" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm text-primary" id="admin-prod-2-tag">
+                                        </div>
+                                        <div class="col-span-2">
+                                            <label class="block text-[10px] text-slate-500 mb-1">Descrição</label>
+                                            <textarea rows="2" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-xs" id="admin-prod-2-desc">Gestão inteligente de contratos com IA para automatização de minutas e fluxos de aprovação.</textarea>
+                                        </div>
+                                        <div class="col-span-2 text-xs border border-outline-variant/20 rounded p-3 space-y-2">
+                                            <div class="text-[10px] font-bold text-slate-400">BULLET POINTS</div>
+                                            <input type="text" value="Assinatura Digital Integrada" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs" id="admin-prod-2-b1">
+                                            <input type="text" value="Workflow de Aprovações" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs" id="admin-prod-2-b2">
+                                            <input type="text" value="Repositório em Nuvem" class="w-full bg-transparent border-b border-outline-variant/30 py-1 outline-none text-xs" id="admin-prod-2-b3">
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col gap-2 shrink-0 md:ml-4 border-l border-outline-variant/20 pl-6 border-dashed">
+                                        <button class="bg-primary/20 text-primary px-3 py-1.5 rounded font-bold text-xs hover:bg-primary/30 w-full">Salvar
+                                            Ítem</button>
+                                        <button class="text-red-400 hover:text-red-300 font-bold text-xs py-1.5 w-full">Excluir</button>
+                                    </div>
+                                </div><div class="border border-outline-variant/20 bg-background rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start relative overflow-hidden group">
+                                    <div class="w-16 h-16 bg-[#1f2a3d] rounded-lg shrink-0 flex items-center justify-center border border-primary/20">
+                                        <span class="material-symbols-outlined text-primary text-3xl">description</span>
+                                    </div>
+                                    <div class="flex-1 grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-[10px] text-slate-500 mb-1">Título do
+                                                Produto</label>
+                                            <input type="text" value="Contractfy" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm font-bold">
+                                        </div>
+                                        <div>
+                                            <label class="block text-[10px] text-slate-500 mb-1">Tag/Categoria</label>
+                                            <input type="text" value="LegalTech" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm text-primary" id="admin-prod-3-tag">
+                                        </div>
+                                        <div class="col-span-2">
+                                            <label class="block text-[10px] text-slate-500 mb-1">Descrição</label>
+                                            <textarea rows="2" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-xs" id="admin-prod-3-desc">Gestão inteligente de contratos com IA para automatização de minutas e fluxos de aprovação.</textarea>
+                                        </div>
+                                        <div class="col-span-2 text-xs border border-outline-variant/20 rounded p-3 space-y-2">
+                                            <div class="text-[10px] font-bold text-slate-400">BULLET POINTS</div>
+                                            <input type="text" value="Assinatura Digital Integrada" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs" id="admin-prod-3-b1">
+                                            <input type="text" value="Workflow de Aprovações" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs" id="admin-prod-3-b2">
+                                            <input type="text" value="Repositório em Nuvem" class="w-full bg-transparent border-b border-outline-variant/30 py-1 outline-none text-xs" id="admin-prod-3-b3">
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col gap-2 shrink-0 md:ml-4 border-l border-outline-variant/20 pl-6 border-dashed">
+                                        <button class="bg-primary/20 text-primary px-3 py-1.5 rounded font-bold text-xs hover:bg-primary/30 w-full">Salvar
+                                            Ítem</button>
+                                        <button class="text-red-400 hover:text-red-300 font-bold text-xs py-1.5 w-full">Excluir</button>
+                                    </div>
+                                </div></div>
                         </div>
                     </div>
                 </section>
@@ -536,36 +534,43 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                         <h3 class="text-lg font-bold mb-6 border-b border-outline-variant/20 pb-4">Segmentos de Atuação
                         </h3>
 
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                            <!-- Items -->
-                            <div
-                                class="bg-background border border-outline-variant/30 p-4 rounded-xl flex items-center justify-between">
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4"><div class="bg-background border border-outline-variant/30 p-4 rounded-xl flex items-center justify-between">
                                 <div class="flex items-center gap-3">
-                                    <span
-                                        class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded">gavel</span>
-                                    <input type="text" value="Jurídico"
-                                        class="bg-transparent font-bold w-24 outline-none border-b border-transparent focus:border-primary">
+                                    <span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded">gavel</span>
+                                    <input type="text" value="Jurídico" class="bg-transparent font-bold w-24 outline-none border-b border-transparent focus:border-primary" id="admin-seg-0-title">
                                 </div>
-                                <span
-                                    class="material-symbols-outlined text-red-500 text-sm cursor-pointer hover:text-red-400">close</span>
-                            </div>
-                            <div
-                                class="bg-background border border-outline-variant/30 p-4 rounded-xl flex items-center justify-between">
+                                <span class="material-symbols-outlined text-red-500 text-sm cursor-pointer hover:text-red-400">close</span>
+                            </div><div class="bg-background border border-outline-variant/30 p-4 rounded-xl flex items-center justify-between">
                                 <div class="flex items-center gap-3">
-                                    <span
-                                        class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded">local_hospital</span>
-                                    <input type="text" value="Saúde"
-                                        class="bg-transparent font-bold w-24 outline-none border-b border-transparent focus:border-primary">
+                                    <span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded">gavel</span>
+                                    <input type="text" value="Jurídico" class="bg-transparent font-bold w-24 outline-none border-b border-transparent focus:border-primary" id="admin-seg-1-title">
                                 </div>
-                                <span
-                                    class="material-symbols-outlined text-red-500 text-sm cursor-pointer hover:text-red-400">close</span>
-                            </div>
-                            <!-- ... -->
-                            <div
-                                class="border-2 border-dashed border-outline-variant/40 p-4 rounded-xl flex items-center justify-center text-slate-500 font-bold cursor-pointer hover:bg-background/50 hover:text-primary transition-all">
-                                + Adicionar Segmento
-                            </div>
-                        </div>
+                                <span class="material-symbols-outlined text-red-500 text-sm cursor-pointer hover:text-red-400">close</span>
+                            </div><div class="bg-background border border-outline-variant/30 p-4 rounded-xl flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded">gavel</span>
+                                    <input type="text" value="Jurídico" class="bg-transparent font-bold w-24 outline-none border-b border-transparent focus:border-primary" id="admin-seg-2-title">
+                                </div>
+                                <span class="material-symbols-outlined text-red-500 text-sm cursor-pointer hover:text-red-400">close</span>
+                            </div><div class="bg-background border border-outline-variant/30 p-4 rounded-xl flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded">gavel</span>
+                                    <input type="text" value="Jurídico" class="bg-transparent font-bold w-24 outline-none border-b border-transparent focus:border-primary" id="admin-seg-3-title">
+                                </div>
+                                <span class="material-symbols-outlined text-red-500 text-sm cursor-pointer hover:text-red-400">close</span>
+                            </div><div class="bg-background border border-outline-variant/30 p-4 rounded-xl flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded">gavel</span>
+                                    <input type="text" value="Jurídico" class="bg-transparent font-bold w-24 outline-none border-b border-transparent focus:border-primary" id="admin-seg-4-title">
+                                </div>
+                                <span class="material-symbols-outlined text-red-500 text-sm cursor-pointer hover:text-red-400">close</span>
+                            </div><div class="bg-background border border-outline-variant/30 p-4 rounded-xl flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded">gavel</span>
+                                    <input type="text" value="Jurídico" class="bg-transparent font-bold w-24 outline-none border-b border-transparent focus:border-primary" id="admin-seg-5-title">
+                                </div>
+                                <span class="material-symbols-outlined text-red-500 text-sm cursor-pointer hover:text-red-400">close</span>
+                            </div></div>
                     </div>
                 </section>
 
@@ -573,35 +578,37 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                     <div class="bg-surface-high p-8 rounded-2xl border border-outline-variant/20 shadow-lg">
                         <h3 class="text-lg font-bold mb-6 border-b border-outline-variant/20 pb-4">Nossa Metodologia
                             (Etapas)</h3>
-                        <div class="space-y-4">
-                            <!-- Block 1 -->
-                            <div
-                                class="bg-background rounded-xl p-4 flex gap-6 items-center border border-outline-variant/20">
-                                <div class="text-3xl font-black text-primary px-4 border-r border-outline-variant/30">01
-                                </div>
+                        <div class="space-y-4"><div class="bg-background rounded-xl p-4 flex gap-6 items-center border border-outline-variant/20">
+                                <div class="text-3xl font-black text-primary px-4 border-r border-outline-variant/30">01</div>
                                 <div class="flex-1">
-                                    <input type="text" value="Diagnóstico"
-                                        class="w-full bg-transparent font-bold text-lg mb-1 outline-none focus:border-b focus:border-primary">
-                                    <input type="text"
-                                        value="Mapeamento completo dos gargalos e oportunidades do negócio."
-                                        class="w-full bg-transparent text-sm text-slate-400 outline-none focus:border-b border-slate-700">
+                                    <input type="text" value="Diagnóstico" class="w-full bg-transparent font-bold text-lg mb-1 outline-none focus:border-b focus:border-primary" id="admin-met-0-title">
+                                    <input type="text" value="Mapeamento completo dos gargalos e oportunidades do negócio." class="w-full bg-transparent text-sm text-slate-400 outline-none focus:border-b border-slate-700" id="admin-met-0-desc">
                                 </div>
-                            </div>
-                            <div
-                                class="bg-background rounded-xl p-4 flex gap-6 items-center border border-outline-variant/20">
-                                <div class="text-3xl font-black text-primary px-4 border-r border-outline-variant/30">02
-                                </div>
+                            </div><div class="bg-background rounded-xl p-4 flex gap-6 items-center border border-outline-variant/20">
+                                <div class="text-3xl font-black text-primary px-4 border-r border-outline-variant/30">02</div>
                                 <div class="flex-1">
-                                    <input type="text" value="Estratégia"
-                                        class="w-full bg-transparent font-bold text-lg mb-1 outline-none focus:border-b focus:border-primary">
-                                    <input type="text" value="Definição do roadmap tecnológico e arquitetura de dados."
-                                        class="w-full bg-transparent text-sm text-slate-400 outline-none">
+                                    <input type="text" value="Diagnóstico" class="w-full bg-transparent font-bold text-lg mb-1 outline-none focus:border-b focus:border-primary" id="admin-met-1-title">
+                                    <input type="text" value="Mapeamento completo dos gargalos e oportunidades do negócio." class="w-full bg-transparent text-sm text-slate-400 outline-none focus:border-b border-slate-700" id="admin-met-1-desc">
                                 </div>
-                            </div>
-                            <!-- placeholder for others -->
-                            <p class="text-xs text-slate-500 mt-4 italic">* Etapas 3 a 5 seguem o mesmo padrão. Utilize
-                                os campos para editar os textos na timeline da home.</p>
-                        </div>
+                            </div><div class="bg-background rounded-xl p-4 flex gap-6 items-center border border-outline-variant/20">
+                                <div class="text-3xl font-black text-primary px-4 border-r border-outline-variant/30">03</div>
+                                <div class="flex-1">
+                                    <input type="text" value="Diagnóstico" class="w-full bg-transparent font-bold text-lg mb-1 outline-none focus:border-b focus:border-primary" id="admin-met-2-title">
+                                    <input type="text" value="Mapeamento completo dos gargalos e oportunidades do negócio." class="w-full bg-transparent text-sm text-slate-400 outline-none focus:border-b border-slate-700" id="admin-met-2-desc">
+                                </div>
+                            </div><div class="bg-background rounded-xl p-4 flex gap-6 items-center border border-outline-variant/20">
+                                <div class="text-3xl font-black text-primary px-4 border-r border-outline-variant/30">04</div>
+                                <div class="flex-1">
+                                    <input type="text" value="Diagnóstico" class="w-full bg-transparent font-bold text-lg mb-1 outline-none focus:border-b focus:border-primary" id="admin-met-3-title">
+                                    <input type="text" value="Mapeamento completo dos gargalos e oportunidades do negócio." class="w-full bg-transparent text-sm text-slate-400 outline-none focus:border-b border-slate-700" id="admin-met-3-desc">
+                                </div>
+                            </div><div class="bg-background rounded-xl p-4 flex gap-6 items-center border border-outline-variant/20">
+                                <div class="text-3xl font-black text-primary px-4 border-r border-outline-variant/30">05</div>
+                                <div class="flex-1">
+                                    <input type="text" value="Diagnóstico" class="w-full bg-transparent font-bold text-lg mb-1 outline-none focus:border-b focus:border-primary" id="admin-met-4-title">
+                                    <input type="text" value="Mapeamento completo dos gargalos e oportunidades do negócio." class="w-full bg-transparent text-sm text-slate-400 outline-none focus:border-b border-slate-700" id="admin-met-4-desc">
+                                </div>
+                            </div></div>
                     </div>
                 </section>
 
@@ -609,37 +616,39 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                     <div class="bg-surface-high p-8 rounded-2xl border border-outline-variant/20 shadow-lg">
                         <h3 class="text-lg font-bold mb-6 border-b border-outline-variant/20 pb-4">Diferenciais Sinapta
                             (Bento Grid)</h3>
-                        <div class="grid grid-cols-2 gap-6">
-                            <!-- Diff 1 -->
-                            <div class="bg-background border border-outline-variant/30 rounded-xl p-5 relative">
-                                <label
-                                    class="inline-flex items-center gap-2 absolute top-4 right-4 text-xs cursor-pointer">
-                                    <input type="checkbox"
-                                        class="form-checkbox text-primary rounded bg-surface border-outline-variant">
+                        <div class="grid grid-cols-2 gap-6"><div class="bg-background border border-outline-variant/30 rounded-xl p-5 relative">
+                                <label class="inline-flex items-center gap-2 absolute top-4 right-4 text-xs cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox text-primary rounded bg-surface border-outline-variant">
                                     <span class="text-slate-400">Card Azul?</span>
                                 </label>
                                 <span class="material-symbols-outlined text-primary text-3xl mb-3">shield</span>
-                                <input type="text" value="Segurança de Nível Bancário"
-                                    class="block w-full bg-transparent font-black text-xl mb-2 outline-none border-b border-outline-variant/30 focus:border-primary">
-                                <textarea rows="2"
-                                    class="w-full bg-transparent text-sm text-slate-400 outline-none resize-none">Nossos sistemas utilizam criptografia de ponta a ponta e compliance LGPD rigoroso...</textarea>
-                            </div>
-                            <!-- Diff 2 -->
-                            <div class="bg-primary/10 border border-primary/30 rounded-xl p-5 relative">
-                                <label
-                                    class="inline-flex items-center gap-2 absolute top-4 right-4 text-xs cursor-pointer">
-                                    <input type="checkbox" checked
-                                        class="form-checkbox text-primary rounded bg-surface border-outline-variant">
-                                    <span class="text-primary font-bold">Card Azul?</span>
+                                <input type="text" value="Segurança de Nível Bancário" class="block w-full bg-transparent font-black text-xl mb-2 outline-none border-b border-outline-variant/30 focus:border-primary" id="admin-diff-0-title">
+                                <textarea rows="2" class="w-full bg-transparent text-sm text-slate-400 outline-none resize-none" id="admin-diff-0-desc">Nossos sistemas utilizam criptografia de ponta a ponta e compliance LGPD rigoroso...</textarea>
+                            </div><div class="bg-background border border-outline-variant/30 rounded-xl p-5 relative">
+                                <label class="inline-flex items-center gap-2 absolute top-4 right-4 text-xs cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox text-primary rounded bg-surface border-outline-variant">
+                                    <span class="text-slate-400">Card Azul?</span>
                                 </label>
-                                <span class="material-symbols-outlined text-white text-3xl mb-3"
-                                    style="font-variation-settings: 'FILL' 1;">speed</span>
-                                <input type="text" value="Alta Velocidade"
-                                    class="block w-full bg-transparent font-black text-xl text-white mb-2 outline-none border-b border-primary/30 focus:border-white">
-                                <textarea rows="2"
-                                    class="w-full bg-transparent text-sm text-blue-200 outline-none resize-none">Infraestrutura otimizada para zero latência.</textarea>
-                            </div>
-                        </div>
+                                <span class="material-symbols-outlined text-primary text-3xl mb-3">shield</span>
+                                <input type="text" value="Segurança de Nível Bancário" class="block w-full bg-transparent font-black text-xl mb-2 outline-none border-b border-outline-variant/30 focus:border-primary" id="admin-diff-1-title">
+                                <textarea rows="2" class="w-full bg-transparent text-sm text-slate-400 outline-none resize-none" id="admin-diff-1-desc">Nossos sistemas utilizam criptografia de ponta a ponta e compliance LGPD rigoroso...</textarea>
+                            </div><div class="bg-background border border-outline-variant/30 rounded-xl p-5 relative">
+                                <label class="inline-flex items-center gap-2 absolute top-4 right-4 text-xs cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox text-primary rounded bg-surface border-outline-variant">
+                                    <span class="text-slate-400">Card Azul?</span>
+                                </label>
+                                <span class="material-symbols-outlined text-primary text-3xl mb-3">shield</span>
+                                <input type="text" value="Segurança de Nível Bancário" class="block w-full bg-transparent font-black text-xl mb-2 outline-none border-b border-outline-variant/30 focus:border-primary" id="admin-diff-2-title">
+                                <textarea rows="2" class="w-full bg-transparent text-sm text-slate-400 outline-none resize-none" id="admin-diff-2-desc">Nossos sistemas utilizam criptografia de ponta a ponta e compliance LGPD rigoroso...</textarea>
+                            </div><div class="bg-background border border-outline-variant/30 rounded-xl p-5 relative">
+                                <label class="inline-flex items-center gap-2 absolute top-4 right-4 text-xs cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox text-primary rounded bg-surface border-outline-variant">
+                                    <span class="text-slate-400">Card Azul?</span>
+                                </label>
+                                <span class="material-symbols-outlined text-primary text-3xl mb-3">shield</span>
+                                <input type="text" value="Segurança de Nível Bancário" class="block w-full bg-transparent font-black text-xl mb-2 outline-none border-b border-outline-variant/30 focus:border-primary" id="admin-diff-3-title">
+                                <textarea rows="2" class="w-full bg-transparent text-sm text-slate-400 outline-none resize-none" id="admin-diff-3-desc">Nossos sistemas utilizam criptografia de ponta a ponta e compliance LGPD rigoroso...</textarea>
+                            </div></div>
                     </div>
                 </section>
 
@@ -651,24 +660,16 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                                 Resultados</h3>
                             <div class="space-y-4">
                                 <div class="flex gap-4">
-                                    <input type="text" id="admin-kpi-1-val" value="01 Min"
-                                        class="w-32 bg-background border border-outline-variant/30 rounded-lg p-3 font-black text-primary text-center">
-                                    <input type="text" id="admin-kpi-1-desc"
-                                        value="Tempo médio para geração de contratos complexos na Contractfy."
-                                        class="flex-1 bg-background border border-outline-variant/30 rounded-lg p-3 text-sm">
+                                    <input type="text" id="admin-kpi-1-val" value="01 Min" class="w-32 bg-background border border-outline-variant/30 rounded-lg p-3 font-black text-primary text-center">
+                                    <input type="text" id="admin-kpi-1-desc" value="Tempo médio para geração de contratos complexos na Contractfy." class="flex-1 bg-background border border-outline-variant/30 rounded-lg p-3 text-sm">
                                 </div>
                                 <div class="flex gap-4">
-                                    <input type="text" id="admin-kpi-2-val" value="312%"
-                                        class="w-32 bg-background border border-outline-variant/30 rounded-lg p-3 font-black text-secondary text-center">
-                                    <input type="text" id="admin-kpi-2-desc"
-                                        value="Crescimento de leads qualificados em sites otimizados pela Sinapta."
-                                        class="flex-1 bg-background border border-outline-variant/30 rounded-lg p-3 text-sm">
+                                    <input type="text" id="admin-kpi-2-val" value="312%" class="w-32 bg-background border border-outline-variant/30 rounded-lg p-3 font-black text-secondary text-center">
+                                    <input type="text" id="admin-kpi-2-desc" value="Crescimento de leads qualificados em sites otimizados pela Sinapta." class="flex-1 bg-background border border-outline-variant/30 rounded-lg p-3 text-sm">
                                 </div>
                                 <div class="flex gap-4">
-                                    <input type="text" id="admin-kpi-3-val" value="+30"
-                                        class="w-32 bg-background border border-outline-variant/30 rounded-lg p-3 font-black text-[#F97316] text-center">
-                                    <input type="text" id="admin-kpi-3-desc" value="Processos automatizados."
-                                        class="flex-1 bg-background border border-outline-variant/30 rounded-lg p-3 text-sm">
+                                    <input type="text" id="admin-kpi-3-val" value="+30" class="w-32 bg-background border border-outline-variant/30 rounded-lg p-3 font-black text-[#F97316] text-center">
+                                    <input type="text" id="admin-kpi-3-desc" value="Processos automatizados." class="flex-1 bg-background border border-outline-variant/30 rounded-lg p-3 text-sm">
                                 </div>
                             </div>
                         </div>
@@ -677,8 +678,7 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                         <div class="bg-surface-high p-8 rounded-2xl border border-outline-variant/20 shadow-lg">
                             <div class="flex items-center justify-between mb-6 border-b border-outline-variant/20 pb-4">
                                 <h3 class="text-lg font-bold">Depoimentos</h3>
-                                <button id="btn-add-testi"
-                                    class="bg-primary/20 text-primary px-3 py-1.5 rounded font-bold text-xs hover:bg-primary hover:text-white transition-colors">+
+                                <button id="btn-add-testi" class="bg-primary/20 text-primary px-3 py-1.5 rounded font-bold text-xs hover:bg-primary hover:text-white transition-colors">+
                                     Adicionar Depoimento</button>
                             </div>
                             <!-- List -->
@@ -696,35 +696,46 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                             <button class="bg-primary/20 text-primary px-3 py-1.5 rounded font-bold text-xs">+ Adicionar
                                 Artigo</button>
                         </div>
-                        <div class="grid grid-cols-3 gap-6">
-                            <!-- Article Card -->
-                            <div class="bg-background rounded-xl overflow-hidden border border-outline-variant/30">
-                                <div
-                                    class="h-32 bg-slate-800 relative group cursor-pointer flex items-center justify-center">
-                                    <span
-                                        class="material-symbols-outlined text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity z-10">cloud_upload</span>
+                        <div class="grid grid-cols-3 gap-6"><div class="bg-background rounded-xl overflow-hidden border border-outline-variant/30">
+                                <div class="h-32 bg-slate-800 relative group cursor-pointer flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity z-10">cloud_upload</span>
                                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all">
                                     </div>
-                                    <span
-                                        class="absolute bottom-2 right-2 text-[10px] bg-black/50 px-2 rounded text-white z-10">Capa
+                                    <span class="absolute bottom-2 right-2 text-[10px] bg-black/50 px-2 rounded text-white z-10">Capa
                                         do Artigo 1</span>
                                 </div>
                                 <div class="p-4 space-y-3">
-                                    <input type="text" value="TECNOLOGIA"
-                                        class="bg-primary/10 text-primary text-[10px] font-black w-full rounded px-2 py-1 outline-none border border-transparent focus:border-primary">
-                                    <textarea rows="2"
-                                        class="w-full text-sm font-bold bg-transparent border-b border-outline-variant focus:border-primary outline-none resize-none">Como a IA está remodelando o setor jurídico em 2024.</textarea>
-                                    <input type="text" value="https://sinapta.com.br/blog/ia-juridico"
-                                        class="w-full text-xs text-slate-400 bg-transparent border-b border-outline-variant focus:border-primary outline-none py-1"
-                                        placeholder="URL do Post">
+                                    <input type="text" value="TECNOLOGIA" class="bg-primary/10 text-primary text-[10px] font-black w-full rounded px-2 py-1 outline-none border border-transparent focus:border-primary" id="admin-blog-0-tag">
+                                    <textarea rows="2" class="w-full text-sm font-bold bg-transparent border-b border-outline-variant focus:border-primary outline-none resize-none" id="admin-blog-0-title">Como a IA está remodelando o setor jurídico em 2024.</textarea>
+                                    <input type="text" value="https://sinapta.com.br/blog/ia-juridico" class="w-full text-xs text-slate-400 bg-transparent border-b border-outline-variant focus:border-primary outline-none py-1" placeholder="URL do Post" id="admin-blog-0-url">
                                 </div>
-                            </div>
-                            <!-- ... -->
-                            <div
-                                class="col-span-1 rounded-xl border-2 border-dashed border-outline-variant/30 flex items-center justify-center text-slate-500 cursor-pointer hover:bg-surface transition-colors p-6 text-center text-sm font-bold">
-                                Adicionar espaço de Artigo em Destaque
-                            </div>
-                        </div>
+                            </div><div class="bg-background rounded-xl overflow-hidden border border-outline-variant/30">
+                                <div class="h-32 bg-slate-800 relative group cursor-pointer flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity z-10">cloud_upload</span>
+                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all">
+                                    </div>
+                                    <span class="absolute bottom-2 right-2 text-[10px] bg-black/50 px-2 rounded text-white z-10">Capa
+                                        do Artigo 1</span>
+                                </div>
+                                <div class="p-4 space-y-3">
+                                    <input type="text" value="TECNOLOGIA" class="bg-primary/10 text-primary text-[10px] font-black w-full rounded px-2 py-1 outline-none border border-transparent focus:border-primary" id="admin-blog-1-tag">
+                                    <textarea rows="2" class="w-full text-sm font-bold bg-transparent border-b border-outline-variant focus:border-primary outline-none resize-none" id="admin-blog-1-title">Como a IA está remodelando o setor jurídico em 2024.</textarea>
+                                    <input type="text" value="https://sinapta.com.br/blog/ia-juridico" class="w-full text-xs text-slate-400 bg-transparent border-b border-outline-variant focus:border-primary outline-none py-1" placeholder="URL do Post" id="admin-blog-1-url">
+                                </div>
+                            </div><div class="bg-background rounded-xl overflow-hidden border border-outline-variant/30">
+                                <div class="h-32 bg-slate-800 relative group cursor-pointer flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity z-10">cloud_upload</span>
+                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all">
+                                    </div>
+                                    <span class="absolute bottom-2 right-2 text-[10px] bg-black/50 px-2 rounded text-white z-10">Capa
+                                        do Artigo 1</span>
+                                </div>
+                                <div class="p-4 space-y-3">
+                                    <input type="text" value="TECNOLOGIA" class="bg-primary/10 text-primary text-[10px] font-black w-full rounded px-2 py-1 outline-none border border-transparent focus:border-primary" id="admin-blog-2-tag">
+                                    <textarea rows="2" class="w-full text-sm font-bold bg-transparent border-b border-outline-variant focus:border-primary outline-none resize-none" id="admin-blog-2-title">Como a IA está remodelando o setor jurídico em 2024.</textarea>
+                                    <input type="text" value="https://sinapta.com.br/blog/ia-juridico" class="w-full text-xs text-slate-400 bg-transparent border-b border-outline-variant focus:border-primary outline-none py-1" placeholder="URL do Post" id="admin-blog-2-url">
+                                </div>
+                            </div></div>
                     </div>
                 </section>
 
@@ -733,62 +744,36 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                     <div class="bg-surface-high p-8 rounded-2xl border border-outline-variant/20 shadow-lg mb-8">
                         <h3 class="text-lg font-bold mb-6 border-b border-outline-variant/20 pb-4">Seção de Contato (Ao
                             Lado do Form)</h3>
-                        <div class="grid grid-cols-3 gap-6">
-                            <div class="space-y-3 bg-background p-4 rounded-xl border border-outline-variant/30">
-                                <input type="text" value="verified_user"
-                                    class="text-primary font-mono text-xs w-full bg-surface border border-outline-variant rounded p-1"
-                                    placeholder="Material Icon ID">
-                                <input type="text" value="Empresa Certificada"
-                                    class="font-bold w-full bg-transparent border-b border-outline-variant focus:border-primary outline-none">
-                                <textarea
-                                    class="w-full text-xs text-slate-400 bg-transparent border border-outline-variant rounded p-2"
-                                    rows="3">Operamos sob os mais altos padrões de segurança da informação global.</textarea>
-                            </div>
-                            <div class="space-y-3 bg-background p-4 rounded-xl border border-outline-variant/30">
-                                <input type="text" value="rocket_launch"
-                                    class="text-primary font-mono text-xs w-full bg-surface border border-outline-variant rounded p-1">
-                                <input type="text" value="Time de Especialistas"
-                                    class="font-bold w-full bg-transparent border-b border-outline-variant focus:border-primary outline-none">
-                                <textarea
-                                    class="w-full text-xs text-slate-400 bg-transparent border border-outline-variant rounded p-2"
-                                    rows="3">Engenheiros e designers com experiência em multinacionais de tecnologia.</textarea>
-                            </div>
-                            <div class="space-y-3 bg-background p-4 rounded-xl border border-outline-variant/30">
-                                <input type="text" value="public"
-                                    class="text-primary font-mono text-xs w-full bg-surface border border-outline-variant rounded p-1">
-                                <input type="text" value="Presença Nacional"
-                                    class="font-bold w-full bg-transparent border-b border-outline-variant focus:border-primary outline-none">
-                                <textarea
-                                    class="w-full text-xs text-slate-400 bg-transparent border border-outline-variant rounded p-2"
-                                    rows="3">Atendemos clientes em todos os estados do Brasil com suporte local.</textarea>
-                            </div>
-                        </div>
+                        <div class="grid grid-cols-3 gap-6"><div class="space-y-3 bg-background p-4 rounded-xl border border-outline-variant/30">
+                                <input type="text" value="verified_user" class="text-primary font-mono text-xs w-full bg-surface border border-outline-variant rounded p-1" placeholder="Material Icon ID" id="admin-feat-0-icon">
+                                <input type="text" value="Empresa Certificada" class="font-bold w-full bg-transparent border-b border-outline-variant focus:border-primary outline-none" id="admin-feat-0-title">
+                                <textarea class="w-full text-xs text-slate-400 bg-transparent border border-outline-variant rounded p-2" rows="3" id="admin-feat-0-desc">Operamos sob os mais altos padrões de segurança da informação global.</textarea>
+                            </div><div class="space-y-3 bg-background p-4 rounded-xl border border-outline-variant/30">
+                                <input type="text" value="verified_user" class="text-primary font-mono text-xs w-full bg-surface border border-outline-variant rounded p-1" placeholder="Material Icon ID" id="admin-feat-1-icon">
+                                <input type="text" value="Empresa Certificada" class="font-bold w-full bg-transparent border-b border-outline-variant focus:border-primary outline-none" id="admin-feat-1-title">
+                                <textarea class="w-full text-xs text-slate-400 bg-transparent border border-outline-variant rounded p-2" rows="3" id="admin-feat-1-desc">Operamos sob os mais altos padrões de segurança da informação global.</textarea>
+                            </div><div class="space-y-3 bg-background p-4 rounded-xl border border-outline-variant/30">
+                                <input type="text" value="verified_user" class="text-primary font-mono text-xs w-full bg-surface border border-outline-variant rounded p-1" placeholder="Material Icon ID" id="admin-feat-2-icon">
+                                <input type="text" value="Empresa Certificada" class="font-bold w-full bg-transparent border-b border-outline-variant focus:border-primary outline-none" id="admin-feat-2-title">
+                                <textarea class="w-full text-xs text-slate-400 bg-transparent border border-outline-variant rounded p-2" rows="3" id="admin-feat-2-desc">Operamos sob os mais altos padrões de segurança da informação global.</textarea>
+                            </div></div>
                     </div>
 
                     <div class="bg-surface-high p-8 rounded-2xl border border-outline-variant/20 shadow-lg">
                         <h3 class="text-lg font-bold mb-6 border-b border-outline-variant/20 pb-4">Rodapé (Footer)</h3>
-                        <div class="grid grid-cols-2 gap-8">
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-400 mb-2">Descrição da
-                                    Empresa</label>
-                                <textarea id="admin-footer-desc"
-                                    class="w-full form-textarea bg-background border border-outline-variant/40 rounded-lg p-3 text-slate-300 focus:border-primary min-h-[100px]">Liderando a fronteira orbital da transformação digital. Tecnologia brasileira com ambição global.</textarea>
-
-                                <label class="block text-xs font-semibold text-slate-400 mt-6 mb-2">Texto de
-                                    Copyright</label>
-                                <input type="text" id="admin-footer-copy" value="© 2024 Sinapta. Todos os direitos reservados."
-                                    class="w-full border border-outline-variant/40 rounded-lg p-3 bg-background text-slate-400">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-400 mb-2">Links Rápidos
-                                    (Colunas)</label>
-                                <div
-                                    class="p-4 border border-outline-variant/40 rounded-lg bg-background text-sm text-center text-slate-500 italic">
-                                    * O gerenciamento individual de colunas do rodapé utiliza o painel avançado de
-                                    navegação. <a href="#" class="text-primary underline">Acessar menu de links</a>.
-                                </div>
-                            </div>
-                        </div>
+                        <div class="grid grid-cols-2 gap-8"><div class="space-y-3 bg-background p-4 rounded-xl border border-outline-variant/30">
+                                <input type="text" value="verified_user" class="text-primary font-mono text-xs w-full bg-surface border border-outline-variant rounded p-1" placeholder="Material Icon ID" id="admin-feat-0-icon">
+                                <input type="text" value="Empresa Certificada" class="font-bold w-full bg-transparent border-b border-outline-variant focus:border-primary outline-none" id="admin-feat-0-title">
+                                <textarea class="w-full text-xs text-slate-400 bg-transparent border border-outline-variant rounded p-2" rows="3" id="admin-feat-0-desc">Operamos sob os mais altos padrões de segurança da informação global.</textarea>
+                            </div><div class="space-y-3 bg-background p-4 rounded-xl border border-outline-variant/30">
+                                <input type="text" value="verified_user" class="text-primary font-mono text-xs w-full bg-surface border border-outline-variant rounded p-1" placeholder="Material Icon ID" id="admin-feat-1-icon">
+                                <input type="text" value="Empresa Certificada" class="font-bold w-full bg-transparent border-b border-outline-variant focus:border-primary outline-none" id="admin-feat-1-title">
+                                <textarea class="w-full text-xs text-slate-400 bg-transparent border border-outline-variant rounded p-2" rows="3" id="admin-feat-1-desc">Operamos sob os mais altos padrões de segurança da informação global.</textarea>
+                            </div><div class="space-y-3 bg-background p-4 rounded-xl border border-outline-variant/30">
+                                <input type="text" value="verified_user" class="text-primary font-mono text-xs w-full bg-surface border border-outline-variant rounded p-1" placeholder="Material Icon ID" id="admin-feat-2-icon">
+                                <input type="text" value="Empresa Certificada" class="font-bold w-full bg-transparent border-b border-outline-variant focus:border-primary outline-none" id="admin-feat-2-title">
+                                <textarea class="w-full text-xs text-slate-400 bg-transparent border border-outline-variant rounded p-2" rows="3" id="admin-feat-2-desc">Operamos sob os mais altos padrões de segurança da informação global.</textarea>
+                            </div></div>
                     </div>
                 </section>
 
@@ -820,6 +805,47 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
 
         // Integra&#231;&#227;o com LocalStorage (Mock CMS Backend em tempo real)
         const fields = ['kpi-1-val', 'kpi-1-desc', 'kpi-2-val', 'kpi-2-desc', 'kpi-3-val', 'kpi-3-desc', 'stat-1-val', 'stat-1-desc', 'stat-2-val', 'stat-2-desc', 'stat-3-val', 'stat-3-desc', 'stat-4-val', 'stat-4-desc', 'top-email', 'top-phone', 'hero-title', 'hero-sub', 'btn-text', 'btn-url', 'hero-btn-text', 'hero-btn-url', 'hero-btn2-text', 'hero-btn2-url', 'eco-title', 'eco-sub', 'footer-desc', 'footer-copy'];
+
+        
+    // LOAD LISTS
+    for(let i=0; i<4; i++) {
+        ['title','tag','desc','b1','b2','b3'].forEach(k => {
+            let el = document.getElementById('admin-prod-'+i+'-'+k);
+            let v = localStorage.getItem('sinapta_prod_'+i+'_'+k);
+            if(el && v) el.value = v;
+        });
+    }
+    for(let i=0; i<6; i++) {
+        let el = document.getElementById('admin-seg-'+i+'-title');
+        let v = localStorage.getItem('sinapta_seg_'+i+'_title');
+        if(el && v) el.value = v;
+    }
+    for(let i=0; i<5; i++) {
+        ['title','desc'].forEach(k => {
+            let el = document.getElementById('admin-met-'+i+'-'+k);
+            let v = localStorage.getItem('sinapta_met_'+i+'_'+k);
+            if(el && v) el.value = v;
+        });
+        if(i<4) {
+            ['title','desc'].forEach(k => {
+                let el = document.getElementById('admin-diff-'+i+'-'+k);
+                let v = localStorage.getItem('sinapta_diff_'+i+'_'+k);
+                if(el && v) el.value = v;
+            });
+        }
+        if(i<3) {
+            ['tag','title','url'].forEach(k => {
+                let el = document.getElementById('admin-blog-'+i+'-'+k);
+                let v = localStorage.getItem('sinapta_blog_'+i+'_'+k);
+                if(el && v) el.value = v;
+            });
+            ['title','desc'].forEach(k => {
+                let el = document.getElementById('admin-feat-'+i+'-'+k);
+                let v = localStorage.getItem('sinapta_feat_'+i+'_'+k);
+                if(el && v) el.value = v;
+            });
+        }
+    }
 
         // 1. Array State do Testimonial
         let testimonials = [];
@@ -955,5 +981,5 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
             applyLogoToUI(savedLogoLocal);
         }
     </script>
-</body>
-</html>
+
+</body></html>
