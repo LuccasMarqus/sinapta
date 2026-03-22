@@ -6,7 +6,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD,opsz@300,0,0,24&amp;display=swap" rel="stylesheet">
 
-    <script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+    const supabaseUrl = 'https://euybkvjsqfzjojhnquqo.supabase.co';
+    const supabaseKey = 'sb_publishable_jkeNZT3f0WXCBg60Fo-1yQ_Ha5YWbnO';
+    const _sb = supabase.createClient(supabaseUrl, supabaseKey);
+    window.cloudQueue = [];
+    // remove duplicates from cloud queue by key
+    function pushToQueue(k, v) {
+        const idx = cloudQueue.findIndex(q => q.id === k);
+        if(idx >= 0) cloudQueue[idx] = { id: k, value: { data: v } };
+        else cloudQueue.push({ id: k, value: { data: v } });
+    }
+    const origSetItem = localStorage.setItem.bind(localStorage);
+    localStorage.setItem = function(k, v) {
+        origSetItem(k, v);
+        if(k.startsWith('sinapta_')) pushToQueue(k, v);
+    };
+    
+    // Also hijack removeItem
+    const origRemoveItem = localStorage.removeItem.bind(localStorage);
+    localStorage.removeItem = function(k) {
+        origRemoveItem(k);
+        if(k.startsWith('sinapta_')) pushToQueue(k, null); // sending null handles wipe
+    };
+</script>
+<script>
         tailwind.config = {
             darkMode: 'class',
             theme: {

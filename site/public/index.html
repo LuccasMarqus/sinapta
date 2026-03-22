@@ -634,8 +634,24 @@
 <button class="fixed bottom-8 left-8 w-12 h-12 bg-surface-container-high rounded-xl flex items-center justify-center border border-outline-variant/10 z-50 hover:bg-surface-bright transition-colors" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
 <span class="material-symbols-outlined text-primary">arrow_upward</span>
 </button>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+    const supabaseUrl = 'https://euybkvjsqfzjojhnquqo.supabase.co';
+    const supabaseKey = 'sb_publishable_jkeNZT3f0WXCBg60Fo-1yQ_Ha5YWbnO';
+    const _sb = supabase.createClient(supabaseUrl, supabaseKey);
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const { data } = await _sb.from('site_settings').select('*');
+        if(data) {
+            data.forEach(row => {
+                if(row.value.data === null) localStorage.removeItem(row.id);
+                else localStorage.setItem(row.id, row.value.data);
+            });
+        }
+    } catch(e) { console.error("Supabase load error", e); }
+
     // 1. Strings Genéricas (Mapeamento 1-1)
     const textFields = ['kpi-1-val', 'kpi-1-desc', 'kpi-2-val', 'kpi-2-desc', 'kpi-3-val', 'kpi-3-desc', 'stat-1-val', 'stat-1-desc', 'stat-2-val', 'stat-2-desc', 'stat-3-val', 'stat-3-desc', 'stat-4-val', 'stat-4-desc', 'top-email', 'top-phone', 'hero-sub', 'btn-text', 'hero-btn-text', 'hero-btn2-text', 'eco-title', 'eco-sub', 'footer-desc', 'footer-copy'];
     textFields.forEach(f => {
