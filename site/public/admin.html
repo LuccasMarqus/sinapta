@@ -375,13 +375,13 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                                     <div class="w-1/2">
                                         <label
                                             class="block text-[10px] font-bold text-slate-500 uppercase">Número/Valor</label>
-                                        <input type="text" value="50+"
+                                        <input type="text" id="admin-stat-1-val" value="50+"
                                             class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-xl font-black text-primary px-1 py-2">
                                     </div>
                                     <div class="w-1/2">
                                         <label
                                             class="block text-[10px] font-bold text-slate-500 uppercase">Rótulo</label>
-                                        <input type="text" value="Projetos"
+                                        <input type="text" id="admin-stat-1-desc" value="Projetos"
                                             class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-sm font-bold text-on-surface px-1 py-2 uppercase tracking-widest mt-[5px]">
                                     </div>
                                 </div>
@@ -392,13 +392,13 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                                     <div class="w-1/2">
                                         <label
                                             class="block text-[10px] font-bold text-slate-500 uppercase">Número/Valor</label>
-                                        <input type="text" value="20+"
+                                        <input type="text" id="admin-stat-2-val" value="20+"
                                             class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-xl font-black text-primary px-1 py-2">
                                     </div>
                                     <div class="w-1/2">
                                         <label
                                             class="block text-[10px] font-bold text-slate-500 uppercase">Rótulo</label>
-                                        <input type="text" value="Clientes"
+                                        <input type="text" id="admin-stat-2-desc" value="Clientes"
                                             class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-sm font-bold text-on-surface px-1 py-2 uppercase tracking-widest mt-[5px]">
                                     </div>
                                 </div>
@@ -409,13 +409,13 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                                     <div class="w-1/2">
                                         <label
                                             class="block text-[10px] font-bold text-slate-500 uppercase">Número/Valor</label>
-                                        <input type="text" value="4"
+                                        <input type="text" id="admin-stat-3-val" value="4"
                                             class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-xl font-black text-primary px-1 py-2">
                                     </div>
                                     <div class="w-1/2">
                                         <label
                                             class="block text-[10px] font-bold text-slate-500 uppercase">Rótulo</label>
-                                        <input type="text" value="Produtos"
+                                        <input type="text" id="admin-stat-3-desc" value="Produtos"
                                             class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-sm font-bold text-on-surface px-1 py-2 uppercase tracking-widest mt-[5px]">
                                     </div>
                                 </div>
@@ -426,13 +426,13 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                                     <div class="w-1/2">
                                         <label
                                             class="block text-[10px] font-bold text-slate-500 uppercase">Número/Valor</label>
-                                        <input type="text" id="admin-kpi-4-val" value="99,9%"
+                                        <input type="text" id="admin-stat-4-val" value="99,9%"
                                             class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-xl font-black text-primary px-1 py-2">
                                     </div>
                                     <div class="w-1/2">
                                         <label
                                             class="block text-[10px] font-bold text-slate-500 uppercase">Rótulo</label>
-                                        <input type="text" id="admin-kpi-4-desc" value="Uptime"
+                                        <input type="text" id="admin-stat-4-desc" value="Uptime"
                                             class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-sm font-bold text-on-surface px-1 py-2 uppercase tracking-widest mt-[5px]">
                                     </div>
                                 </div>
@@ -819,7 +819,7 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
         });
 
         // Integra&#231;&#227;o com LocalStorage (Mock CMS Backend em tempo real)
-        const fields = ['kpi-1-val', 'kpi-1-desc', 'kpi-2-val', 'kpi-2-desc', 'kpi-3-val', 'kpi-3-desc', 'kpi-4-val', 'kpi-4-desc', 'top-email', 'top-phone', 'hero-title', 'hero-sub', 'btn-text', 'btn-url', 'hero-btn-text', 'hero-btn-url', 'hero-btn2-text', 'hero-btn2-url', 'eco-title', 'eco-sub', 'footer-desc', 'footer-copy'];
+        const fields = ['kpi-1-val', 'kpi-1-desc', 'kpi-2-val', 'kpi-2-desc', 'kpi-3-val', 'kpi-3-desc', 'stat-1-val', 'stat-1-desc', 'stat-2-val', 'stat-2-desc', 'stat-3-val', 'stat-3-desc', 'stat-4-val', 'stat-4-desc', 'top-email', 'top-phone', 'hero-title', 'hero-sub', 'btn-text', 'btn-url', 'hero-btn-text', 'hero-btn-url', 'hero-btn2-text', 'hero-btn2-url', 'eco-title', 'eco-sub', 'footer-desc', 'footer-copy'];
 
         // 1. Array State do Testimonial
         let testimonials = [];

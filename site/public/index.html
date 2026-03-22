@@ -236,20 +236,20 @@
 <div class="max-w-7xl mx-auto px-12">
 <div class="grid grid-cols-4 gap-12">
 <div class="text-center group">
-<div id="landing-kpi-1-val" class="text-6xl font-black text-primary mb-2 group-hover:scale-110 transition-transform">50+</div>
-<div id="landing-kpi-1-desc" class="text-slate-400 font-extrabold text-xs uppercase tracking-widest">Projetos</div>
+<div id="landing-stat-1-val" class="text-6xl font-black text-primary mb-2 group-hover:scale-110 transition-transform">50+</div>
+<div id="landing-stat-1-desc" class="text-slate-400 font-extrabold text-xs uppercase tracking-widest">Projetos</div>
 </div>
 <div class="text-center group">
-<div id="landing-kpi-2-val" class="text-6xl font-black text-primary mb-2 group-hover:scale-110 transition-transform">20+</div>
-<div id="landing-kpi-2-desc" class="text-slate-400 font-extrabold text-xs uppercase tracking-widest">Clientes</div>
+<div id="landing-stat-2-val" class="text-6xl font-black text-primary mb-2 group-hover:scale-110 transition-transform">20+</div>
+<div id="landing-stat-2-desc" class="text-slate-400 font-extrabold text-xs uppercase tracking-widest">Clientes</div>
 </div>
 <div class="text-center group">
-<div id="landing-kpi-3-val" class="text-6xl font-black text-primary mb-2 group-hover:scale-110 transition-transform">4</div>
-<div id="landing-kpi-3-desc" class="text-slate-400 font-extrabold text-xs uppercase tracking-widest">Produtos</div>
+<div id="landing-stat-3-val" class="text-6xl font-black text-primary mb-2 group-hover:scale-110 transition-transform">4</div>
+<div id="landing-stat-3-desc" class="text-slate-400 font-extrabold text-xs uppercase tracking-widest">Produtos</div>
 </div>
 <div class="text-center group">
-<div id="landing-kpi-4-val" class="text-6xl font-black text-primary mb-2 group-hover:scale-110 transition-transform">99,9%</div>
-<div id="landing-kpi-4-desc" class="text-slate-400 font-extrabold text-xs uppercase tracking-widest">Uptime</div>
+<div id="landing-stat-4-val" class="text-6xl font-black text-primary mb-2 group-hover:scale-110 transition-transform">99,9%</div>
+<div id="landing-stat-4-desc" class="text-slate-400 font-extrabold text-xs uppercase tracking-widest">Uptime</div>
 </div>
 </div>
 </div>
@@ -637,7 +637,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Strings Genéricas (Mapeamento 1-1)
-    const textFields = ['kpi-1-val', 'kpi-1-desc', 'kpi-2-val', 'kpi-2-desc', 'kpi-3-val', 'kpi-3-desc', 'kpi-4-val', 'kpi-4-desc', 'top-email', 'top-phone', 'hero-sub', 'btn-text', 'hero-btn-text', 'hero-btn2-text', 'eco-title', 'eco-sub', 'footer-desc', 'footer-copy'];
+    const textFields = ['kpi-1-val', 'kpi-1-desc', 'kpi-2-val', 'kpi-2-desc', 'kpi-3-val', 'kpi-3-desc', 'stat-1-val', 'stat-1-desc', 'stat-2-val', 'stat-2-desc', 'stat-3-val', 'stat-3-desc', 'stat-4-val', 'stat-4-desc', 'top-email', 'top-phone', 'hero-sub', 'btn-text', 'hero-btn-text', 'hero-btn2-text', 'eco-title', 'eco-sub', 'footer-desc', 'footer-copy'];
     textFields.forEach(f => {
         const val = localStorage.getItem('sinapta_' + f);
         if(val) {
