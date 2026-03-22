@@ -128,14 +128,14 @@
 <!-- Section 2: Sticky Glassmorphic Navbar -->
 <nav class="fixed top-0 w-full z-50 mt-8">
 <div class="max-w-[1440px] mx-auto px-8">
-<div class="glass flex justify-between items-center h-20 px-8 rounded-2xl shadow-[0_0_40px_rgba(0,163,255,0.08)] border border-white/5">
+<div class="glass flex justify-between items-center h-16 sm:h-20 px-4 sm:px-8 rounded-2xl shadow-[0_0_40px_rgba(0,163,255,0.08)] border border-white/5">
 <div class="flex items-center gap-3">
     <img src="" class="dynamic-logo h-8 w-auto object-contain hidden" alt="Logo">
     <div class="dynamic-logo-text text-2xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-[#00A3FF] via-[#7C3AED] to-[#F97316]">
         SINAPTA
     </div>
 </div>
-<div class="hidden md:flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4 md:gap-4 lg:gap-10">
+<div class="hidden md:flex flex-col md:flex-row items-center md:items-center text-center md:text-left gap-2 md:gap-4 md:gap-4 lg:gap-10">
 <a class="text-[#00A3FF] font-bold border-b-2 border-[#00A3FF] pb-1 font-black uppercase tracking-widest text-[11px]" href="#produtos">Produtos</a>
 <a class="text-slate-300 hover:text-white transition-colors font-black uppercase tracking-widest text-[11px]" href="#solucoes">Soluções</a>
 <a class="text-slate-300 hover:text-white transition-colors font-black uppercase tracking-widest text-[11px]" href="#segmentos">Segmentos</a>
@@ -155,10 +155,10 @@
 <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 blur-[120px] rounded-full"></div>
 <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tertiary/20 blur-[120px] rounded-full"></div>
 </div>
-<div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 grid grid-cols-12 gap-12 relative z-10">
+<div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex flex-col lg:grid lg:grid-cols-12 gap-12 relative z-10">
 <!-- Left: Hero Text -->
 <div class="w-full lg:w-full lg:col-span-7 flex flex-col justify-center">
-<h1 id="landing-hero-title" class="text-3xl sm:text-4xl lg:text-7xl font-black leading-[1.05] tracking-tight mb-8">
+<h1 id="landing-hero-title" class="text-4xl sm:text-5xl lg:text-7xl font-black break-words leading-[1.05] tracking-tight mb-8">
                     TECNOLOGIA QUE <br/>
 <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary">TRANSFORMA.</span>
 </h1>
@@ -180,7 +180,7 @@
 <!-- Central Glow -->
 <div class="absolute inset-0 bg-primary/20 rounded-full blur-[80px]"></div>
 <!-- Center 'S' Logo -->
-<div class="z-20 w-24 h-24 rounded-3xl bg-surface-container-high flex items-center justify-center text-3xl lg:text-4xl font-black text-primary border border-primary/40 animate-pulse-core cursor-pointer hover:scale-110 transition-transform duration-500 overflow-hidden relative">
+<div class="z-20 w-24 h-24 rounded-3xl bg-surface-container-high flex items-center justify-center text-4xl lg:text-5xl font-black text-primary text-center md:text-left w-full border border-primary/40 animate-pulse-core cursor-pointer hover:scale-110 transition-transform duration-500 overflow-hidden relative">
     <img src="" class="dynamic-logo absolute w-full h-full object-cover hidden" alt="Center Logo">
     <span class="dynamic-logo-text">S</span>
 </div>
@@ -453,24 +453,24 @@
 <h2 class="text-3xl lg:text-4xl font-extrabold mb-10 sm:mb-16">Resultados Reais</h2>
 <div class="space-y-6">
 <div class="bg-surface-container-high p-6 lg:p-8 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-0 border-l-4 border-primary">
-<div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4">
-<div class="w-32 shrink-0 text-4xl font-black text-primary" id="landing-kpi-1-val">01 Min</div>
+<div class="flex flex-col md:flex-row items-center md:items-center text-center md:text-left gap-2 md:gap-4">
+<div class="w-24 sm:w-32 shrink-0 text-4xl font-black text-primary" id="landing-kpi-1-val">01 Min</div>
 <div class="w-full h-px md:h-10 md:w-px bg-outline-variant"></div>
 <p class="text-xl font-bold" id="landing-kpi-1-desc">Tempo m&#233;dio para gera&#231;&#227;o de contratos complexos na Contractfy.</p>
 </div>
 <span class="material-symbols-outlined text-slate-500">trending_up</span>
 </div>
 <div class="bg-surface-container-high p-6 lg:p-8 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-0 border-l-4 border-secondary">
-<div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4">
-<div class="w-32 shrink-0 text-3xl lg:text-4xl font-black text-secondary" id="landing-kpi-2-val">312%</div>
+<div class="flex flex-col md:flex-row items-center md:items-center text-center md:text-left gap-2 md:gap-4">
+<div class="w-24 sm:w-32 shrink-0 text-4xl lg:text-5xl font-black text-secondary text-center md:text-left w-full" id="landing-kpi-2-val">312%</div>
 <div class="w-full h-px md:h-10 md:w-px bg-outline-variant"></div>
 <p class="text-xl font-bold" id="landing-kpi-2-desc">Crescimento de leads qualificados em sites otimizados pela Sinapta.</p>
 </div>
 <span class="material-symbols-outlined text-slate-500">trending_up</span>
 </div>
 <div class="bg-surface-container-high p-6 lg:p-8 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-0 border-l-4 border-[#F97316]">
-<div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4">
-<div class="w-32 shrink-0 text-3xl lg:text-4xl font-black text-[#F97316]" id="landing-kpi-3-val">+30</div>
+<div class="flex flex-col md:flex-row items-center md:items-center text-center md:text-left gap-2 md:gap-4">
+<div class="w-24 sm:w-32 shrink-0 text-4xl lg:text-5xl font-black text-[#F97316] text-center md:text-left w-full" id="landing-kpi-3-val">+30</div>
 <div class="w-full h-px md:h-10 md:w-px bg-outline-variant"></div>
 <p class="text-xl font-bold" id="landing-kpi-3-desc">Processos automatizados.</p>
 </div>
@@ -698,7 +698,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if(desc) met.nextElementSibling.innerText = desc;
     });
 
-    const diffs = document.querySelectorAll('.py-12 lg:py-24.bg-surface-container-low h3');
+    const diffs = document.querySelectorAll('section:not(#segmentos):not(#solucoes) h3.text-2xl');
     let dIndex = 0;
     diffs.forEach((diff) => {
         if(!diff.closest('#segmentos') && !diff.closest('#solucoes') && diff.innerText !== 'Diferenciais Sinapta') {
@@ -710,7 +710,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    const blogs = document.querySelectorAll('#sec-9 h4, .py-16 lg:py-32.bg-surface h4'); // wait, let's use a clear selector
+    const blogs = document.querySelectorAll('#blog h4, section h4'); // wait, let's use a clear selector
     const blogNodes = document.querySelectorAll('.aspect-video');
     blogNodes.forEach((bNode, i) => {
         const p = bNode.parentElement;
@@ -722,7 +722,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if(title && titleNode) titleNode.innerText = title;
     });
 
-    const feats = document.querySelectorAll('.max-w-7xl.mx-auto.px-5 sm:px-6 lg:px-12.grid.grid-cols-12 > div.col-span-5 h4');
+    const feats = document.querySelectorAll('.max-w-7xl h4');
     feats.forEach((feat, i) => {
         const title = localStorage.getItem('sinapta_feat_'+i+'_title');
         const desc = localStorage.getItem('sinapta_feat_'+i+'_desc');
