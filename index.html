@@ -646,7 +646,72 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 1.1 Títulos em HTML (mantem coloração)
+    
+    // LIST SYNC
+    const prods = document.querySelectorAll('#produtos > div > div.grid > div');
+    prods.forEach((prod, i) => {
+        const title = localStorage.getItem('sinapta_prod_'+i+'_title');
+        const desc = localStorage.getItem('sinapta_prod_'+i+'_desc');
+        const tag = localStorage.getItem('sinapta_prod_'+i+'_tag');
+        if(title) prod.querySelector('h3').innerText = title;
+        if(desc) prod.querySelector('p').innerText = desc;
+        if(tag) prod.querySelector('div.inline-block').innerText = tag;
+        
+        const bullets = prod.querySelectorAll('li');
+        const b1 = localStorage.getItem('sinapta_prod_'+i+'_b1');
+        const b2 = localStorage.getItem('sinapta_prod_'+i+'_b2');
+        const b3 = localStorage.getItem('sinapta_prod_'+i+'_b3');
+        if(b1 && bullets[0]) bullets[0].innerHTML = bullets[0].innerHTML.replace(/<\/span>.*$/, '</span> ' + b1);
+        if(b2 && bullets[1]) bullets[1].innerHTML = bullets[1].innerHTML.replace(/<\/span>.*$/, '</span> ' + b2);
+        if(b3 && bullets[2]) bullets[2].innerHTML = bullets[2].innerHTML.replace(/<\/span>.*$/, '</span> ' + b3);
+    });
+
+    const segs = document.querySelectorAll('#segmentos h4');
+    segs.forEach((seg, i) => {
+        const title = localStorage.getItem('sinapta_seg_'+i+'_title');
+        if(title) seg.innerText = title;
+    });
+
+    const mets = document.querySelectorAll('#solucoes h4');
+    mets.forEach((met, i) => {
+        const title = localStorage.getItem('sinapta_met_'+i+'_title');
+        const desc = localStorage.getItem('sinapta_met_'+i+'_desc');
+        if(title) met.innerText = title;
+        if(desc) met.nextElementSibling.innerText = desc;
+    });
+
+    const diffs = document.querySelectorAll('.py-24.bg-surface-container-low h3');
+    let dIndex = 0;
+    diffs.forEach((diff) => {
+        if(!diff.closest('#segmentos') && !diff.closest('#solucoes') && diff.innerText !== 'Diferenciais Sinapta') {
+            const title = localStorage.getItem('sinapta_diff_'+dIndex+'_title');
+            const desc = localStorage.getItem('sinapta_diff_'+dIndex+'_desc');
+            if(title) diff.innerText = title;
+            if(desc && diff.nextElementSibling) diff.nextElementSibling.innerText = desc;
+            dIndex++;
+        }
+    });
+
+    const blogs = document.querySelectorAll('#sec-9 h4, .py-32.bg-surface h4'); // wait, let's use a clear selector
+    const blogNodes = document.querySelectorAll('.aspect-video');
+    blogNodes.forEach((bNode, i) => {
+        const p = bNode.parentElement;
+        const tagNode = p.querySelector('.text-\\[10px\\]');
+        const titleNode = p.querySelector('h4');
+        const tag = localStorage.getItem('sinapta_blog_'+i+'_tag');
+        const title = localStorage.getItem('sinapta_blog_'+i+'_title');
+        if(tag && tagNode) tagNode.innerText = tag;
+        if(title && titleNode) titleNode.innerText = title;
+    });
+
+    const feats = document.querySelectorAll('.max-w-7xl.mx-auto.px-12.grid.grid-cols-12 > div.col-span-5 h4');
+    feats.forEach((feat, i) => {
+        const title = localStorage.getItem('sinapta_feat_'+i+'_title');
+        const desc = localStorage.getItem('sinapta_feat_'+i+'_desc');
+        if(title) feat.innerText = title;
+        if(desc) feat.nextElementSibling.innerText = desc;
+    });
+\n    // 1.1 Títulos em HTML (mantem coloração)
     const htmlFields = ['hero-title'];
     htmlFields.forEach(f => {
         const val = localStorage.getItem('sinapta_' + f);
