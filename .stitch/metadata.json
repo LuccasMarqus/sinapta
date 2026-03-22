@@ -1,0 +1,20 @@
+{
+  "name": "projects/8258766511575520545",
+  "projectId": "8258766511575520545",
+  "title": "Sinapta — Landing Page Enterprise",
+  "visibility": "PRIVATE",
+  "projectType": "PROJECT_DESIGN",
+  "origin": "STITCH",
+  "deviceType": "DESKTOP",
+  "screens": {
+    "index": {
+      "id": "0d4c068d36f54ce2a2719357d487ff87",
+      "sourceScreen": "projects/8258766511575520545/screens/0d4c068d36f54ce2a2719357d487ff87",
+      "x": 0,
+      "y": 0,
+      "width": 2560,
+      "height": 17156,
+      "title": "Sinapta - Enterprise Landing Page"
+    }
+  }
+}
