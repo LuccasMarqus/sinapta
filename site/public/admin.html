@@ -1020,8 +1020,8 @@
             rows.push({ id: 'sinapta_testimonials', value: { data: JSON.stringify(testimonials) } });
 
             // Logo
-            const savedLogo = localStorage.getItem('sinapta_logo');
-            if (savedLogo) rows.push({ id: 'sinapta_logo', value: { data: savedLogo } });
+            const savedLogo = localStorage.getItem('sinapta_logo') || '';
+            rows.push({ id: 'sinapta_logo', value: { data: savedLogo } });
 
             // UPSERT no Supabase via REST
             try {
@@ -1067,6 +1067,7 @@
         }
         
         function removeLogoFromUI() {
+            localStorage.removeItem('sinapta_logo');
             document.querySelectorAll('.dynamic-logo').forEach(img => {
                 img.src = '';
                 img.classList.add('hidden');
