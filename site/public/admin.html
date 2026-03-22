@@ -288,13 +288,13 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-400 mb-2">Texto do
                                         Botão</label>
-                                    <input type="text" value="Fale com um Especialista"
+                                    <input type="text" id="admin-btn-text" value="Fale com um Especialista"
                                         class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary text-on-surface">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-400 mb-2">URL de
                                         Destino</label>
-                                    <input type="text" value="#contato"
+                                    <input type="text" id="admin-btn-url" value="#contato"
                                         class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary text-on-surface">
                                 </div>
                             </div>
@@ -312,8 +312,8 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                             <div class="mb-6">
                                 <label class="block text-xs font-semibold text-slate-400 mb-2">Título Principal
                                     (H1)</label>
-                                <textarea rows="3"
-                                    class="form-textarea w-full bg-background border border-outline-variant/40 rounded-lg p-4 font-bold text-lg focus:border-primary text-on-surface">TECNOLOGIA QUE &#13;&#10;TRANSFORMA.</textarea>
+                                <textarea id="admin-hero-title" rows="3"
+                                    class="form-textarea w-full bg-background border border-outline-variant/40 rounded-lg p-4 font-bold text-lg focus:border-primary text-on-surface">TECNOLOGIA QUE &#13;&#10;<span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary">TRANSFORMA.</span></textarea>
                                 <p class="text-xs text-slate-500 mt-2">Dica: Use
                                     <code>&lt;span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary"&gt;Palavra&lt;/span&gt;</code>
                                     para o efeito de gradiente.</p>
@@ -334,12 +334,12 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                                     <h4 class="font-bold text-primary">Botão Primário (Azul)</h4>
                                     <div>
                                         <label class="block text-xs font-semibold text-slate-400 mb-1">Texto</label>
-                                        <input type="text" value="Explorar o Ecossistema"
+                                        <input type="text" id="admin-hero-btn-text" value="Explorar o Ecossistema"
                                             class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary text-on-surface">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-semibold text-slate-400 mb-1">URL</label>
-                                        <input type="text" value="#ecossistema"
+                                        <input type="text" id="admin-hero-btn-url" value="#ecossistema"
                                             class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary text-on-surface">
                                     </div>
                                 </div>
@@ -347,13 +347,13 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                                     <h4 class="font-bold text-slate-300">Botão Secundário (Fantasma)</h4>
                                     <div>
                                         <label class="block text-xs font-semibold text-slate-400 mb-1">Texto</label>
-                                        <input type="text" value="Ver como funciona"
+                                        <input type="text" id="admin-hero-btn2-text" value="Ver como funciona"
                                             class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary text-on-surface">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-semibold text-slate-400 mb-1">URL (Ex: Vídeo
                                             Modal)</label>
-                                        <input type="text" value="#"
+                                        <input type="text" id="admin-hero-btn2-url" value="#"
                                             class="form-input w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary text-on-surface">
                                     </div>
                                 </div>
@@ -426,13 +426,13 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                                     <div class="w-1/2">
                                         <label
                                             class="block text-[10px] font-bold text-slate-500 uppercase">Número/Valor</label>
-                                        <input type="text" value="99,9%"
+                                        <input type="text" id="admin-kpi-4-val" value="99,9%"
                                             class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-xl font-black text-primary px-1 py-2">
                                     </div>
                                     <div class="w-1/2">
                                         <label
                                             class="block text-[10px] font-bold text-slate-500 uppercase">Rótulo</label>
-                                        <input type="text" value="Uptime"
+                                        <input type="text" id="admin-kpi-4-desc" value="Uptime"
                                             class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary text-sm font-bold text-on-surface px-1 py-2 uppercase tracking-widest mt-[5px]">
                                     </div>
                                 </div>
@@ -452,12 +452,12 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                             <div class="grid grid-cols-2 gap-6">
                                 <div class="col-span-2">
                                     <label class="block text-xs font-semibold text-slate-400 mb-2">Título</label>
-                                    <input type="text" value="O Nosso Ecossistema"
+                                    <input type="text" id="admin-eco-title" value="O Nosso Ecossistema"
                                         class="w-full bg-background border border-outline-variant/40 rounded-lg p-3 text-2xl font-black focus:border-primary outline-none">
                                 </div>
                                 <div class="col-span-2">
                                     <label class="block text-xs font-semibold text-slate-400 mb-2">Subtítulo</label>
-                                    <input type="text"
+                                    <input type="text" id="admin-eco-sub"
                                         value="Soluções modulares desenhadas para cada estágio da sua jornada digital."
                                         class="w-full bg-background border border-outline-variant/40 rounded-lg p-3 focus:border-primary outline-none text-slate-300">
                                 </div>
@@ -771,12 +771,12 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
                             <div>
                                 <label class="block text-xs font-semibold text-slate-400 mb-2">Descrição da
                                     Empresa</label>
-                                <textarea
+                                <textarea id="admin-footer-desc"
                                     class="w-full form-textarea bg-background border border-outline-variant/40 rounded-lg p-3 text-slate-300 focus:border-primary min-h-[100px]">Liderando a fronteira orbital da transformação digital. Tecnologia brasileira com ambição global.</textarea>
 
                                 <label class="block text-xs font-semibold text-slate-400 mt-6 mb-2">Texto de
                                     Copyright</label>
-                                <input type="text" value="© 2024 Sinapta. Todos os direitos reservados."
+                                <input type="text" id="admin-footer-copy" value="© 2024 Sinapta. Todos os direitos reservados."
                                     class="w-full border border-outline-variant/40 rounded-lg p-3 bg-background text-slate-400">
                             </div>
                             <div>
@@ -819,7 +819,7 @@ class="form-input w-full bg-background border border-outline-variant/40 rounded-
         });
 
         // Integra&#231;&#227;o com LocalStorage (Mock CMS Backend em tempo real)
-        const fields = ['kpi-1-val', 'kpi-1-desc', 'kpi-2-val', 'kpi-2-desc', 'kpi-3-val', 'kpi-3-desc', 'top-email', 'top-phone', 'hero-sub'];
+        const fields = ['kpi-1-val', 'kpi-1-desc', 'kpi-2-val', 'kpi-2-desc', 'kpi-3-val', 'kpi-3-desc', 'kpi-4-val', 'kpi-4-desc', 'top-email', 'top-phone', 'hero-title', 'hero-sub', 'btn-text', 'btn-url', 'hero-btn-text', 'hero-btn-url', 'hero-btn2-text', 'hero-btn2-url', 'eco-title', 'eco-sub', 'footer-desc', 'footer-copy'];
 
         // 1. Array State do Testimonial
         let testimonials = [];
