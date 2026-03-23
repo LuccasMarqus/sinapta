@@ -828,11 +828,16 @@
             });
         });
 
-        // Integra&#231;&#227;o com LocalStorage (Mock CMS Backend em tempo real)
+        // Integração com LocalStorage (Mock CMS Backend em tempo real)
         const fields = ['kpi-1-val', 'kpi-1-desc', 'kpi-2-val', 'kpi-2-desc', 'kpi-3-val', 'kpi-3-desc', 'stat-1-val', 'stat-1-desc', 'stat-2-val', 'stat-2-desc', 'stat-3-val', 'stat-3-desc', 'stat-4-val', 'stat-4-desc', 'top-email', 'top-phone', 'hero-title', 'hero-sub', 'btn-text', 'btn-url', 'hero-btn-text', 'hero-btn-url', 'hero-btn2-text', 'hero-btn2-url', 'eco-title', 'eco-sub', 'footer-desc', 'footer-copy'];
 
-        
-    // LOAD LISTS
+        const SUPABASE_URL = 'https://euybkvjsqfzjojhnquqo.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV1eWJrdmpzcWZ6am9qaG5xdXFvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxODg0MTYsImV4cCI6MjA4OTc2NDQxNn0.Hx9qp8gS7lTqy0BoxWanJjXMUfFUADiHJm6xLVViSFc';
+
+        let testimonials = [];
+
+        function loadAdminVariables() {
+            // LOAD LISTS
     for(let i=0; i<4; i++) {
         ['title','tag','desc','b1','b2','b3'].forEach(k => {
             let el = document.getElementById('admin-prod-'+i+'-'+k);
@@ -872,12 +877,12 @@
         }
     }
 
-        // 1. Array State do Testimonial
-        let testimonials = [];
-        try {
-            const st = localStorage.getItem('sinapta_testimonials');
-            if (st) testimonials = JSON.parse(st);
-        } catch (e) { }
+            // 1. Array State do Testimonial
+            testimonials = [];
+            try {
+                const st = localStorage.getItem('sinapta_testimonials');
+                if (st) testimonials = JSON.parse(st);
+            } catch (e) { }
 
         // 2. Renderizar Testimonials
         function renderTestimonials() {
@@ -933,10 +938,31 @@
             }
         });
 
-        // 4. Salvar tudo → Supabase Cloud
-        const SUPABASE_URL = 'https://euybkvjsqfzjojhnquqo.supabase.co';
-        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV1eWJrdmpzcWZ6am9qaG5xdXFvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxODg0MTYsImV4cCI6MjA4OTc2NDQxNn0.Hx9qp8gS7lTqy0BoxWanJjXMUfFUADiHJm6xLVViSFc';
+        const savedLogoLocal = localStorage.getItem('sinapta_logo');
+        if (savedLogoLocal) {
+            applyLogoToUI(savedLogoLocal);
+        }
+    }
 
+    document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const res = await fetch(SUPABASE_URL + '/rest/v1/site_settings?select=*', {
+                headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY }
+            });
+            if (res.ok) {
+                const data = await res.json();
+                data.forEach(row => {
+                    if (row.value && row.value.data !== null) {
+                        localStorage.setItem(row.id, row.value.data);
+                    }
+                });
+            }
+        } catch(e) { console.warn('Supabase load error, using cache:', e); }
+
+        loadAdminVariables();
+    });
+
+        // 4. Salvar tudo → Supabase Cloud
         async function saveToCloud() {
             const btnText = document.getElementById('btn-save-text');
             const btn = document.getElementById('btn-save-changes');
@@ -994,8 +1020,8 @@
             rows.push({ id: 'sinapta_testimonials', value: { data: JSON.stringify(testimonials) } });
 
             // Logo
-            const savedLogo = localStorage.getItem('sinapta_logo');
-            if (savedLogo) rows.push({ id: 'sinapta_logo', value: { data: savedLogo } });
+            const savedLogo = localStorage.getItem('sinapta_logo') || '';
+            rows.push({ id: 'sinapta_logo', value: { data: savedLogo } });
 
             // UPSERT no Supabase via REST
             try {
@@ -1041,6 +1067,7 @@
         }
         
         function removeLogoFromUI() {
+            localStorage.removeItem('sinapta_logo');
             document.querySelectorAll('.dynamic-logo').forEach(img => {
                 img.src = '';
                 img.classList.add('hidden');
@@ -1091,11 +1118,6 @@
             });
         }
 
-        // Load initial logo
-        const savedLogoLocal = localStorage.getItem('sinapta_logo');
-        if (savedLogoLocal) {
-            applyLogoToUI(savedLogoLocal);
-        }
     </script>
 
 </body></html>
