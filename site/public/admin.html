@@ -713,15 +713,84 @@
 
         let testimonials = [];
 
+        // ======= PRODUCTS CRUD (escopo global) =======
+        var products = [];
+        var defaultProducts = [
+            { title: 'Contractfy', tag: 'LegalTech', desc: 'Gestão inteligente de contratos com IA para automatização de minutas e fluxos de aprovação.', b1: 'Assinatura Digital Integrada', b2: 'Workflow de Aprovações', b3: 'Repositório em Nuvem' },
+            { title: 'Medtrack', tag: 'HealthTech', desc: 'Plataforma de rastreabilidade e gestão para o setor de saúde.', b1: 'Rastreabilidade em Tempo Real', b2: 'Conformidade ANVISA', b3: 'Dashboard Analítico' },
+            { title: 'Sites & Apps', tag: 'WebDev', desc: 'Desenvolvimento de sites e aplicações web de alta performance.', b1: 'Design Responsivo', b2: 'SEO Otimizado', b3: 'Performance A+' },
+            { title: 'Automações', tag: 'Processos', desc: 'Automação de processos empresariais com inteligência artificial.', b1: 'Integração com APIs', b2: 'Workflows Customizados', b3: 'Relatórios Automáticos' }
+        ];
+
+        function loadProducts() {
+            try {
+                var saved = localStorage.getItem('sinapta_products');
+                if (saved) { products = JSON.parse(saved); }
+                else { products = defaultProducts.map(function(p) { return Object.assign({}, p); }); }
+            } catch(e) { products = defaultProducts.map(function(p) { return Object.assign({}, p); }); }
+        }
+
+        function renderProducts() {
+            var list = document.getElementById('admin-products-list');
+            if (!list) return;
+            if (products.length === 0) {
+                list.innerHTML = '<div class="text-slate-500 text-sm text-center py-4">Nenhum produto. Clique em "+ Novo Produto" para adicionar.</div>';
+                return;
+            }
+            list.innerHTML = products.map(function(p, i) { return '\n\
+                <div class="border border-outline-variant/20 bg-background rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start relative overflow-hidden group" data-product-index="' + i + '">\n\
+                    <div class="w-16 h-16 bg-[#1f2a3d] rounded-lg shrink-0 flex items-center justify-center border border-primary/20">\n\
+                        <span class="material-symbols-outlined text-primary text-3xl">description</span>\n\
+                    </div>\n\
+                    <div class="flex-1 grid grid-cols-2 gap-4">\n\
+                        <div>\n\
+                            <label class="block text-[10px] text-slate-500 mb-1">Título do Produto</label>\n\
+                            <input type="text" value="' + (p.title || '') + '" onchange="products[' + i + '].title = this.value" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm font-bold">\n\
+                        </div>\n\
+                        <div>\n\
+                            <label class="block text-[10px] text-slate-500 mb-1">Tag/Categoria</label>\n\
+                            <input type="text" value="' + (p.tag || '') + '" onchange="products[' + i + '].tag = this.value" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm text-primary">\n\
+                        </div>\n\
+                        <div class="col-span-2">\n\
+                            <label class="block text-[10px] text-slate-500 mb-1">Descrição</label>\n\
+                            <textarea rows="2" onchange="products[' + i + '].desc = this.value" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-xs">' + (p.desc || '') + '</textarea>\n\
+                        </div>\n\
+                        <div class="col-span-2 text-xs border border-outline-variant/20 rounded p-3 space-y-2">\n\
+                            <div class="text-[10px] font-bold text-slate-400">BULLET POINTS</div>\n\
+                            <input type="text" value="' + (p.b1 || '') + '" onchange="products[' + i + '].b1 = this.value" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs">\n\
+                            <input type="text" value="' + (p.b2 || '') + '" onchange="products[' + i + '].b2 = this.value" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs">\n\
+                            <input type="text" value="' + (p.b3 || '') + '" onchange="products[' + i + '].b3 = this.value" class="w-full bg-transparent border-b border-outline-variant/30 py-1 outline-none text-xs">\n\
+                        </div>\n\
+                    </div>\n\
+                    <div class="flex flex-col gap-2 shrink-0 md:ml-4 border-l border-outline-variant/20 pl-6 border-dashed">\n\
+                        <button onclick="saveProductItem(' + i + ')" class="bg-primary/20 text-primary px-3 py-1.5 rounded font-bold text-xs hover:bg-primary/30 w-full">Salvar Ítem</button>\n\
+                        <button onclick="deleteProduct(' + i + ')" class="text-red-400 hover:text-red-300 font-bold text-xs py-1.5 w-full">Excluir</button>\n\
+                    </div>\n\
+                </div>'; }).join('');
+        }
+
+        function deleteProduct(index) {
+            if (confirm('Excluir este produto?')) {
+                products.splice(index, 1);
+                localStorage.setItem('sinapta_products', JSON.stringify(products));
+                renderProducts();
+            }
+        }
+
+        function saveProductItem(index) {
+            localStorage.setItem('sinapta_products', JSON.stringify(products));
+            var card = document.querySelector('[data-product-index="' + index + '"]');
+            if (card) {
+                var btn = card.querySelector('button');
+                var origText = btn.innerText;
+                btn.innerText = '✅ Salvo!';
+                btn.classList.add('bg-green-500/20', 'text-green-400');
+                setTimeout(function() { btn.innerText = origText; btn.classList.remove('bg-green-500/20', 'text-green-400'); }, 1500);
+            }
+        }
+
         function loadAdminVariables() {
             // LOAD LISTS
-    for(let i=0; i<4; i++) {
-        ['title','tag','desc','b1','b2','b3'].forEach(k => {
-            let el = document.getElementById('admin-prod-'+i+'-'+k);
-            let v = localStorage.getItem('sinapta_prod_'+i+'_'+k);
-            if(el && v) el.value = v;
-        });
-    }
     for(let i=0; i<6; i++) {
         let el = document.getElementById('admin-seg-'+i+'-title');
         let v = localStorage.getItem('sinapta_seg_'+i+'_title');
@@ -806,92 +875,16 @@
             renderTestimonials();
         }
 
-        // ======= PRODUCTS CRUD =======
-        let products = [];
-        const defaultProducts = [
-            { title: 'Contractfy', tag: 'LegalTech', desc: 'Gestão inteligente de contratos com IA para automatização de minutas e fluxos de aprovação.', b1: 'Assinatura Digital Integrada', b2: 'Workflow de Aprovações', b3: 'Repositório em Nuvem' },
-            { title: 'Medtrack', tag: 'HealthTech', desc: 'Plataforma de rastreabilidade e gestão para o setor de saúde.', b1: 'Rastreabilidade em Tempo Real', b2: 'Conformidade ANVISA', b3: 'Dashboard Analítico' },
-            { title: 'Sites & Apps', tag: 'WebDev', desc: 'Desenvolvimento de sites e aplicações web de alta performance.', b1: 'Design Responsivo', b2: 'SEO Otimizado', b3: 'Performance A+' },
-            { title: 'Automações', tag: 'Processos', desc: 'Automação de processos empresariais com inteligência artificial.', b1: 'Integração com APIs', b2: 'Workflows Customizados', b3: 'Relatórios Automáticos' }
-        ];
-
-        function loadProducts() {
-            try {
-                const saved = localStorage.getItem('sinapta_products');
-                if (saved) { products = JSON.parse(saved); }
-                else { products = [...defaultProducts]; }
-            } catch(e) { products = [...defaultProducts]; }
-        }
-
-        function renderProducts() {
-            const list = document.getElementById('admin-products-list');
-            if (!list) return;
-            if (products.length === 0) {
-                list.innerHTML = '<div class="text-slate-500 text-sm text-center py-4">Nenhum produto. Clique em "+ Novo Produto" para adicionar.</div>';
-                return;
-            }
-            list.innerHTML = products.map((p, i) => `
-                <div class="border border-outline-variant/20 bg-background rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start relative overflow-hidden group" data-product-index="${i}">
-                    <div class="w-16 h-16 bg-[#1f2a3d] rounded-lg shrink-0 flex items-center justify-center border border-primary/20">
-                        <span class="material-symbols-outlined text-primary text-3xl">description</span>
-                    </div>
-                    <div class="flex-1 grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-[10px] text-slate-500 mb-1">Título do Produto</label>
-                            <input type="text" value="${p.title || ''}" onchange="products[${i}].title = this.value" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm font-bold">
-                        </div>
-                        <div>
-                            <label class="block text-[10px] text-slate-500 mb-1">Tag/Categoria</label>
-                            <input type="text" value="${p.tag || ''}" onchange="products[${i}].tag = this.value" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm text-primary">
-                        </div>
-                        <div class="col-span-2">
-                            <label class="block text-[10px] text-slate-500 mb-1">Descrição</label>
-                            <textarea rows="2" onchange="products[${i}].desc = this.value" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-xs">${p.desc || ''}</textarea>
-                        </div>
-                        <div class="col-span-2 text-xs border border-outline-variant/20 rounded p-3 space-y-2">
-                            <div class="text-[10px] font-bold text-slate-400">BULLET POINTS</div>
-                            <input type="text" value="${p.b1 || ''}" onchange="products[${i}].b1 = this.value" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs">
-                            <input type="text" value="${p.b2 || ''}" onchange="products[${i}].b2 = this.value" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs">
-                            <input type="text" value="${p.b3 || ''}" onchange="products[${i}].b3 = this.value" class="w-full bg-transparent border-b border-outline-variant/30 py-1 outline-none text-xs">
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-2 shrink-0 md:ml-4 border-l border-outline-variant/20 pl-6 border-dashed">
-                        <button onclick="saveProductItem(${i})" class="bg-primary/20 text-primary px-3 py-1.5 rounded font-bold text-xs hover:bg-primary/30 w-full">Salvar Ítem</button>
-                        <button onclick="deleteProduct(${i})" class="text-red-400 hover:text-red-300 font-bold text-xs py-1.5 w-full">Excluir</button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function deleteProduct(index) {
-            if (confirm('Excluir este produto?')) {
-                products.splice(index, 1);
-                localStorage.setItem('sinapta_products', JSON.stringify(products));
-                renderProducts();
-            }
-        }
-
-        function saveProductItem(index) {
-            localStorage.setItem('sinapta_products', JSON.stringify(products));
-            const card = document.querySelector(`[data-product-index="${index}"]`);
-            if (card) {
-                const btn = card.querySelector('button');
-                const origText = btn.innerText;
-                btn.innerText = '✅ Salvo!';
-                btn.classList.add('bg-green-500/20', 'text-green-400');
-                setTimeout(() => { btn.innerText = origText; btn.classList.remove('bg-green-500/20', 'text-green-400'); }, 1500);
-            }
-        }
-
-        const btnAddProd = document.getElementById('btn-add-product');
+        // Products: carregar e renderizar (funções já definidas no escopo global)
+        loadProducts();
+        renderProducts();
+        var btnAddProd = document.getElementById('btn-add-product');
         if (btnAddProd) {
-            btnAddProd.addEventListener('click', () => {
+            btnAddProd.addEventListener('click', function() {
                 products.push({ title: '', tag: '', desc: '', b1: '', b2: '', b3: '' });
                 renderProducts();
             });
         }
-        loadProducts();
-        renderProducts();
 
         // 3. Carregar KPIs
         fields.forEach(f => {
