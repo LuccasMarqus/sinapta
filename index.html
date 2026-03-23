@@ -765,10 +765,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    const diffs = document.querySelectorAll('section:not(#segmentos):not(#solucoes) h3.text-2xl');
+    const diffs = document.querySelectorAll('section:not(#segmentos):not(#solucoes):not(#produtos) h3.text-2xl');
     let dIndex = 0;
     diffs.forEach((diff) => {
-        if(!diff.closest('#segmentos') && !diff.closest('#solucoes') && diff.innerText !== 'Diferenciais Sinapta') {
+        if(!diff.closest('#segmentos') && !diff.closest('#solucoes') && !diff.closest('#produtos') && diff.innerText !== 'Diferenciais Sinapta') {
             const title = localStorage.getItem('sinapta_diff_'+dIndex+'_title');
             const desc = localStorage.getItem('sinapta_diff_'+dIndex+'_desc');
             if(title) diff.innerText = title;
