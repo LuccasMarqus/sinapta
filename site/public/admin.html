@@ -418,136 +418,13 @@
                             </div>
                         </div>
 
-                        <!-- Lista de Produtos -->
+                        <!-- Lista de Produtos (Dinâmica) -->
                         <div class="bg-surface-high p-8 rounded-2xl border border-outline-variant/20 shadow-lg">
                             <div class="flex items-center justify-between mb-6 border-b border-outline-variant/20 pb-4">
                                 <h3 class="text-lg font-bold">Gestão de Produtos</h3>
-                                <button class="bg-primary hover:bg-primary/90 text-on-primary font-bold px-4 py-2 rounded-lg text-xs">+
-                                    Novo Produto</button>
+                                <button id="btn-add-product" class="bg-primary hover:bg-primary/90 text-on-primary font-bold px-4 py-2 rounded-lg text-xs">+ Novo Produto</button>
                             </div>
-
-                            <!-- Mockup de Tabela de CRUD em Cards horizontais -->
-                            <div class="space-y-4"><div class="border border-outline-variant/20 bg-background rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start relative overflow-hidden group">
-                                    <div class="w-16 h-16 bg-[#1f2a3d] rounded-lg shrink-0 flex items-center justify-center border border-primary/20">
-                                        <span class="material-symbols-outlined text-primary text-3xl">description</span>
-                                    </div>
-                                    <div class="flex-1 grid grid-cols-2 gap-4">
-                                        <div>
-                                            <label class="block text-[10px] text-slate-500 mb-1">Título do
-                                                Produto</label>
-                                            <input type="text" value="Contractfy" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm font-bold">
-                                        </div>
-                                        <div>
-                                            <label class="block text-[10px] text-slate-500 mb-1">Tag/Categoria</label>
-                                            <input type="text" value="LegalTech" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm text-primary" id="admin-prod-0-tag">
-                                        </div>
-                                        <div class="col-span-2">
-                                            <label class="block text-[10px] text-slate-500 mb-1">Descrição</label>
-                                            <textarea rows="2" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-xs" id="admin-prod-0-desc">Gestão inteligente de contratos com IA para automatização de minutas e fluxos de aprovação.</textarea>
-                                        </div>
-                                        <div class="col-span-2 text-xs border border-outline-variant/20 rounded p-3 space-y-2">
-                                            <div class="text-[10px] font-bold text-slate-400">BULLET POINTS</div>
-                                            <input type="text" value="Assinatura Digital Integrada" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs" id="admin-prod-0-b1">
-                                            <input type="text" value="Workflow de Aprovações" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs" id="admin-prod-0-b2">
-                                            <input type="text" value="Repositório em Nuvem" class="w-full bg-transparent border-b border-outline-variant/30 py-1 outline-none text-xs" id="admin-prod-0-b3">
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-col gap-2 shrink-0 md:ml-4 border-l border-outline-variant/20 pl-6 border-dashed">
-                                        <button class="bg-primary/20 text-primary px-3 py-1.5 rounded font-bold text-xs hover:bg-primary/30 w-full">Salvar
-                                            Ítem</button>
-                                        <button class="text-red-400 hover:text-red-300 font-bold text-xs py-1.5 w-full">Excluir</button>
-                                    </div>
-                                </div><div class="border border-outline-variant/20 bg-background rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start relative overflow-hidden group">
-                                    <div class="w-16 h-16 bg-[#1f2a3d] rounded-lg shrink-0 flex items-center justify-center border border-primary/20">
-                                        <span class="material-symbols-outlined text-primary text-3xl">description</span>
-                                    </div>
-                                    <div class="flex-1 grid grid-cols-2 gap-4">
-                                        <div>
-                                            <label class="block text-[10px] text-slate-500 mb-1">Título do
-                                                Produto</label>
-                                            <input type="text" value="Contractfy" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm font-bold">
-                                        </div>
-                                        <div>
-                                            <label class="block text-[10px] text-slate-500 mb-1">Tag/Categoria</label>
-                                            <input type="text" value="LegalTech" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm text-primary" id="admin-prod-1-tag">
-                                        </div>
-                                        <div class="col-span-2">
-                                            <label class="block text-[10px] text-slate-500 mb-1">Descrição</label>
-                                            <textarea rows="2" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-xs" id="admin-prod-1-desc">Gestão inteligente de contratos com IA para automatização de minutas e fluxos de aprovação.</textarea>
-                                        </div>
-                                        <div class="col-span-2 text-xs border border-outline-variant/20 rounded p-3 space-y-2">
-                                            <div class="text-[10px] font-bold text-slate-400">BULLET POINTS</div>
-                                            <input type="text" value="Assinatura Digital Integrada" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs" id="admin-prod-1-b1">
-                                            <input type="text" value="Workflow de Aprovações" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs" id="admin-prod-1-b2">
-                                            <input type="text" value="Repositório em Nuvem" class="w-full bg-transparent border-b border-outline-variant/30 py-1 outline-none text-xs" id="admin-prod-1-b3">
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-col gap-2 shrink-0 md:ml-4 border-l border-outline-variant/20 pl-6 border-dashed">
-                                        <button class="bg-primary/20 text-primary px-3 py-1.5 rounded font-bold text-xs hover:bg-primary/30 w-full">Salvar
-                                            Ítem</button>
-                                        <button class="text-red-400 hover:text-red-300 font-bold text-xs py-1.5 w-full">Excluir</button>
-                                    </div>
-                                </div><div class="border border-outline-variant/20 bg-background rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start relative overflow-hidden group">
-                                    <div class="w-16 h-16 bg-[#1f2a3d] rounded-lg shrink-0 flex items-center justify-center border border-primary/20">
-                                        <span class="material-symbols-outlined text-primary text-3xl">description</span>
-                                    </div>
-                                    <div class="flex-1 grid grid-cols-2 gap-4">
-                                        <div>
-                                            <label class="block text-[10px] text-slate-500 mb-1">Título do
-                                                Produto</label>
-                                            <input type="text" value="Contractfy" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm font-bold">
-                                        </div>
-                                        <div>
-                                            <label class="block text-[10px] text-slate-500 mb-1">Tag/Categoria</label>
-                                            <input type="text" value="LegalTech" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm text-primary" id="admin-prod-2-tag">
-                                        </div>
-                                        <div class="col-span-2">
-                                            <label class="block text-[10px] text-slate-500 mb-1">Descrição</label>
-                                            <textarea rows="2" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-xs" id="admin-prod-2-desc">Gestão inteligente de contratos com IA para automatização de minutas e fluxos de aprovação.</textarea>
-                                        </div>
-                                        <div class="col-span-2 text-xs border border-outline-variant/20 rounded p-3 space-y-2">
-                                            <div class="text-[10px] font-bold text-slate-400">BULLET POINTS</div>
-                                            <input type="text" value="Assinatura Digital Integrada" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs" id="admin-prod-2-b1">
-                                            <input type="text" value="Workflow de Aprovações" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs" id="admin-prod-2-b2">
-                                            <input type="text" value="Repositório em Nuvem" class="w-full bg-transparent border-b border-outline-variant/30 py-1 outline-none text-xs" id="admin-prod-2-b3">
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-col gap-2 shrink-0 md:ml-4 border-l border-outline-variant/20 pl-6 border-dashed">
-                                        <button class="bg-primary/20 text-primary px-3 py-1.5 rounded font-bold text-xs hover:bg-primary/30 w-full">Salvar
-                                            Ítem</button>
-                                        <button class="text-red-400 hover:text-red-300 font-bold text-xs py-1.5 w-full">Excluir</button>
-                                    </div>
-                                </div><div class="border border-outline-variant/20 bg-background rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start relative overflow-hidden group">
-                                    <div class="w-16 h-16 bg-[#1f2a3d] rounded-lg shrink-0 flex items-center justify-center border border-primary/20">
-                                        <span class="material-symbols-outlined text-primary text-3xl">description</span>
-                                    </div>
-                                    <div class="flex-1 grid grid-cols-2 gap-4">
-                                        <div>
-                                            <label class="block text-[10px] text-slate-500 mb-1">Título do
-                                                Produto</label>
-                                            <input type="text" value="Contractfy" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm font-bold">
-                                        </div>
-                                        <div>
-                                            <label class="block text-[10px] text-slate-500 mb-1">Tag/Categoria</label>
-                                            <input type="text" value="LegalTech" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm text-primary" id="admin-prod-3-tag">
-                                        </div>
-                                        <div class="col-span-2">
-                                            <label class="block text-[10px] text-slate-500 mb-1">Descrição</label>
-                                            <textarea rows="2" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-xs" id="admin-prod-3-desc">Gestão inteligente de contratos com IA para automatização de minutas e fluxos de aprovação.</textarea>
-                                        </div>
-                                        <div class="col-span-2 text-xs border border-outline-variant/20 rounded p-3 space-y-2">
-                                            <div class="text-[10px] font-bold text-slate-400">BULLET POINTS</div>
-                                            <input type="text" value="Assinatura Digital Integrada" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs" id="admin-prod-3-b1">
-                                            <input type="text" value="Workflow de Aprovações" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs" id="admin-prod-3-b2">
-                                            <input type="text" value="Repositório em Nuvem" class="w-full bg-transparent border-b border-outline-variant/30 py-1 outline-none text-xs" id="admin-prod-3-b3">
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-col gap-2 shrink-0 md:ml-4 border-l border-outline-variant/20 pl-6 border-dashed">
-                                        <button class="bg-primary/20 text-primary px-3 py-1.5 rounded font-bold text-xs hover:bg-primary/30 w-full">Salvar
-                                            Ítem</button>
-                                        <button class="text-red-400 hover:text-red-300 font-bold text-xs py-1.5 w-full">Excluir</button>
-                                    </div>
-                                </div></div>
+                            <div id="admin-products-list" class="space-y-4"></div>
                         </div>
                     </div>
                 </section>
@@ -929,6 +806,93 @@
             renderTestimonials();
         }
 
+        // ======= PRODUCTS CRUD =======
+        let products = [];
+        const defaultProducts = [
+            { title: 'Contractfy', tag: 'LegalTech', desc: 'Gestão inteligente de contratos com IA para automatização de minutas e fluxos de aprovação.', b1: 'Assinatura Digital Integrada', b2: 'Workflow de Aprovações', b3: 'Repositório em Nuvem' },
+            { title: 'Medtrack', tag: 'HealthTech', desc: 'Plataforma de rastreabilidade e gestão para o setor de saúde.', b1: 'Rastreabilidade em Tempo Real', b2: 'Conformidade ANVISA', b3: 'Dashboard Analítico' },
+            { title: 'Sites & Apps', tag: 'WebDev', desc: 'Desenvolvimento de sites e aplicações web de alta performance.', b1: 'Design Responsivo', b2: 'SEO Otimizado', b3: 'Performance A+' },
+            { title: 'Automações', tag: 'Processos', desc: 'Automação de processos empresariais com inteligência artificial.', b1: 'Integração com APIs', b2: 'Workflows Customizados', b3: 'Relatórios Automáticos' }
+        ];
+
+        function loadProducts() {
+            try {
+                const saved = localStorage.getItem('sinapta_products');
+                if (saved) { products = JSON.parse(saved); }
+                else { products = [...defaultProducts]; }
+            } catch(e) { products = [...defaultProducts]; }
+        }
+
+        function renderProducts() {
+            const list = document.getElementById('admin-products-list');
+            if (!list) return;
+            if (products.length === 0) {
+                list.innerHTML = '<div class="text-slate-500 text-sm text-center py-4">Nenhum produto. Clique em "+ Novo Produto" para adicionar.</div>';
+                return;
+            }
+            list.innerHTML = products.map((p, i) => `
+                <div class="border border-outline-variant/20 bg-background rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start relative overflow-hidden group" data-product-index="${i}">
+                    <div class="w-16 h-16 bg-[#1f2a3d] rounded-lg shrink-0 flex items-center justify-center border border-primary/20">
+                        <span class="material-symbols-outlined text-primary text-3xl">description</span>
+                    </div>
+                    <div class="flex-1 grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[10px] text-slate-500 mb-1">Título do Produto</label>
+                            <input type="text" value="${p.title || ''}" onchange="products[${i}].title = this.value" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm font-bold">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] text-slate-500 mb-1">Tag/Categoria</label>
+                            <input type="text" value="${p.tag || ''}" onchange="products[${i}].tag = this.value" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-sm text-primary">
+                        </div>
+                        <div class="col-span-2">
+                            <label class="block text-[10px] text-slate-500 mb-1">Descrição</label>
+                            <textarea rows="2" onchange="products[${i}].desc = this.value" class="w-full bg-transparent border border-outline-variant/30 rounded p-2 text-xs">${p.desc || ''}</textarea>
+                        </div>
+                        <div class="col-span-2 text-xs border border-outline-variant/20 rounded p-3 space-y-2">
+                            <div class="text-[10px] font-bold text-slate-400">BULLET POINTS</div>
+                            <input type="text" value="${p.b1 || ''}" onchange="products[${i}].b1 = this.value" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs">
+                            <input type="text" value="${p.b2 || ''}" onchange="products[${i}].b2 = this.value" class="w-full bg-transparent border-b border-outline-variant/30 py-1 mb-1 outline-none text-xs">
+                            <input type="text" value="${p.b3 || ''}" onchange="products[${i}].b3 = this.value" class="w-full bg-transparent border-b border-outline-variant/30 py-1 outline-none text-xs">
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 shrink-0 md:ml-4 border-l border-outline-variant/20 pl-6 border-dashed">
+                        <button onclick="saveProductItem(${i})" class="bg-primary/20 text-primary px-3 py-1.5 rounded font-bold text-xs hover:bg-primary/30 w-full">Salvar Ítem</button>
+                        <button onclick="deleteProduct(${i})" class="text-red-400 hover:text-red-300 font-bold text-xs py-1.5 w-full">Excluir</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function deleteProduct(index) {
+            if (confirm('Excluir este produto?')) {
+                products.splice(index, 1);
+                localStorage.setItem('sinapta_products', JSON.stringify(products));
+                renderProducts();
+            }
+        }
+
+        function saveProductItem(index) {
+            localStorage.setItem('sinapta_products', JSON.stringify(products));
+            const card = document.querySelector(`[data-product-index="${index}"]`);
+            if (card) {
+                const btn = card.querySelector('button');
+                const origText = btn.innerText;
+                btn.innerText = '✅ Salvo!';
+                btn.classList.add('bg-green-500/20', 'text-green-400');
+                setTimeout(() => { btn.innerText = origText; btn.classList.remove('bg-green-500/20', 'text-green-400'); }, 1500);
+            }
+        }
+
+        const btnAddProd = document.getElementById('btn-add-product');
+        if (btnAddProd) {
+            btnAddProd.addEventListener('click', () => {
+                products.push({ title: '', tag: '', desc: '', b1: '', b2: '', b3: '' });
+                renderProducts();
+            });
+        }
+        loadProducts();
+        renderProducts();
+
         // 3. Carregar KPIs
         fields.forEach(f => {
             const val = localStorage.getItem('sinapta_' + f);
@@ -981,13 +945,9 @@
                 }
             });
 
-            // Listas (produtos, segmentos, metodologia, diferenciais, blog, features)
-            for(let i=0; i<4; i++) {
-                ['title','tag','desc','b1','b2','b3'].forEach(k => {
-                    let el = document.getElementById('admin-prod-'+i+'-'+k);
-                    if(el) { localStorage.setItem('sinapta_prod_'+i+'_'+k, el.value); rows.push({id:'sinapta_prod_'+i+'_'+k, value:{data:el.value}}); }
-                });
-            }
+            // Produtos (novo sistema baseado em array)
+            localStorage.setItem('sinapta_products', JSON.stringify(products));
+            rows.push({ id: 'sinapta_products', value: { data: JSON.stringify(products) } });
             for(let i=0; i<6; i++) {
                 let el = document.getElementById('admin-seg-'+i+'-title');
                 if(el) { localStorage.setItem('sinapta_seg_'+i+'_title', el.value); rows.push({id:'sinapta_seg_'+i+'_title', value:{data:el.value}}); }

@@ -723,24 +723,30 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     
-    // LIST SYNC
-    const prods = document.querySelectorAll('#produtos > div > div.grid > div');
-    prods.forEach((prod, i) => {
-        const title = localStorage.getItem('sinapta_prod_'+i+'_title');
-        const desc = localStorage.getItem('sinapta_prod_'+i+'_desc');
-        const tag = localStorage.getItem('sinapta_prod_'+i+'_tag');
-        if(title) prod.querySelector('h3').innerText = title;
-        if(desc) prod.querySelector('p').innerText = desc;
-        if(tag) prod.querySelector('div.inline-block').innerText = tag;
-        
-        const bullets = prod.querySelectorAll('li');
-        const b1 = localStorage.getItem('sinapta_prod_'+i+'_b1');
-        const b2 = localStorage.getItem('sinapta_prod_'+i+'_b2');
-        const b3 = localStorage.getItem('sinapta_prod_'+i+'_b3');
-        if(b1 && bullets[0]) bullets[0].innerHTML = bullets[0].innerHTML.replace(/<\/span>.*$/, '</span> ' + b1);
-        if(b2 && bullets[1]) bullets[1].innerHTML = bullets[1].innerHTML.replace(/<\/span>.*$/, '</span> ' + b2);
-        if(b3 && bullets[2]) bullets[2].innerHTML = bullets[2].innerHTML.replace(/<\/span>.*$/, '</span> ' + b3);
-    });
+    // LIST SYNC - Products (novo sistema baseado em array)
+    try {
+        const savedProds = localStorage.getItem('sinapta_products');
+        if (savedProds) {
+            const productsArr = JSON.parse(savedProds);
+            const prodCards = document.querySelectorAll('#produtos > div > div.grid > div');
+            prodCards.forEach((prod, i) => {
+                if (i < productsArr.length) {
+                    const p = productsArr[i];
+                    const h3 = prod.querySelector('h3');
+                    const pDesc = prod.querySelector('p');
+                    const tagDiv = prod.querySelector('div.inline-block');
+                    if(p.title && h3) h3.innerText = p.title;
+                    if(p.desc && pDesc) pDesc.innerText = p.desc;
+                    if(p.tag && tagDiv) tagDiv.innerText = p.tag;
+                    
+                    const bullets = prod.querySelectorAll('li');
+                    if(p.b1 && bullets[0]) bullets[0].innerHTML = bullets[0].innerHTML.replace(/<\/span>.*$/, '</span> ' + p.b1);
+                    if(p.b2 && bullets[1]) bullets[1].innerHTML = bullets[1].innerHTML.replace(/<\/span>.*$/, '</span> ' + p.b2);
+                    if(p.b3 && bullets[2]) bullets[2].innerHTML = bullets[2].innerHTML.replace(/<\/span>.*$/, '</span> ' + p.b3);
+                }
+            });
+        }
+    } catch(e) { console.warn('Products sync error:', e); }
 
     const segs = document.querySelectorAll('#segmentos h4');
     segs.forEach((seg, i) => {
