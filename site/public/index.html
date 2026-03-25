@@ -473,32 +473,32 @@
 </div>
 </section>
 <!-- Section 9: Differentials (Bento Style) -->
-<section class="py-12 lg:py-24 bg-surface-container-low">
+<section id="diferenciais" class="py-12 lg:py-24 bg-surface-container-low">
 <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
 <h2 class="text-3xl lg:text-4xl font-extrabold mb-12">Diferenciais Sinapta</h2>
 <div class="flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:h-[600px]">
 <div class="w-full lg:col-span-8 bg-surface-container-high rounded-[16px] p-6 lg:p-12 relative overflow-hidden group">
 <div class="relative z-10">
 <span class="material-symbols-outlined text-primary text-5xl mb-6">shield</span>
-<h3 class="text-2xl lg:text-3xl font-black mb-4">Segurança de Nível Bancário</h3>
-<p class="text-on-surface-variant max-w-md">Nossos sistemas utilizam criptografia de ponta a ponta e compliance LGPD rigoroso para garantir a integridade dos seus ativos digitais.</p>
+<h3 class="text-2xl lg:text-3xl font-black mb-4" data-diff-index="0">Segurança de Nível Bancário</h3>
+<p class="text-on-surface-variant max-w-md" data-diff-desc="0">Nossos sistemas utilizam criptografia de ponta a ponta e compliance LGPD rigoroso para garantir a integridade dos seus ativos digitais.</p>
 </div>
 <div class="absolute bottom-0 right-0 w-1/2 h-1/2 bg-primary/5 blur-3xl rounded-full"></div>
 </div>
 <div class="w-full lg:col-span-4 bg-primary rounded-[16px] p-6 lg:p-12 text-on-primary flex flex-col justify-end">
 <span class="material-symbols-outlined text-5xl mb-6" style="font-variation-settings: 'FILL' 1;">speed</span>
-<h3 class="text-2xl font-black mb-2">Alta Velocidade</h3>
-<p class="text-on-primary-container text-sm">Infraestrutura otimizada para zero latência.</p>
+<h3 class="text-2xl font-black mb-2" data-diff-index="1">Alta Velocidade</h3>
+<p class="text-on-primary-container text-sm" data-diff-desc="1">Infraestrutura otimizada para zero latência.</p>
 </div>
 <div class="w-full lg:col-span-4 bg-surface-container-high rounded-[16px] p-6 lg:p-12 border border-outline-variant/10">
 <span class="material-symbols-outlined text-tertiary text-5xl mb-6">hub</span>
-<h3 class="text-xl font-bold mb-2">Ecossistema Conectado</h3>
-<p class="text-on-surface-variant text-sm">Integrações nativas com as principais ferramentas do mercado.</p>
+<h3 class="text-xl font-bold mb-2" data-diff-index="2">Ecossistema Conectado</h3>
+<p class="text-on-surface-variant text-sm" data-diff-desc="2">Integrações nativas com as principais ferramentas do mercado.</p>
 </div>
 <div class="w-full lg:col-span-8 bg-[#0D1F3C] rounded-[16px] p-6 lg:p-12 flex flex-col lg:flex-row items-center justify-between text-center lg:text-left gap-8 lg:gap-0">
 <div>
-<h3 class="text-2xl lg:text-3xl font-black mb-4">Suporte Premium 24/7</h3>
-<p class="text-on-surface-variant max-w-sm">Nossa equipe de engenharia está sempre a postos para garantir que sua operação nunca pare.</p>
+<h3 class="text-2xl lg:text-3xl font-black mb-4" data-diff-index="3">Suporte Premium 24/7</h3>
+<p class="text-on-surface-variant max-w-sm" data-diff-desc="3">Nossa equipe de engenharia está sempre a postos para garantir que sua operação nunca pare.</p>
 </div>
 <span class="material-symbols-outlined text-primary text-7xl opacity-20">support_agent</span>
 </div>
@@ -765,17 +765,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    const diffs = document.querySelectorAll('section:not(#segmentos):not(#solucoes):not(#produtos) h3.text-2xl');
-    let dIndex = 0;
-    diffs.forEach((diff) => {
-        if(!diff.closest('#segmentos') && !diff.closest('#solucoes') && !diff.closest('#produtos') && diff.innerText !== 'Diferenciais Sinapta') {
-            const title = localStorage.getItem('sinapta_diff_'+dIndex+'_title');
-            const desc = localStorage.getItem('sinapta_diff_'+dIndex+'_desc');
-            if(title) diff.innerText = title;
-            if(desc && diff.nextElementSibling) diff.nextElementSibling.innerText = desc;
-            dIndex++;
-        }
-    });
+    // Diferenciais - mapeamento determinístico por data-diff-index
+    for(let di = 0; di < 4; di++) {
+        const diffH3 = document.querySelector('[data-diff-index="' + di + '"]');
+        const diffP = document.querySelector('[data-diff-desc="' + di + '"]');
+        const title = localStorage.getItem('sinapta_diff_' + di + '_title');
+        const desc = localStorage.getItem('sinapta_diff_' + di + '_desc');
+        if(title && diffH3) diffH3.innerText = title;
+        if(desc && diffP) diffP.innerText = desc;
+    }
 
     const blogs = document.querySelectorAll('#blog h4, section h4'); // wait, let's use a clear selector
     const blogNodes = document.querySelectorAll('.aspect-video');
