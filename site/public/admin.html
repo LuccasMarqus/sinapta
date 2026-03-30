@@ -787,6 +787,23 @@
             } catch(e) { segments = defaultSegments.map(function(s) { return Object.assign({}, s); }); }
         }
 
+        async function saveSegmentsToCloud() {
+            localStorage.setItem('sinapta_segments', JSON.stringify(segments));
+            try {
+                const rows = [{ id: 'sinapta_segments', value: { data: JSON.stringify(segments) } }];
+                await fetch(SUPABASE_URL + '/rest/v1/site_settings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': 'Bearer ' + SUPABASE_KEY,
+                        'Prefer': 'resolution=merge-duplicates'
+                    },
+                    body: JSON.stringify(rows)
+                });
+            } catch(e) { console.error('Error saving segments', e); }
+        }
+
         function renderSegments() {
             var list = document.getElementById('admin-segments-list');
             if (!list) return;
@@ -797,18 +814,18 @@
             list.innerHTML = segments.map(function(s, i) { return '\n\
                 <div class="bg-background border border-outline-variant/30 p-4 rounded-xl flex items-center justify-between group">\n\
                     <div class="flex items-center gap-3 w-full">\n\
-                        <input type="text" value="' + (s.icon || '') + '" onchange="segments[' + i + '].icon = this.value" class="w-10 text-center material-symbols-outlined text-primary p-2 bg-primary/10 rounded outline-none border-b border-transparent focus:border-primary text-xs" title="Material Icon ID">\n\
-                        <input type="text" value="' + (s.title || '') + '" onchange="segments[' + i + '].title = this.value" class="bg-transparent font-bold flex-1 outline-none border-b border-transparent focus:border-primary text-sm">\n\
+                        <input type="text" value="' + (s.icon || '') + '" onblur="segments[' + i + '].icon = this.value; saveSegmentsToCloud()" onkeyup="if(event.key===\\\'Enter\\\') this.blur();" class="w-10 text-center material-symbols-outlined text-primary p-2 bg-primary/10 rounded outline-none border-b border-transparent focus:border-primary text-xs" title="Material Icon ID">\n\
+                        <input type="text" value="' + (s.title || '') + '" onblur="segments[' + i + '].title = this.value; saveSegmentsToCloud()" onkeyup="if(event.key===\\\'Enter\\\') this.blur();" class="bg-transparent font-bold flex-1 outline-none border-b border-transparent focus:border-primary text-sm">\n\
                     </div>\n\
                     <span onclick="deleteSegment(' + i + ')" class="material-symbols-outlined text-red-500 text-sm cursor-pointer hover:text-red-400 ml-2">close</span>\n\
                 </div>'; }).join('');
         }
 
-        function deleteSegment(index) {
-            if (confirm('Excluir este segmento?')) {
+        async function deleteSegment(index) {
+            if (confirm('Excluir este segmento do banco de dados?')) {
                 segments.splice(index, 1);
-                localStorage.setItem('sinapta_segments', JSON.stringify(segments));
                 renderSegments();
+                await saveSegmentsToCloud();
             }
         }
 
@@ -909,9 +926,10 @@
         renderSegments();
         var btnAddSeg = document.getElementById('btn-add-segment');
         if (btnAddSeg) {
-            btnAddSeg.addEventListener('click', function() {
+            btnAddSeg.addEventListener('click', async function() {
                 segments.push({ icon: 'stars', title: 'Novo Segmento' });
                 renderSegments();
+                await saveSegmentsToCloud();
             });
         }
 
