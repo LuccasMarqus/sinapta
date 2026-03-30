@@ -433,46 +433,11 @@
                 <!-- Sect 5, 6, 7... -->
                 <section id="sec-5" class="section-content">
                     <div class="bg-surface-high p-8 rounded-2xl border border-outline-variant/20 shadow-lg">
-                        <h3 class="text-lg font-bold mb-6 border-b border-outline-variant/20 pb-4">Segmentos de Atuação
-                        </h3>
-
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4"><div class="bg-background border border-outline-variant/30 p-4 rounded-xl flex items-center justify-between">
-                                <div class="flex items-center gap-3">
-                                    <span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded">gavel</span>
-                                    <input type="text" value="Jurídico" class="bg-transparent font-bold w-24 outline-none border-b border-transparent focus:border-primary" id="admin-seg-0-title">
-                                </div>
-                                <span class="material-symbols-outlined text-red-500 text-sm cursor-pointer hover:text-red-400">close</span>
-                            </div><div class="bg-background border border-outline-variant/30 p-4 rounded-xl flex items-center justify-between">
-                                <div class="flex items-center gap-3">
-                                    <span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded">gavel</span>
-                                    <input type="text" value="Jurídico" class="bg-transparent font-bold w-24 outline-none border-b border-transparent focus:border-primary" id="admin-seg-1-title">
-                                </div>
-                                <span class="material-symbols-outlined text-red-500 text-sm cursor-pointer hover:text-red-400">close</span>
-                            </div><div class="bg-background border border-outline-variant/30 p-4 rounded-xl flex items-center justify-between">
-                                <div class="flex items-center gap-3">
-                                    <span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded">gavel</span>
-                                    <input type="text" value="Jurídico" class="bg-transparent font-bold w-24 outline-none border-b border-transparent focus:border-primary" id="admin-seg-2-title">
-                                </div>
-                                <span class="material-symbols-outlined text-red-500 text-sm cursor-pointer hover:text-red-400">close</span>
-                            </div><div class="bg-background border border-outline-variant/30 p-4 rounded-xl flex items-center justify-between">
-                                <div class="flex items-center gap-3">
-                                    <span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded">gavel</span>
-                                    <input type="text" value="Jurídico" class="bg-transparent font-bold w-24 outline-none border-b border-transparent focus:border-primary" id="admin-seg-3-title">
-                                </div>
-                                <span class="material-symbols-outlined text-red-500 text-sm cursor-pointer hover:text-red-400">close</span>
-                            </div><div class="bg-background border border-outline-variant/30 p-4 rounded-xl flex items-center justify-between">
-                                <div class="flex items-center gap-3">
-                                    <span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded">gavel</span>
-                                    <input type="text" value="Jurídico" class="bg-transparent font-bold w-24 outline-none border-b border-transparent focus:border-primary" id="admin-seg-4-title">
-                                </div>
-                                <span class="material-symbols-outlined text-red-500 text-sm cursor-pointer hover:text-red-400">close</span>
-                            </div><div class="bg-background border border-outline-variant/30 p-4 rounded-xl flex items-center justify-between">
-                                <div class="flex items-center gap-3">
-                                    <span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded">gavel</span>
-                                    <input type="text" value="Jurídico" class="bg-transparent font-bold w-24 outline-none border-b border-transparent focus:border-primary" id="admin-seg-5-title">
-                                </div>
-                                <span class="material-symbols-outlined text-red-500 text-sm cursor-pointer hover:text-red-400">close</span>
-                            </div></div>
+                        <div class="flex items-center justify-between mb-6 border-b border-outline-variant/20 pb-4">
+                            <h3 class="text-lg font-bold">Segmentos de Atuação</h3>
+                            <button id="btn-add-segment" class="bg-primary hover:bg-primary/90 text-on-primary font-bold px-4 py-2 rounded-lg text-xs">+ Novo Segmento</button>
+                        </div>
+                        <div id="admin-segments-list" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div>
                     </div>
                 </section>
 
@@ -789,13 +754,66 @@
             }
         }
 
+        // ======= SEGMENTS CRUD =======
+        var defaultSegments = [
+            { icon: 'gavel', title: 'Jurídico' },
+            { icon: 'local_hospital', title: 'Saúde' },
+            { icon: 'storefront', title: 'PMEs' },
+            { icon: 'shopping_cart', title: 'E-commerce' },
+            { icon: 'corporate_fare', title: 'Corporativo' },
+            { icon: 'menu_book', title: 'Educação' }
+        ];
+        var segments = [];
+
+        function loadSegments() {
+            try {
+                var saved = localStorage.getItem('sinapta_segments');
+                if (saved) { segments = JSON.parse(saved); }
+                else { 
+                    var migrated = false;
+                    for(let i=0; i<6; i++) {
+                        if(localStorage.getItem('sinapta_seg_'+i+'_title')) migrated = true;
+                    }
+                    if(migrated) {
+                        segments = [];
+                        for(let i=0; i<6; i++) {
+                            let v = localStorage.getItem('sinapta_seg_'+i+'_title');
+                            segments.push({ icon: defaultSegments[i].icon, title: (v || defaultSegments[i].title) });
+                        }
+                    } else {
+                        segments = defaultSegments.map(function(s) { return Object.assign({}, s); }); 
+                    }
+                }
+            } catch(e) { segments = defaultSegments.map(function(s) { return Object.assign({}, s); }); }
+        }
+
+        function renderSegments() {
+            var list = document.getElementById('admin-segments-list');
+            if (!list) return;
+            if (segments.length === 0) {
+                list.innerHTML = '<div class="col-span-2 md:col-span-3 text-slate-500 text-sm text-center py-4">Nenhum segmento. Clique em "+ Novo Segmento" para adicionar.</div>';
+                return;
+            }
+            list.innerHTML = segments.map(function(s, i) { return '\n\
+                <div class="bg-background border border-outline-variant/30 p-4 rounded-xl flex items-center justify-between group">\n\
+                    <div class="flex items-center gap-3 w-full">\n\
+                        <input type="text" value="' + (s.icon || '') + '" onchange="segments[' + i + '].icon = this.value" class="w-10 text-center material-symbols-outlined text-primary p-2 bg-primary/10 rounded outline-none border-b border-transparent focus:border-primary text-xs" title="Material Icon ID">\n\
+                        <input type="text" value="' + (s.title || '') + '" onchange="segments[' + i + '].title = this.value" class="bg-transparent font-bold flex-1 outline-none border-b border-transparent focus:border-primary text-sm">\n\
+                    </div>\n\
+                    <span onclick="deleteSegment(' + i + ')" class="material-symbols-outlined text-red-500 text-sm cursor-pointer hover:text-red-400 ml-2">close</span>\n\
+                </div>'; }).join('');
+        }
+
+        function deleteSegment(index) {
+            if (confirm('Excluir este segmento?')) {
+                segments.splice(index, 1);
+                localStorage.setItem('sinapta_segments', JSON.stringify(segments));
+                renderSegments();
+            }
+        }
+
         function loadAdminVariables() {
             // LOAD LISTS
-    for(let i=0; i<6; i++) {
-        let el = document.getElementById('admin-seg-'+i+'-title');
-        let v = localStorage.getItem('sinapta_seg_'+i+'_title');
-        if(el && v) el.value = v;
-    }
     for(let i=0; i<5; i++) {
         ['title','desc'].forEach(k => {
             let el = document.getElementById('admin-met-'+i+'-'+k);
@@ -886,6 +904,17 @@
             });
         }
 
+        // Segments: carregar e renderizar
+        loadSegments();
+        renderSegments();
+        var btnAddSeg = document.getElementById('btn-add-segment');
+        if (btnAddSeg) {
+            btnAddSeg.addEventListener('click', function() {
+                segments.push({ icon: 'stars', title: 'Novo Segmento' });
+                renderSegments();
+            });
+        }
+
         // 3. Carregar KPIs
         fields.forEach(f => {
             const val = localStorage.getItem('sinapta_' + f);
@@ -941,10 +970,11 @@
             // Produtos (novo sistema baseado em array)
             localStorage.setItem('sinapta_products', JSON.stringify(products));
             rows.push({ id: 'sinapta_products', value: { data: JSON.stringify(products) } });
-            for(let i=0; i<6; i++) {
-                let el = document.getElementById('admin-seg-'+i+'-title');
-                if(el) { localStorage.setItem('sinapta_seg_'+i+'_title', el.value); rows.push({id:'sinapta_seg_'+i+'_title', value:{data:el.value}}); }
-            }
+
+            // Segmentos (novo sistema em array)
+            localStorage.setItem('sinapta_segments', JSON.stringify(segments));
+            rows.push({ id: 'sinapta_segments', value: { data: JSON.stringify(segments) } });
+
             for(let i=0; i<5; i++) {
                 ['title','desc'].forEach(k => {
                     let el = document.getElementById('admin-met-'+i+'-'+k);
