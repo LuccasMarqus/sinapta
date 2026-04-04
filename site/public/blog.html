@@ -8,12 +8,13 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
 <script>
 tailwind.config = {
     theme: {
         extend: {
-            fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+            fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
             colors: {
                 'primary': '#5B8DEF',
                 'on-primary': '#FFFFFF',
@@ -33,233 +34,380 @@ tailwind.config = {
 }
 </script>
 <style>
-    body { background: #060E1F; color: #E2E8F0; }
-    .prose h2 { font-size: 1.5rem; font-weight: 800; margin: 2rem 0 1rem; color: #E2E8F0; }
-    .prose h3 { font-size: 1.25rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #E2E8F0; }
-    .prose p { margin: 1rem 0; line-height: 1.8; color: #94A3B8; }
-    .prose ul, .prose ol { margin: 1rem 0; padding-left: 1.5rem; color: #94A3B8; }
-    .prose li { margin: 0.5rem 0; line-height: 1.7; }
-    .prose ul li { list-style-type: disc; }
-    .prose ol li { list-style-type: decimal; }
-    .prose strong { color: #E2E8F0; font-weight: 700; }
-    .prose em { font-style: italic; }
-    .prose blockquote { border-left: 4px solid #5B8DEF; padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(91,141,239,0.05); border-radius: 0 12px 12px 0; }
-    .prose code { background: #1E293B; padding: 2px 6px; border-radius: 4px; font-size: 0.875rem; color: #5B8DEF; }
-    .prose pre { background: #1E293B; padding: 1.25rem; border-radius: 12px; overflow-x: auto; margin: 1.5rem 0; border: 1px solid #334155; }
-    .prose pre code { background: none; padding: 0; }
-    .prose a { color: #5B8DEF; text-decoration: underline; }
-    .prose hr { border-color: #334155; margin: 2rem 0; }
+body { background: #060E1F; color: #E2E8F0; }
+/* Animated gradient bg */
+.hero-glow { background: radial-gradient(ellipse at 20% 50%, rgba(91,141,239,0.08) 0%, transparent 70%), radial-gradient(ellipse at 80% 20%, rgba(249,115,22,0.05) 0%, transparent 70%); }
+/* Card hover glow */
+.card-glow { transition: all 0.4s cubic-bezier(0.4,0,0.2,1); }
+.card-glow:hover { box-shadow: 0 0 40px -10px rgba(91,141,239,0.2), 0 20px 60px -20px rgba(0,0,0,0.5); transform: translateY(-4px); }
+/* Tag pill colors */
+.tag-tech { background: rgba(91,141,239,0.12); color: #5B8DEF; }
+.tag-business { background: rgba(249,115,22,0.12); color: #F97316; }
+.tag-security { background: rgba(34,197,94,0.12); color: #22C55E; }
+.tag-default { background: rgba(148,163,184,0.12); color: #94A3B8; }
+/* Reading progress bar */
+#reading-progress { transition: width 0.1s linear; }
+/* Article prose */
+.article-prose h2 { font-size: 1.75rem; font-weight: 800; margin: 2.5rem 0 1rem; color: #E2E8F0; line-height: 1.3; }
+.article-prose h3 { font-size: 1.35rem; font-weight: 700; margin: 2rem 0 0.75rem; color: #CBD5E1; }
+.article-prose p { margin: 1.25rem 0; line-height: 2; color: #94A3B8; font-size: 1.0625rem; }
+.article-prose ul, .article-prose ol { margin: 1.25rem 0; padding-left: 1.5rem; color: #94A3B8; }
+.article-prose li { margin: 0.6rem 0; line-height: 1.8; font-size: 1.0625rem; }
+.article-prose ul li { list-style-type: disc; }
+.article-prose ol li { list-style-type: decimal; }
+.article-prose strong { color: #E2E8F0; font-weight: 700; }
+.article-prose em { font-style: italic; color: #CBD5E1; }
+.article-prose blockquote { border-left: 4px solid #5B8DEF; padding: 1.25rem 1.75rem; margin: 2rem 0; background: linear-gradient(135deg, rgba(91,141,239,0.06), rgba(91,141,239,0.02)); border-radius: 0 16px 16px 0; font-style: italic; }
+.article-prose blockquote p { color: #CBD5E1; margin: 0; }
+.article-prose code { background: #1E293B; padding: 3px 8px; border-radius: 6px; font-size: 0.9rem; color: #5B8DEF; font-family: 'JetBrains Mono', monospace; }
+.article-prose pre { background: linear-gradient(145deg, #1a2332, #0f1825); padding: 1.5rem; border-radius: 16px; overflow-x: auto; margin: 2rem 0; border: 1px solid rgba(71,85,105,0.3); }
+.article-prose pre code { background: none; padding: 0; font-size: 0.875rem; line-height: 1.7; }
+.article-prose a { color: #5B8DEF; text-decoration: none; border-bottom: 1px solid rgba(91,141,239,0.3); transition: border-color 0.2s; }
+.article-prose a:hover { border-bottom-color: #5B8DEF; }
+.article-prose hr { border: none; height: 1px; background: linear-gradient(90deg, transparent, #475569, transparent); margin: 3rem 0; }
+.article-prose img { border-radius: 16px; margin: 2rem 0; width: 100%; }
+/* Skeleton loader */
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+.skeleton { background: linear-gradient(90deg, #1E293B 25%, #2D3B50 50%, #1E293B 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 12px; }
 </style>
 </head>
 <body class="font-sans antialiased">
 
+<!-- Reading Progress Bar -->
+<div id="reading-progress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-primary to-secondary z-[100] w-0"></div>
+
 <!-- Header -->
-<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/10">
+<header class="fixed top-0 w-full z-50 bg-background/70 backdrop-blur-2xl border-b border-outline-variant/10">
     <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex items-center justify-between h-16">
-        <a href="index.html" class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-3 group">
             <img src="" class="dynamic-logo h-8 w-auto object-contain hidden" alt="Logo">
-            <span class="dynamic-logo-text text-xl font-black text-white">SINAPTA</span>
+            <span class="dynamic-logo-text text-xl font-black text-white group-hover:text-primary transition-colors">SINAPTA</span>
         </a>
-        <a href="index.html" class="text-sm text-slate-400 hover:text-primary flex items-center gap-2 transition-colors">
-            <span class="material-symbols-outlined text-sm">arrow_back</span> Voltar ao site
-        </a>
+        <nav class="flex items-center gap-6">
+            <a href="index.html" class="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block">Home</a>
+            <a href="index.html#produtos" class="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block">Produtos</a>
+            <a href="index.html#contato" class="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block">Contato</a>
+            <a href="index.html" class="text-sm text-primary font-bold flex items-center gap-1.5 hover:gap-2.5 transition-all">
+                <span class="material-symbols-outlined text-sm">arrow_back</span> Voltar
+            </a>
+        </nav>
     </div>
 </header>
 
 <!-- Blog List View -->
 <main id="blog-list-view">
-    <div class="pt-32 pb-20 max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
-        <div class="text-center mb-16">
-            <h1 class="text-4xl lg:text-5xl font-black mb-4">Insights da Fronteira</h1>
-            <p class="text-slate-400 text-lg max-w-2xl mx-auto">Artigos, análises e tendências sobre tecnologia, negócios e inovação digital.</p>
+    <div class="hero-glow pt-28 pb-20 min-h-screen">
+        <!-- Hero Header -->
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 pt-8 pb-16">
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="h-px flex-1 max-w-[60px] bg-gradient-to-r from-primary to-transparent"></div>
+                    <span class="text-[10px] font-black uppercase tracking-[0.3em] text-primary">Blog & Insights</span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
+                    Insights da<br><span class="bg-gradient-to-r from-primary to-[#818CF8] bg-clip-text text-transparent">Fronteira Digital</span>
+                </h1>
+                <p class="text-slate-400 text-lg lg:text-xl max-w-xl leading-relaxed">Artigos, análises profundas e tendências sobre tecnologia, inteligência artificial e transformação digital.</p>
+            </div>
         </div>
-        <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Cards dinâmicos -->
+
+        <!-- Filter Tags -->
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 mb-12">
+            <div class="flex gap-3 flex-wrap" id="blog-filters">
+                <button onclick="filterPosts('all')" class="filter-btn active px-4 py-2 rounded-full text-xs font-bold border transition-all bg-primary/10 text-primary border-primary/30">Todos</button>
+            </div>
         </div>
-        <div id="blog-empty" class="hidden text-center py-20 text-slate-500">
-            <span class="material-symbols-outlined text-6xl mb-4 block">article</span>
-            <p class="text-lg">Nenhum artigo publicado ainda.</p>
+
+        <!-- Blog Grid -->
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
+            <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Skeleton loaders -->
+                <div class="space-y-4"><div class="skeleton h-48 w-full"></div><div class="skeleton h-4 w-3/4"></div><div class="skeleton h-4 w-1/2"></div></div>
+                <div class="space-y-4 hidden md:block"><div class="skeleton h-48 w-full"></div><div class="skeleton h-4 w-3/4"></div><div class="skeleton h-4 w-1/2"></div></div>
+                <div class="space-y-4 hidden lg:block"><div class="skeleton h-48 w-full"></div><div class="skeleton h-4 w-3/4"></div><div class="skeleton h-4 w-1/2"></div></div>
+            </div>
+            <div id="blog-empty" class="hidden text-center py-24">
+                <div class="w-24 h-24 rounded-full bg-surface-container-high flex items-center justify-center mx-auto mb-6">
+                    <span class="material-symbols-outlined text-4xl text-slate-500">article</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Nenhum artigo encontrado</h3>
+                <p class="text-slate-500">Novos conteúdos serão publicados em breve.</p>
+            </div>
         </div>
     </div>
 </main>
 
 <!-- Article Detail View -->
 <main id="blog-article-view" class="hidden">
-    <div class="pt-24 pb-20">
-        <!-- Hero Image -->
-        <div id="article-hero" class="w-full h-64 md:h-96 bg-surface-container-high relative overflow-hidden mb-0">
-            <img id="article-hero-img" src="" class="w-full h-full object-cover" alt="">
-            <div class="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent"></div>
-        </div>
-        <div class="max-w-3xl mx-auto px-5 sm:px-6 lg:px-12 -mt-20 relative z-10">
-            <div class="mb-6 flex items-center gap-3">
-                <span id="article-tag" class="text-[10px] font-black bg-primary/10 text-primary px-3 py-1 rounded-full uppercase tracking-wider"></span>
-                <span id="article-date" class="text-xs text-slate-500"></span>
+    <!-- Hero Image -->
+    <div id="article-hero" class="w-full h-[50vh] md:h-[60vh] bg-surface-container-high relative overflow-hidden">
+        <img id="article-hero-img" src="" class="w-full h-full object-cover" alt="">
+        <div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-background/30 to-transparent"></div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="max-w-3xl mx-auto px-5 sm:px-6 lg:px-12 -mt-32 relative z-10 pb-20">
+        <div class="mb-8 flex items-center gap-4 flex-wrap">
+            <span id="article-tag" class="text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-wider"></span>
+            <div class="flex items-center gap-2 text-slate-500">
+                <span class="material-symbols-outlined text-sm">calendar_today</span>
+                <span id="article-date" class="text-xs"></span>
             </div>
-            <h1 id="article-title" class="text-3xl lg:text-4xl font-black mb-6 leading-tight"></h1>
-            <p id="article-summary" class="text-lg text-slate-400 mb-10 leading-relaxed border-l-4 border-primary/30 pl-6"></p>
-            <div id="article-content" class="prose max-w-none"></div>
-            <div class="mt-16 pt-10 border-t border-outline-variant/10">
-                <button onclick="showBlogList()" class="text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all">
-                    <span class="material-symbols-outlined">arrow_back</span> Voltar para todos os artigos
+            <div class="flex items-center gap-2 text-slate-500">
+                <span class="material-symbols-outlined text-sm">schedule</span>
+                <span id="article-read-time" class="text-xs"></span>
+            </div>
+        </div>
+
+        <h1 id="article-title" class="text-3xl sm:text-4xl lg:text-[2.75rem] font-black mb-8 leading-[1.15]"></h1>
+
+        <div id="article-summary" class="text-lg lg:text-xl text-slate-300 mb-12 leading-relaxed pl-6 border-l-4 border-gradient-to-b from-primary to-secondary" style="border-image: linear-gradient(to bottom, #5B8DEF, #F97316) 1;"></div>
+
+        <!-- Author Bar -->
+        <div class="flex items-center gap-4 mb-12 pb-8 border-b border-outline-variant/10">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-[#818CF8] flex items-center justify-center text-white font-black text-lg">S</div>
+            <div>
+                <p class="font-bold text-sm">Equipe Sinapta</p>
+                <p class="text-xs text-slate-500">Insights & Tecnologia</p>
+            </div>
+            <div class="ml-auto flex gap-2">
+                <button onclick="shareArticle()" class="w-9 h-9 flex items-center justify-center rounded-full bg-surface-container-high hover:bg-primary/10 hover:text-primary transition-all" title="Compartilhar">
+                    <span class="material-symbols-outlined text-sm">share</span>
                 </button>
             </div>
+        </div>
+
+        <!-- Article Body -->
+        <div id="article-content" class="article-prose max-w-none"></div>
+
+        <!-- Back link -->
+        <div class="mt-16 pt-10 border-t border-outline-variant/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+            <button onclick="showBlogList()" class="text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all text-sm">
+                <span class="material-symbols-outlined text-sm">arrow_back</span> Voltar para todos os artigos
+            </button>
+            <a href="index.html#contato" class="bg-gradient-to-r from-primary to-[#818CF8] text-white px-6 py-3 rounded-xl font-bold text-sm hover:shadow-lg hover:shadow-primary/20 transition-all">Fale com a Sinapta</a>
         </div>
     </div>
 </main>
 
-<!-- Footer Mini -->
-<footer class="bg-[#050D1A] py-8 border-t border-outline-variant/10">
-    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-slate-500 text-xs">© 2024 Sinapta. Todos os direitos reservados.</p>
-        <a href="index.html" class="text-slate-500 text-xs hover:text-primary transition-colors">Voltar ao site principal</a>
+<!-- Footer -->
+<footer class="bg-[#030810] py-12 border-t border-outline-variant/10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <img src="" class="dynamic-logo h-6 w-auto object-contain hidden" alt="Logo">
+                <span class="dynamic-logo-text text-sm font-black text-slate-500">SINAPTA</span>
+            </div>
+            <p class="text-slate-600 text-xs text-center">© 2024 Sinapta. Todos os direitos reservados. Crafted with Precision.</p>
+            <a href="index.html" class="text-slate-500 text-xs hover:text-primary transition-colors flex items-center gap-1">
+                <span class="material-symbols-outlined text-xs">language</span> sinapta.com.br
+            </a>
+        </div>
     </div>
 </footer>
 
 <script>
-    const SUPABASE_URL = 'https://euybkvjsqfzjojhnquqo.supabase.co';
-    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV1eWJrdmpzcWZ6am9qaG5xdXFvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxODg0MTYsImV4cCI6MjA4OTc2NDQxNn0.Hx9qp8gS7lTqy0BoxWanJjXMUfFUADiHJm6xLVViSFc';
+const SUPABASE_URL = 'https://euybkvjsqfzjojhnquqo.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV1eWJrdmpzcWZ6am9qaG5xdXFvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxODg0MTYsImV4cCI6MjA4OTc2NDQxNn0.Hx9qp8gS7lTqy0BoxWanJjXMUfFUADiHJm6xLVViSFc';
+let blogPosts = [];
+let currentFilter = 'all';
 
-    let blogPosts = [];
+function getTagClass(tag) {
+    if (!tag) return 'tag-default';
+    const t = tag.toUpperCase();
+    if (t.includes('TECH') || t.includes('TECNOL') || t.includes('IA') || t.includes('SAAS')) return 'tag-tech';
+    if (t.includes('NEGOC') || t.includes('BUSINESS') || t.includes('MARKET') || t.includes('VEND')) return 'tag-business';
+    if (t.includes('SEGUR') || t.includes('SECUR') || t.includes('LGPD')) return 'tag-security';
+    return 'tag-default';
+}
 
-    // Simple markdown to HTML converter
-    function mdToHtml(md) {
-        if (!md) return '<p class="text-slate-500 italic">Conteúdo do artigo em breve...</p>';
-        let html = md
-            .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-            .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-            .replace(/^# (.*$)/gim, '<h2>$1</h2>')
-            .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
-            .replace(/\*(.*?)\*/gim, '<em>$1</em>')
-            .replace(/`(.*?)`/gim, '<code>$1</code>')
-            .replace(/^\> (.*$)/gim, '<blockquote><p>$1</p></blockquote>')
-            .replace(/^---$/gim, '<hr>')
-            .replace(/\[([^\]]+)\]\(([^)]+)\)/gim, '<a href="$2" target="_blank">$1</a>')
-            .replace(/^\- (.*$)/gim, '<li>$1</li>')
-            .replace(/^\d+\. (.*$)/gim, '<li>$1</li>');
-        // Wrap consecutive <li> in <ul>
-        html = html.replace(/(<li>.*<\/li>\n?)+/gim, function(match) {
-            return '<ul>' + match + '</ul>';
-        });
-        // Wrap remaining lines into <p>
-        html = html.split('\n').map(line => {
-            line = line.trim();
-            if (!line) return '';
-            if (line.startsWith('<h') || line.startsWith('<ul') || line.startsWith('<ol') || line.startsWith('<li') || line.startsWith('<blockquote') || line.startsWith('<hr') || line.startsWith('<pre')) return line;
-            if (!line.startsWith('<')) return '<p>' + line + '</p>';
-            return line;
-        }).join('\n');
-        return html;
+function formatDate(dateStr) {
+    if (!dateStr) return '';
+    try {
+        const d = new Date(dateStr + 'T00:00:00');
+        return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
+    } catch(e) { return dateStr; }
+}
+
+function readTime(content) {
+    if (!content) return '2 min de leitura';
+    const words = content.replace(/<[^>]*>/g, '').split(/\s+/).length;
+    const mins = Math.max(2, Math.ceil(words / 200));
+    return mins + ' min de leitura';
+}
+
+function mdToHtml(md) {
+    if (!md) return '<p class="text-slate-500 italic text-center py-8">O conteúdo completo deste artigo será publicado em breve. Fique ligado!</p>';
+    let html = md
+        .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+        .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+        .replace(/^# (.*$)/gim, '<h2>$1</h2>')
+        .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/gim, '<em>$1</em>')
+        .replace(/`(.*?)`/gim, '<code>$1</code>')
+        .replace(/^\> (.*$)/gim, '<blockquote><p>$1</p></blockquote>')
+        .replace(/^---$/gim, '<hr>')
+        .replace(/!\[([^\]]*)\]\(([^)]+)\)/gim, '<img src="$2" alt="$1" loading="lazy"/>')
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/gim, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+        .replace(/^\- (.*$)/gim, '<li>$1</li>')
+        .replace(/^\d+\. (.*$)/gim, '<li>$1</li>');
+    html = html.replace(/(<li>.*<\/li>\n?)+/gim, m => '<ul>' + m + '</ul>');
+    html = html.split('\n').map(line => {
+        line = line.trim();
+        if (!line) return '';
+        if (/^<(h[23]|ul|ol|li|blockquote|hr|pre|img|div)/.test(line)) return line;
+        if (!line.startsWith('<')) return '<p>' + line + '</p>';
+        return line;
+    }).join('\n');
+    return html;
+}
+
+function renderContent(content) {
+    if (!content) return '<p class="text-slate-500 italic text-center py-8">O conteúdo completo deste artigo será publicado em breve. Fique ligado!</p>';
+    // If content starts with HTML tags, it's from the WYSIWYG editor — render directly
+    const trimmed = content.trim();
+    if (trimmed.startsWith('<')) return trimmed;
+    // Otherwise treat as markdown
+    return mdToHtml(content);
+}
+
+function buildFilterTags() {
+    const tags = [...new Set(blogPosts.map(p => (p.tag || 'GERAL').toUpperCase()))];
+    const container = document.getElementById('blog-filters');
+    if (!container) return;
+    container.innerHTML = '<button onclick="filterPosts(\'all\')" class="filter-btn px-4 py-2 rounded-full text-xs font-bold border transition-all ' + (currentFilter === 'all' ? 'bg-primary/10 text-primary border-primary/30' : 'bg-transparent text-slate-500 border-outline-variant/20 hover:border-primary/30 hover:text-primary') + '">Todos</button>';
+    tags.forEach(tag => {
+        container.innerHTML += '<button onclick="filterPosts(\'' + tag + '\')" class="filter-btn px-4 py-2 rounded-full text-xs font-bold border transition-all ' + (currentFilter === tag ? 'bg-primary/10 text-primary border-primary/30' : 'bg-transparent text-slate-500 border-outline-variant/20 hover:border-primary/30 hover:text-primary') + '">' + tag + '</button>';
+    });
+}
+
+function filterPosts(tag) {
+    currentFilter = tag;
+    buildFilterTags();
+    renderBlogGrid();
+}
+
+function renderBlogGrid() {
+    const grid = document.getElementById('blog-grid');
+    const empty = document.getElementById('blog-empty');
+    const filtered = currentFilter === 'all' ? blogPosts : blogPosts.filter(p => (p.tag || 'GERAL').toUpperCase() === currentFilter);
+    if (filtered.length === 0) {
+        grid.classList.add('hidden');
+        empty.classList.remove('hidden');
+        return;
     }
-
-    function formatDate(dateStr) {
-        if (!dateStr) return '';
-        try {
-            const d = new Date(dateStr + 'T00:00:00');
-            return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
-        } catch(e) { return dateStr; }
-    }
-
-    function renderBlogGrid() {
-        const grid = document.getElementById('blog-grid');
-        const empty = document.getElementById('blog-empty');
-        if (blogPosts.length === 0) {
-            grid.classList.add('hidden');
-            empty.classList.remove('hidden');
-            return;
-        }
-        grid.classList.remove('hidden');
-        empty.classList.add('hidden');
-        grid.innerHTML = blogPosts.map((post, i) => `
-            <div onclick="showArticle(${i})" class="group cursor-pointer">
-                <div class="aspect-video bg-surface-container-highest rounded-2xl mb-6 overflow-hidden">
-                    ${post.image ? '<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="' + post.image + '" alt="' + (post.title || '') + '"/>' : '<div class="w-full h-full flex items-center justify-center"><span class="material-symbols-outlined text-slate-600 text-5xl">article</span></div>'}
+    grid.classList.remove('hidden');
+    empty.classList.add('hidden');
+    grid.innerHTML = filtered.map((post, _i) => {
+        const realIndex = blogPosts.indexOf(post);
+        return `
+        <article onclick="showArticle(${realIndex})" class="group cursor-pointer card-glow bg-surface-container-high/30 rounded-2xl overflow-hidden border border-outline-variant/10 hover:border-primary/20">
+            <div class="aspect-[16/10] bg-surface-container-highest relative overflow-hidden">
+                ${post.image ? '<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="' + post.image + '" alt="' + (post.title || '') + '" loading="lazy"/>' : '<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-surface-container-high to-surface"><span class="material-symbols-outlined text-slate-600 text-5xl group-hover:text-primary/50 transition-colors">article</span></div>'}
+                <div class="absolute top-4 left-4">
+                    <span class="${getTagClass(post.tag)} text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm">${post.tag || 'GERAL'}</span>
                 </div>
-                <div class="flex gap-2 mb-3 items-center">
-                    <span class="text-[10px] font-black bg-primary/10 text-primary px-2 py-1 rounded uppercase tracking-wider">${post.tag || 'GERAL'}</span>
-                    <span class="text-[10px] text-slate-500">${formatDate(post.date)}</span>
-                </div>
-                <h4 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors leading-tight">${post.title || 'Sem título'}</h4>
-                <p class="text-sm text-slate-400 mb-4 line-clamp-2">${post.summary || ''}</p>
-                <span class="text-primary font-bold text-sm flex items-center gap-2">Ler artigo <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">north_east</span></span>
             </div>
-        `).join('');
+            <div class="p-6">
+                <div class="flex items-center gap-3 mb-4 text-[11px] text-slate-500">
+                    <span>${formatDate(post.date)}</span>
+                    <span class="w-1 h-1 rounded-full bg-slate-600"></span>
+                    <span>${readTime(post.content)}</span>
+                </div>
+                <h3 class="text-lg font-bold mb-3 group-hover:text-primary transition-colors leading-snug line-clamp-2">${post.title || 'Sem título'}</h3>
+                <p class="text-sm text-slate-400 line-clamp-2 mb-5">${post.summary || ''}</p>
+                <div class="flex items-center gap-2 text-primary text-sm font-bold">
+                    Ler artigo <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">east</span>
+                </div>
+            </div>
+        </article>`;
+    }).join('');
+}
+
+function showArticle(index) {
+    const post = blogPosts[index];
+    if (!post) return;
+    document.getElementById('blog-list-view').classList.add('hidden');
+    document.getElementById('blog-article-view').classList.remove('hidden');
+    document.getElementById('article-hero-img').src = post.image || '';
+    document.getElementById('article-hero').style.display = post.image ? '' : 'none';
+    const tagEl = document.getElementById('article-tag');
+    tagEl.textContent = post.tag || 'GERAL';
+    tagEl.className = 'text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-wider ' + getTagClass(post.tag);
+    document.getElementById('article-date').textContent = formatDate(post.date);
+    document.getElementById('article-read-time').textContent = readTime(post.content);
+    document.getElementById('article-title').textContent = post.title || 'Sem título';
+    document.getElementById('article-summary').textContent = post.summary || '';
+    document.getElementById('article-content').innerHTML = renderContent(post.content);
+    document.title = (post.title || 'Artigo') + ' - Blog Sinapta';
+    window.scrollTo({ top: 0 });
+    history.pushState({ article: index }, '', '#artigo-' + index);
+}
+
+function showBlogList() {
+    document.getElementById('blog-article-view').classList.add('hidden');
+    document.getElementById('blog-list-view').classList.remove('hidden');
+    document.title = 'Blog - Sinapta';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    history.pushState({}, '', 'blog.html');
+}
+
+function shareArticle() {
+    if (navigator.share) {
+        navigator.share({ title: document.title, url: window.location.href });
+    } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link copiado!');
     }
+}
 
-    function showArticle(index) {
-        const post = blogPosts[index];
-        if (!post) return;
-        document.getElementById('blog-list-view').classList.add('hidden');
-        document.getElementById('blog-article-view').classList.remove('hidden');
-        document.getElementById('article-hero-img').src = post.image || '';
-        document.getElementById('article-hero').style.display = post.image ? '' : 'none';
-        document.getElementById('article-tag').textContent = post.tag || 'GERAL';
-        document.getElementById('article-date').textContent = formatDate(post.date);
-        document.getElementById('article-title').textContent = post.title || 'Sem título';
-        document.getElementById('article-summary').textContent = post.summary || '';
-        document.getElementById('article-content').innerHTML = mdToHtml(post.content);
-        document.title = (post.title || 'Artigo') + ' - Blog Sinapta';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        history.pushState({ article: index }, '', '#artigo-' + index);
+// Reading progress
+window.addEventListener('scroll', () => {
+    if (document.getElementById('blog-article-view').classList.contains('hidden')) {
+        document.getElementById('reading-progress').style.width = '0%';
+        return;
     }
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    const p = Math.min(100, (window.scrollY / h) * 100);
+    document.getElementById('reading-progress').style.width = p + '%';
+});
 
-    function showBlogList() {
-        document.getElementById('blog-article-view').classList.add('hidden');
-        document.getElementById('blog-list-view').classList.remove('hidden');
-        document.title = 'Blog - Sinapta';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        history.pushState({}, '', 'blog.html');
-    }
+window.addEventListener('popstate', (e) => {
+    if (e.state && e.state.article !== undefined) showArticle(e.state.article);
+    else showBlogList();
+});
 
-    // Handle browser back button
-    window.addEventListener('popstate', (e) => {
-        if (e.state && e.state.article !== undefined) {
-            showArticle(e.state.article);
-        } else {
-            showBlogList();
-        }
-    });
-
-    document.addEventListener('DOMContentLoaded', async () => {
-        // Load from Supabase
-        try {
-            const res = await fetch(SUPABASE_URL + '/rest/v1/site_settings?select=*', {
-                headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY }
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const res = await fetch(SUPABASE_URL + '/rest/v1/site_settings?select=*', {
+            headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY }
+        });
+        if (res.ok) {
+            const data = await res.json();
+            data.forEach(row => {
+                if (row.value && row.value.data !== null) localStorage.setItem(row.id, row.value.data);
             });
-            if (res.ok) {
-                const data = await res.json();
-                data.forEach(row => {
-                    if (row.value && row.value.data !== null) {
-                        localStorage.setItem(row.id, row.value.data);
-                    }
-                });
-            }
-        } catch(e) { console.warn('Supabase load error:', e); }
-
-        // Load blog posts
-        try {
-            const saved = localStorage.getItem('sinapta_blog_posts');
-            if (saved) blogPosts = JSON.parse(saved);
-        } catch(e) {}
-
-        // Load logo
-        const savedLogo = localStorage.getItem('sinapta_logo');
-        if (savedLogo) {
-            document.querySelectorAll('.dynamic-logo').forEach(img => { img.src = savedLogo; img.classList.remove('hidden'); });
-            document.querySelectorAll('.dynamic-logo-text').forEach(txt => { txt.classList.add('hidden'); });
         }
+    } catch(e) {}
 
-        renderBlogGrid();
+    try { const s = localStorage.getItem('sinapta_blog_posts'); if (s) blogPosts = JSON.parse(s); } catch(e) {}
 
-        // Check URL hash for direct article link
-        const hash = window.location.hash;
-        if (hash && hash.startsWith('#artigo-')) {
-            const idx = parseInt(hash.replace('#artigo-', ''));
-            if (!isNaN(idx) && idx >= 0 && idx < blogPosts.length) {
-                showArticle(idx);
-            }
-        }
-    });
+    const savedLogo = localStorage.getItem('sinapta_logo');
+    if (savedLogo) {
+        document.querySelectorAll('.dynamic-logo').forEach(img => { img.src = savedLogo; img.classList.remove('hidden'); });
+        document.querySelectorAll('.dynamic-logo-text').forEach(txt => { txt.classList.add('hidden'); });
+    }
+
+    buildFilterTags();
+    renderBlogGrid();
+
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#artigo-')) {
+        const idx = parseInt(hash.replace('#artigo-', ''));
+        if (!isNaN(idx) && idx >= 0 && idx < blogPosts.length) showArticle(idx);
+    }
+});
 </script>
 </body>
 </html>
