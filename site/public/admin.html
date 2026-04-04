@@ -573,49 +573,9 @@
                     <div class="bg-surface-high p-8 rounded-2xl border border-outline-variant/20 shadow-lg">
                         <div class="flex justify-between items-center mb-6 border-b border-outline-variant/20 pb-4">
                             <h3 class="text-lg font-bold">Insights da Fronteira (Blog)</h3>
-                            <button class="bg-primary/20 text-primary px-3 py-1.5 rounded font-bold text-xs">+ Adicionar
-                                Artigo</button>
+                            <button id="btn-add-blog" class="bg-primary hover:bg-primary/90 text-on-primary font-bold px-4 py-2 rounded-lg text-xs transition-colors">+ Novo Artigo</button>
                         </div>
-                        <div class="grid grid-cols-3 gap-6"><div class="bg-background rounded-xl overflow-hidden border border-outline-variant/30">
-                                <div class="h-32 bg-slate-800 relative group cursor-pointer flex items-center justify-center">
-                                    <span class="material-symbols-outlined text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity z-10">cloud_upload</span>
-                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all">
-                                    </div>
-                                    <span class="absolute bottom-2 right-2 text-[10px] bg-black/50 px-2 rounded text-white z-10">Capa
-                                        do Artigo 1</span>
-                                </div>
-                                <div class="p-4 space-y-3">
-                                    <input type="text" value="TECNOLOGIA" class="bg-primary/10 text-primary text-[10px] font-black w-full rounded px-2 py-1 outline-none border border-transparent focus:border-primary" id="admin-blog-0-tag">
-                                    <textarea rows="2" class="w-full text-sm font-bold bg-transparent border-b border-outline-variant focus:border-primary outline-none resize-none" id="admin-blog-0-title">Como a IA está remodelando o setor jurídico em 2024.</textarea>
-                                    <input type="text" value="https://sinapta.com.br/blog/ia-juridico" class="w-full text-xs text-slate-400 bg-transparent border-b border-outline-variant focus:border-primary outline-none py-1" placeholder="URL do Post" id="admin-blog-0-url">
-                                </div>
-                            </div><div class="bg-background rounded-xl overflow-hidden border border-outline-variant/30">
-                                <div class="h-32 bg-slate-800 relative group cursor-pointer flex items-center justify-center">
-                                    <span class="material-symbols-outlined text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity z-10">cloud_upload</span>
-                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all">
-                                    </div>
-                                    <span class="absolute bottom-2 right-2 text-[10px] bg-black/50 px-2 rounded text-white z-10">Capa
-                                        do Artigo 1</span>
-                                </div>
-                                <div class="p-4 space-y-3">
-                                    <input type="text" value="TECNOLOGIA" class="bg-primary/10 text-primary text-[10px] font-black w-full rounded px-2 py-1 outline-none border border-transparent focus:border-primary" id="admin-blog-1-tag">
-                                    <textarea rows="2" class="w-full text-sm font-bold bg-transparent border-b border-outline-variant focus:border-primary outline-none resize-none" id="admin-blog-1-title">Como a IA está remodelando o setor jurídico em 2024.</textarea>
-                                    <input type="text" value="https://sinapta.com.br/blog/ia-juridico" class="w-full text-xs text-slate-400 bg-transparent border-b border-outline-variant focus:border-primary outline-none py-1" placeholder="URL do Post" id="admin-blog-1-url">
-                                </div>
-                            </div><div class="bg-background rounded-xl overflow-hidden border border-outline-variant/30">
-                                <div class="h-32 bg-slate-800 relative group cursor-pointer flex items-center justify-center">
-                                    <span class="material-symbols-outlined text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity z-10">cloud_upload</span>
-                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all">
-                                    </div>
-                                    <span class="absolute bottom-2 right-2 text-[10px] bg-black/50 px-2 rounded text-white z-10">Capa
-                                        do Artigo 1</span>
-                                </div>
-                                <div class="p-4 space-y-3">
-                                    <input type="text" value="TECNOLOGIA" class="bg-primary/10 text-primary text-[10px] font-black w-full rounded px-2 py-1 outline-none border border-transparent focus:border-primary" id="admin-blog-2-tag">
-                                    <textarea rows="2" class="w-full text-sm font-bold bg-transparent border-b border-outline-variant focus:border-primary outline-none resize-none" id="admin-blog-2-title">Como a IA está remodelando o setor jurídico em 2024.</textarea>
-                                    <input type="text" value="https://sinapta.com.br/blog/ia-juridico" class="w-full text-xs text-slate-400 bg-transparent border-b border-outline-variant focus:border-primary outline-none py-1" placeholder="URL do Post" id="admin-blog-2-url">
-                                </div>
-                            </div></div>
+                        <div id="admin-blog-list" class="space-y-4"></div>
                     </div>
                 </section>
 
@@ -923,6 +883,115 @@
                 await saveSegmentsToCloud();
             }
         }
+        // ======= BLOG CRUD =======
+        var blogPosts = [];
+
+        function loadBlogPosts() {
+            try {
+                var saved = localStorage.getItem('sinapta_blog_posts');
+                if (saved) { blogPosts = JSON.parse(saved); }
+                else {
+                    // Migrar dados antigos se existirem
+                    blogPosts = [];
+                    for(let i=0; i<3; i++) {
+                        let tag = localStorage.getItem('sinapta_blog_'+i+'_tag');
+                        let title = localStorage.getItem('sinapta_blog_'+i+'_title');
+                        if(tag || title) {
+                            blogPosts.push({
+                                tag: tag || 'TECNOLOGIA',
+                                title: title || '',
+                                summary: '',
+                                content: '',
+                                image: '',
+                                date: new Date().toISOString().split('T')[0]
+                            });
+                        }
+                    }
+                    if(blogPosts.length === 0) {
+                        blogPosts = [
+                            { tag: 'TECNOLOGIA', title: 'Como a IA está remodelando o setor jurídico em 2024.', summary: 'Descubra como escritórios de advocacia estão usando inteligência artificial para automatizar processos e aumentar a produtividade.', content: '', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA4KfmNYsfT_1NSsWyw3UDACLYtWHk6ccxXVvhqAIFbd38pKrhpvfoCqn5uU88rzprwQYZfvZc1JutmE3Pf-BJzwt7DZa-D91MpQGg1RtHV-TS9iilkSd1EiI9IkpCMqvAqW30vk39FUOsE8ePbx2y8etFdQsVYvq-9PZbbOt-a3-KEo7I7qMLGKicUKc53yDs2vy9V7jOkX4kU0XmWNl7hIbe2VS8-ye-Jq4FW0YmYs2lzkie_9nZ0hfAU8GAvwpT5wHi0mszABQ', date: '2024-11-15' },
+                            { tag: 'NEGOCIOS', title: 'O guia definitivo para escalabilidade de plataformas SaaS.', summary: 'Aprenda as melhores práticas para escalar sua plataforma SaaS sem comprometer a performance.', content: '', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDlTF7nYtPyUnGpqZUqrDjDgYo9ZKm2g8JBPvo7QiXM2_s7zkUOyfxgicNCFf90eAv1HbvTigoY1mTfSVGHKm_48DugRfryyG40YnPnizXCrgPEJyRM-OcSWp40hoOBmJ51WF5oZZejo9OSM0Hwqq-k7R0aL0FwyRsxy6mNcuIIariU-HSz1m2jzgHPEpt4WJ64swQYaP1WgAP4l-cxEcs2QGLDHw7sC-jlNL-vWMdymjTN4tr4-24LCSW1zBphS_hICJvDz3b4_g', date: '2024-10-22' },
+                            { tag: 'SEGURANCA', title: 'Protegendo dados sensíveis em ecossistemas híbridos.', summary: 'Estratégias avançadas de cibersegurança para empresas que operam em ambientes cloud e on-premise.', content: '', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDlTF7nYtPyUnGpqZUqrDjDgYo9ZKm2g8JBPvo7QiXM2_s7zkUOyfxgicNCFf90eAv1HbvTigoY1mTfSVGHKm_48DugRfryyG40YnPnizXCrgPEJyRM-OcSWp40hoOBmJ51WF5oZZejo9OSM0Hwqq-k7R0aL0FwyRsxy6mNcuIIariU-HSz1m2jzgHPEpt4WJ64swQYaP1WgAP4l-cxEcs2QGLDHw7sC-jlNL-vWMdymjTN4tr4-24LCSW1zBphS_hICJvDz3b4_g', date: '2024-09-08' }
+                        ];
+                    }
+                }
+            } catch(e) { blogPosts = []; }
+        }
+
+        async function saveBlogsToCloud() {
+            localStorage.setItem('sinapta_blog_posts', JSON.stringify(blogPosts));
+            try {
+                const rows = [{ id: 'sinapta_blog_posts', value: { data: JSON.stringify(blogPosts) } }];
+                await fetch(SUPABASE_URL + '/rest/v1/site_settings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': 'Bearer ' + SUPABASE_KEY,
+                        'Prefer': 'resolution=merge-duplicates'
+                    },
+                    body: JSON.stringify(rows)
+                });
+            } catch(e) { console.error('Error saving blog posts', e); }
+        }
+
+        function renderBlogPosts() {
+            var list = document.getElementById('admin-blog-list');
+            if (!list) return;
+            if (blogPosts.length === 0) {
+                list.innerHTML = '<div class="text-slate-500 text-sm text-center py-8">Nenhum artigo. Clique em "+ Novo Artigo" para criar.</div>';
+                return;
+            }
+            list.innerHTML = blogPosts.map(function(post, i) {
+                return '<div class="bg-background rounded-xl border border-outline-variant/20 overflow-hidden" data-blog-index="' + i + '">' +
+                    '<div class="flex flex-col md:flex-row gap-0">' +
+                        '<div class="w-full md:w-48 h-32 md:h-auto bg-slate-800 relative shrink-0 overflow-hidden">' +
+                            (post.image ? '<img src="' + post.image + '" class="w-full h-full object-cover"/>' : '<div class="w-full h-full flex items-center justify-center"><span class="material-symbols-outlined text-slate-600 text-4xl">image</span></div>') +
+                        '</div>' +
+                        '<div class="flex-1 p-5 space-y-3">' +
+                            '<div class="flex items-center gap-3">' +
+                                '<input type="text" value="' + (post.tag || '') + '" onblur="blogPosts[' + i + '].tag = this.value" class="bg-primary/10 text-primary text-[10px] font-black rounded px-2 py-1 outline-none border border-transparent focus:border-primary w-28 uppercase" placeholder="TAG">' +
+                                '<input type="date" value="' + (post.date || '') + '" onchange="blogPosts[' + i + '].date = this.value" class="bg-transparent text-slate-500 text-xs outline-none border-b border-outline-variant/30 focus:border-primary">' +
+                            '</div>' +
+                            '<input type="text" value="' + (post.title || '').replace(/"/g, '&quot;') + '" onblur="blogPosts[' + i + '].title = this.value" class="w-full bg-transparent font-bold text-sm outline-none border-b border-transparent focus:border-primary" placeholder="Título do artigo">' +
+                            '<textarea rows="2" onblur="blogPosts[' + i + '].summary = this.value" class="w-full bg-transparent text-xs text-slate-400 outline-none border border-outline-variant/20 rounded p-2 resize-none focus:border-primary" placeholder="Resumo curto do artigo...">' + (post.summary || '') + '</textarea>' +
+                            '<div>' +
+                                '<label class="block text-[10px] font-bold text-slate-500 mb-1">URL da Imagem de Capa</label>' +
+                                '<input type="text" value="' + (post.image || '') + '" onblur="blogPosts[' + i + '].image = this.value; renderBlogPosts()" class="w-full bg-transparent text-xs text-slate-400 outline-none border-b border-outline-variant/30 focus:border-primary py-1" placeholder="https://...">' +
+                            '</div>' +
+                            '<div>' +
+                                '<label class="block text-[10px] font-bold text-slate-500 mb-1">Conteúdo do Artigo (Markdown)</label>' +
+                                '<textarea rows="4" onblur="blogPosts[' + i + '].content = this.value" class="w-full bg-surface text-xs text-slate-300 outline-none border border-outline-variant/20 rounded-lg p-3 resize-y focus:border-primary font-mono" placeholder="## Subtítulo\n\nEscreva o conteúdo do artigo aqui usando Markdown...">' + (post.content || '') + '</textarea>' +
+                            '</div>' +
+                        '</div>' +
+                        '<div class="flex flex-row md:flex-col gap-2 p-4 shrink-0 border-l border-outline-variant/10">' +
+                            '<button onclick="saveBlogItem(' + i + ')" class="bg-primary/20 text-primary px-3 py-1.5 rounded font-bold text-xs hover:bg-primary/30 whitespace-nowrap">Salvar</button>' +
+                            '<button onclick="deleteBlogPost(' + i + ')" class="text-red-400 hover:text-red-300 font-bold text-xs py-1.5 whitespace-nowrap">Excluir</button>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+            }).join('');
+        }
+
+        async function deleteBlogPost(index) {
+            if (confirm('Excluir este artigo permanentemente?')) {
+                blogPosts.splice(index, 1);
+                renderBlogPosts();
+                await saveBlogsToCloud();
+            }
+        }
+
+        async function saveBlogItem(index) {
+            await saveBlogsToCloud();
+            var card = document.querySelector('[data-blog-index="' + index + '"]');
+            if (card) {
+                var btn = card.querySelector('button');
+                var origText = btn.innerText;
+                btn.innerText = '✅ Salvo!';
+                btn.classList.add('bg-green-500/20', 'text-green-400');
+                setTimeout(function() { btn.innerText = origText; btn.classList.remove('bg-green-500/20', 'text-green-400'); }, 1500);
+            }
+        }
 
         function loadAdminVariables() {
             // LOAD LISTS
@@ -1038,6 +1107,18 @@
             });
         }
 
+        // Blog: carregar e renderizar
+        loadBlogPosts();
+        renderBlogPosts();
+        var btnAddBlog = document.getElementById('btn-add-blog');
+        if (btnAddBlog) {
+            btnAddBlog.addEventListener('click', async function() {
+                blogPosts.push({ tag: 'NOVO', title: '', summary: '', content: '', image: '', date: new Date().toISOString().split('T')[0] });
+                renderBlogPosts();
+                await saveBlogsToCloud();
+            });
+        }
+
         // 3. Carregar KPIs
         fields.forEach(f => {
             const val = localStorage.getItem('sinapta_' + f);
@@ -1110,16 +1191,16 @@
                     });
                 }
                 if(i<3) {
-                    ['tag','title','url'].forEach(k => {
-                        let el = document.getElementById('admin-blog-'+i+'-'+k);
-                        if(el) { localStorage.setItem('sinapta_blog_'+i+'_'+k, el.value); rows.push({id:'sinapta_blog_'+i+'_'+k, value:{data:el.value}}); }
-                    });
                     ['title','desc'].forEach(k => {
                         let el = document.getElementById('admin-feat-'+i+'-'+k);
                         if(el) { localStorage.setItem('sinapta_feat_'+i+'_'+k, el.value); rows.push({id:'sinapta_feat_'+i+'_'+k, value:{data:el.value}}); }
                     });
                 }
             }
+
+            // Blog Posts (novo sistema em array)
+            localStorage.setItem('sinapta_blog_posts', JSON.stringify(blogPosts));
+            rows.push({ id: 'sinapta_blog_posts', value: { data: JSON.stringify(blogPosts) } });
 
             // Testimonials
             localStorage.setItem('sinapta_testimonials', JSON.stringify(testimonials));

@@ -548,38 +548,12 @@
 <!-- Section 12: Blog/Insights -->
 <section class="py-16 lg:py-32 bg-surface">
 <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
-<h2 class="text-3xl lg:text-4xl font-extrabold mb-12">Insights da Fronteira</h2>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="group cursor-pointer">
-<div class="aspect-video bg-surface-container-highest rounded-2xl mb-6 overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Imagem abstrata de inteligência artificial azul" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4KfmNYsfT_1NSsWyw3UDACLYtWHk6ccxXVvhqAIFbd38pKrhpvfoCqn5uU88rzprwQYZfvZc1JutmE3Pf-BJzwt7DZa-D91MpQGg1RtHV-TS9iilkSd1EiI9IkpCMqvAqW30vk39FUOsE8ePbx2y8etFdQsVYvq-9PZbbOt-a3-KEo7I7qMLGKicUKc53yDs2vy9V7jOkX4kU0XmWNl7hIbe2VS8-ye-Jq4FW0YmYs2lzkie_9nZ0hfAU8GAvwpT5wHi0mszABQ"/>
+<div class="flex justify-between items-center mb-12">
+<h2 class="text-3xl lg:text-4xl font-extrabold">Insights da Fronteira</h2>
+<a href="blog.html" class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Ver todos <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
 </div>
-<div class="flex gap-2 mb-4">
-<span class="text-[10px] font-black bg-primary/10 text-primary px-2 py-1 rounded">TECNOLOGIA</span>
-</div>
-<h4 class="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Como a IA está remodelando o setor jurídico em 2024.</h4>
-<button class="text-primary font-bold text-sm flex items-center gap-2">Ler artigo <span class="material-symbols-outlined text-sm">north_east</span></button>
-</div>
-<div class="group cursor-pointer">
-<div class="aspect-video bg-surface-container-highest rounded-2xl mb-6 overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Rede de dados digital global" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlTF7nYtPyUnGpqZUqrDjDgYo9ZKm2g8JBPvo7QiXM2_s7zkUOyfxgicNCFf90eAv1HbvTigoY1mTfSVGHKm_48DugRfryyG40YnPnizXCrgPEJyRM-OcSWp40hoOBmJ51WF5oZZejo9OSM0Hwqq-k7R0aL0FwyRsxy6mNcuIIariU-HSz1m2jzgHPEpt4WJ64swQYaP1WgAP4l-cxEcs2QGLDHw7sC-jlNL-vWMdymjTN4tr4-24LCSW1zBphS_hICJvDz3b4_g"/>
-</div>
-<div class="flex gap-2 mb-4">
-<span class="text-[10px] font-black bg-primary/10 text-primary px-2 py-1 rounded">NEGÓCIOS</span>
-</div>
-<h4 class="text-xl font-bold mb-4 group-hover:text-primary transition-colors">O guia definitivo para escalabilidade de plataformas SaaS.</h4>
-<button class="text-primary font-bold text-sm flex items-center gap-2">Ler artigo <span class="material-symbols-outlined text-sm">north_east</span></button>
-</div>
-<div class="group cursor-pointer">
-<div class="aspect-video bg-surface-container-highest rounded-2xl mb-6 overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Servidores de alta segurança neon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlTF7nYtPyUnGpqZUqrDjDgYo9ZKm2g8JBPvo7QiXM2_s7zkUOyfxgicNCFf90eAv1HbvTigoY1mTfSVGHKm_48DugRfryyG40YnPnizXCrgPEJyRM-OcSWp40hoOBmJ51WF5oZZejo9OSM0Hwqq-k7R0aL0FwyRsxy6mNcuIIariU-HSz1m2jzgHPEpt4WJ64swQYaP1WgAP4l-cxEcs2QGLDHw7sC-jlNL-vWMdymjTN4tr4-24LCSW1zBphS_hICJvDz3b4_g"/>
-</div>
-<div class="flex gap-2 mb-4">
-<span class="text-[10px] font-black bg-primary/10 text-primary px-2 py-1 rounded">SEGURANÇA</span>
-</div>
-<h4 class="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Protegendo dados sensíveis em ecossistemas híbridos.</h4>
-<button class="text-primary font-bold text-sm flex items-center gap-2">Ler artigo <span class="material-symbols-outlined text-sm">north_east</span></button>
-</div>
+<div id="landing-blog-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Os artigos serão inseridos dinamicamente via JS -->
 </div>
 </div>
 </section>
@@ -791,17 +765,30 @@ document.addEventListener('DOMContentLoaded', async () => {
         if(desc && diffP) diffP.innerText = desc;
     }
 
-    const blogs = document.querySelectorAll('#blog h4, section h4'); // wait, let's use a clear selector
-    const blogNodes = document.querySelectorAll('.aspect-video');
-    blogNodes.forEach((bNode, i) => {
-        const p = bNode.parentElement;
-        const tagNode = p.querySelector('.text-\\[10px\\]');
-        const titleNode = p.querySelector('h4');
-        const tag = localStorage.getItem('sinapta_blog_'+i+'_tag');
-        const title = localStorage.getItem('sinapta_blog_'+i+'_title');
-        if(tag && tagNode) tagNode.innerText = tag;
-        if(title && titleNode) titleNode.innerText = title;
-    });
+    // Blog Posts - Dynamic Rendering
+    try {
+        const savedBlog = localStorage.getItem('sinapta_blog_posts');
+        if (savedBlog) {
+            const blogArr = JSON.parse(savedBlog);
+            const blogGrid = document.getElementById('landing-blog-grid');
+            if(blogGrid && blogArr.length > 0) {
+                // Show max 3 on landing page
+                const postsToShow = blogArr.slice(0, 3);
+                blogGrid.innerHTML = postsToShow.map((post, i) => `
+                    <a href="blog.html#artigo-${i}" class="group cursor-pointer block">
+                        <div class="aspect-video bg-surface-container-highest rounded-2xl mb-6 overflow-hidden">
+                            ${post.image ? '<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="' + post.image + '" alt="' + (post.title || '') + '"/>' : '<div class="w-full h-full flex items-center justify-center"><span class="material-symbols-outlined text-slate-600 text-5xl">article</span></div>'}
+                        </div>
+                        <div class="flex gap-2 mb-4">
+                            <span class="text-[10px] font-black bg-primary/10 text-primary px-2 py-1 rounded">${post.tag || 'GERAL'}</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4 group-hover:text-primary transition-colors">${post.title || 'Sem título'}</h4>
+                        <span class="text-primary font-bold text-sm flex items-center gap-2">Ler artigo <span class="material-symbols-outlined text-sm">north_east</span></span>
+                    </a>
+                `).join('');
+            }
+        }
+    } catch(e) { console.warn('Blog sync error:', e); }
 
     const feats = document.querySelectorAll('#contato h4');
     feats.forEach((feat, i) => {
