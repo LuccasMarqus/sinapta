@@ -106,6 +106,33 @@
         }
         
         .dynamic-logo { mix-blend-mode: screen; filter: drop-shadow(0 0 10px rgba(0, 163, 255, 0.3)); }
+
+        /* WYSIWYG Editor — force dark theme */
+        #editor-content {
+            background-color: #071325 !important;
+            color: #d7e3fc !important;
+        }
+        #editor-content * {
+            background-color: transparent !important;
+        }
+        #editor-content div, #editor-content span {
+            color: inherit !important;
+            background-color: transparent !important;
+        }
+        #editor-content h2 { color: #ffffff !important; }
+        #editor-content h3 { color: #e2e8f0 !important; }
+        #editor-content p { color: #d7e3fc !important; }
+        #editor-content li { color: #d7e3fc !important; }
+        #editor-content strong { color: #ffffff !important; }
+        #editor-content blockquote { background: rgba(0,163,255,0.05) !important; border-left: 4px solid #00A3FF; color: #94a3b8 !important; }
+        #editor-content code { background: #1f2a3d !important; color: #00A3FF !important; }
+        #editor-content pre { background: #0d1f3c !important; }
+        #editor-content a { color: #00A3FF !important; }
+
+        /* Blog editor modal containers */
+        #blog-editor-modal > div {
+            background-color: #071325 !important;
+        }
     </style>
 </head>
 
