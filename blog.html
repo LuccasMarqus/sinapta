@@ -48,23 +48,28 @@ body { background: #060E1F; color: #E2E8F0; }
 /* Reading progress bar */
 #reading-progress { transition: width 0.1s linear; }
 /* Article prose — force dark theme over any WYSIWYG inline styles */
-.article-prose, .article-prose * { background-color: transparent !important; }
-.article-prose div { background-color: transparent !important; color: inherit !important; }
-.article-prose span { background-color: transparent !important; }
+.article-prose { background-color: #060E1F !important; color: #E2E8F0 !important; }
+.article-prose div, .article-prose span, .article-prose p,
+.article-prose h2, .article-prose h3, .article-prose h4,
+.article-prose li, .article-prose ul, .article-prose ol,
+.article-prose strong, .article-prose em, .article-prose b, .article-prose i,
+.article-prose font { background-color: inherit !important; }
 .article-prose h2 { font-size: 1.75rem; font-weight: 800; margin: 2.5rem 0 1rem; color: #E2E8F0 !important; line-height: 1.3; }
 .article-prose h3 { font-size: 1.35rem; font-weight: 700; margin: 2rem 0 0.75rem; color: #CBD5E1 !important; }
 .article-prose p { margin: 1.25rem 0; line-height: 2; color: #94A3B8 !important; font-size: 1.0625rem; }
+.article-prose div { color: #94A3B8 !important; }
+.article-prose span { color: inherit !important; }
 .article-prose ul, .article-prose ol { margin: 1.25rem 0; padding-left: 1.5rem; color: #94A3B8 !important; }
 .article-prose li { margin: 0.6rem 0; line-height: 1.8; font-size: 1.0625rem; color: #94A3B8 !important; }
 .article-prose ul li { list-style-type: disc; }
 .article-prose ol li { list-style-type: decimal; }
-.article-prose strong { color: #E2E8F0 !important; font-weight: 700; }
-.article-prose em { font-style: italic; color: #CBD5E1 !important; }
-.article-prose blockquote { border-left: 4px solid #5B8DEF; padding: 1.25rem 1.75rem; margin: 2rem 0; background: linear-gradient(135deg, rgba(91,141,239,0.06), rgba(91,141,239,0.02)) !important; border-radius: 0 16px 16px 0; font-style: italic; }
+.article-prose strong, .article-prose b { color: #E2E8F0 !important; font-weight: 700; }
+.article-prose em, .article-prose i { font-style: italic; color: #CBD5E1 !important; }
+.article-prose blockquote { border-left: 4px solid #5B8DEF; padding: 1.25rem 1.75rem; margin: 2rem 0; background: rgba(91,141,239,0.06) !important; border-radius: 0 16px 16px 0; font-style: italic; }
 .article-prose blockquote p { color: #CBD5E1 !important; margin: 0; }
 .article-prose code { background: #1E293B !important; padding: 3px 8px; border-radius: 6px; font-size: 0.9rem; color: #5B8DEF !important; font-family: 'JetBrains Mono', monospace; }
-.article-prose pre { background: linear-gradient(145deg, #1a2332, #0f1825) !important; padding: 1.5rem; border-radius: 16px; overflow-x: auto; margin: 2rem 0; border: 1px solid rgba(71,85,105,0.3); }
-.article-prose pre code { background: none !important; padding: 0; font-size: 0.875rem; line-height: 1.7; }
+.article-prose pre { background: #0f1825 !important; padding: 1.5rem; border-radius: 16px; overflow-x: auto; margin: 2rem 0; border: 1px solid rgba(71,85,105,0.3); }
+.article-prose pre code { background: transparent !important; padding: 0; font-size: 0.875rem; line-height: 1.7; }
 .article-prose a { color: #5B8DEF !important; text-decoration: none; border-bottom: 1px solid rgba(91,141,239,0.3); transition: border-color 0.2s; }
 .article-prose a:hover { border-bottom-color: #5B8DEF; }
 .article-prose hr { border: none; height: 1px; background: linear-gradient(90deg, transparent, #475569, transparent) !important; margin: 3rem 0; }
