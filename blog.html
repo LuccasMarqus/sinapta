@@ -341,6 +341,15 @@ function filterPosts(tag) {
     renderBlogGrid();
 }
 
+function handleImgError(img) {
+    var parent = img.parentElement;
+    img.remove();
+    var div = document.createElement('div');
+    div.className = 'w-full h-full flex items-center justify-center bg-gradient-to-br from-surface-container-high to-surface';
+    div.innerHTML = '<span class="material-symbols-outlined text-slate-600 text-5xl">article</span>';
+    parent.insertBefore(div, parent.firstChild);
+}
+
 function renderBlogGrid() {
     const grid = document.getElementById('blog-grid');
     const empty = document.getElementById('blog-empty');
@@ -357,7 +366,7 @@ function renderBlogGrid() {
         return `
         <article onclick="showArticle(${realIndex})" class="group cursor-pointer card-glow bg-surface-container-high/30 rounded-2xl overflow-hidden border border-outline-variant/10 hover:border-primary/20">
             <div class="aspect-[16/10] bg-surface-container-highest relative overflow-hidden">
-                ${isValidImageUrl(post.image) ? '<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="' + post.image + '" alt="' + (post.title || '') + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<div class=\\"w-full h-full flex items-center justify-center bg-gradient-to-br from-surface-container-high to-surface\\"><span class=\\"material-symbols-outlined text-slate-600 text-5xl\\">article</span></div>\'"/>' : '<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-surface-container-high to-surface"><span class="material-symbols-outlined text-slate-600 text-5xl group-hover:text-primary/50 transition-colors">article</span></div>'}
+                ${isValidImageUrl(post.image) ? '<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="' + post.image + '" alt="' + (post.title || '') + '" loading="lazy" onerror="handleImgError(this)"/>' : '<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-surface-container-high to-surface"><span class="material-symbols-outlined text-slate-600 text-5xl group-hover:text-primary/50 transition-colors">article</span></div>'}
                 <div class="absolute top-4 left-4">
                     <span class="${getTagClass(post.tag)} text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm">${post.tag || 'GERAL'}</span>
                 </div>
