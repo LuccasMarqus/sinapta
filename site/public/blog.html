@@ -77,6 +77,36 @@ body { background: #060E1F; color: #E2E8F0; }
 /* Skeleton loader */
 @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
 .skeleton { background: linear-gradient(90deg, #1E293B 25%, #2D3B50 50%, #1E293B 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 12px; }
+.glass { background: rgba(31, 42, 61, 0.6); backdrop-filter: blur(20px); }
+
+/* ===== BLOG MOBILE RESPONSIVENESS ===== */
+@media (max-width: 640px) {
+    /* Nav: responsive */
+    nav .glass { height: 56px !important; padding-left: 12px !important; padding-right: 12px !important; }
+    nav .glass .dynamic-logo-text { font-size: 1.25rem !important; }
+    
+    /* Hero: reduce sizes */
+    .blog-hero-title { font-size: 2rem !important; line-height: 1.1 !important; }
+    .blog-hero-gradient { font-size: 2rem !important; }
+    .blog-hero-desc { font-size: 0.95rem !important; }
+    
+    /* Blog grid: single column */
+    #blog-grid { grid-template-columns: 1fr !important; }
+    
+    /* Article view mobile */
+    #blog-article-view .max-w-3xl { padding-left: 1rem !important; padding-right: 1rem !important; }
+    #article-title { font-size: 1.75rem !important; line-height: 1.2 !important; }
+    #article-summary { font-size: 1rem !important; }
+    .article-prose p { font-size: 0.95rem !important; line-height: 1.85 !important; }
+    .article-prose h2 { font-size: 1.4rem !important; }
+    .article-prose h3 { font-size: 1.15rem !important; }
+    
+    /* Hero image mobile */
+    #article-hero { height: 35vh !important; }
+    
+    /* Filter tags wrap */
+    #blog-filters { flex-wrap: wrap !important; }
+}
 </style>
 </head>
 <body class="font-sans antialiased">
@@ -84,27 +114,32 @@ body { background: #060E1F; color: #E2E8F0; }
 <!-- Reading Progress Bar -->
 <div id="reading-progress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-primary to-secondary z-[100] w-0"></div>
 
-<!-- Header -->
-<header class="fixed top-0 w-full z-50 bg-background/70 backdrop-blur-2xl border-b border-outline-variant/10">
-    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex items-center justify-between h-16">
-        <a href="index.html" class="flex items-center gap-3 group">
-            <img src="" class="dynamic-logo h-8 w-auto object-contain hidden" alt="Logo">
-            <span class="dynamic-logo-text text-xl font-black text-white group-hover:text-primary transition-colors">SINAPTA</span>
-        </a>
-        <nav class="flex items-center gap-6">
-            <a href="index.html" class="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block">Home</a>
-            <a href="index.html#produtos" class="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block">Produtos</a>
-            <a href="index.html#contato" class="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block">Contato</a>
-            <a href="index.html" class="text-sm text-primary font-bold flex items-center gap-1.5 hover:gap-2.5 transition-all">
-                <span class="material-symbols-outlined text-sm">arrow_back</span> Voltar
+<!-- Glassmorphic Navbar (matching index.html) -->
+<nav class="fixed top-0 w-full z-50">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 pt-2 sm:pt-3">
+        <div class="glass flex justify-between items-center h-14 sm:h-16 px-4 sm:px-8 rounded-2xl shadow-[0_0_40px_rgba(0,163,255,0.08)] border border-white/5">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="" class="dynamic-logo h-7 sm:h-8 w-auto object-contain hidden" alt="Logo">
+                <div class="dynamic-logo-text text-xl sm:text-2xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-[#00A3FF] via-[#7C3AED] to-[#F97316]">SINAPTA</div>
             </a>
-        </nav>
+            <div class="hidden md:flex items-center gap-4 lg:gap-8">
+                <a class="text-slate-300 hover:text-white transition-colors font-black uppercase tracking-widest text-[11px]" href="index.html#produtos">Produtos</a>
+                <a class="text-slate-300 hover:text-white transition-colors font-black uppercase tracking-widest text-[11px]" href="index.html#segmentos">Segmentos</a>
+                <a class="text-slate-300 hover:text-white transition-colors font-black uppercase tracking-widest text-[11px]" href="index.html#sobre">Sobre</a>
+                <a class="text-[#00A3FF] font-bold border-b-2 border-[#00A3FF] pb-1 font-black uppercase tracking-widest text-[11px]" href="#">Blog</a>
+            </div>
+            <a href="index.html" class="bg-gradient-to-r from-[#F97316] to-[#FBBF24] px-3 py-2 sm:px-5 sm:py-2.5 rounded-full text-[#552100] font-extrabold text-[10px] sm:text-xs uppercase tracking-wider hover:scale-105 transition-all shadow-[0_0_15px_rgba(249,115,22,0.3)] whitespace-nowrap flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm">arrow_back</span>
+                <span class="hidden sm:inline">Voltar ao Site</span>
+                <span class="sm:hidden">Voltar</span>
+            </a>
+        </div>
     </div>
-</header>
+</nav>
 
 <!-- Blog List View -->
 <main id="blog-list-view">
-    <div class="hero-glow pt-28 pb-20 min-h-screen">
+    <div class="hero-glow pt-24 sm:pt-28 pb-20 min-h-screen">
         <!-- Hero Header -->
         <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 pt-8 pb-16">
             <div class="max-w-3xl">
@@ -112,10 +147,10 @@ body { background: #060E1F; color: #E2E8F0; }
                     <div class="h-px flex-1 max-w-[60px] bg-gradient-to-r from-primary to-transparent"></div>
                     <span class="text-[10px] font-black uppercase tracking-[0.3em] text-primary">Blog & Insights</span>
                 </div>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
-                    Insights da<br><span class="bg-gradient-to-r from-primary to-[#818CF8] bg-clip-text text-transparent">Fronteira Digital</span>
+                <h1 class="blog-hero-title text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
+                    Insights da<br><span class="blog-hero-gradient bg-gradient-to-r from-primary to-[#818CF8] bg-clip-text text-transparent">Fronteira Digital</span>
                 </h1>
-                <p class="text-slate-400 text-lg lg:text-xl max-w-xl leading-relaxed">Artigos, análises profundas e tendências sobre tecnologia, inteligência artificial e transformação digital.</p>
+                <p class="blog-hero-desc text-slate-400 text-lg lg:text-xl max-w-xl leading-relaxed">Artigos, análises profundas e tendências sobre tecnologia, inteligência artificial e transformação digital.</p>
             </div>
         </div>
 
