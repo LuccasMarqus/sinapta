@@ -265,6 +265,16 @@ function getTagClass(tag) {
     return 'tag-default';
 }
 
+function isValidImageUrl(url) {
+    if (!url || typeof url !== 'string') return false;
+    url = url.trim();
+    if (url === '' || url === 'https://' || url === 'https://...' || url === 'http://') return false;
+    if (url.startsWith('blob:')) return false;
+    if (url.startsWith('data:')) return false;
+    if (!url.startsWith('http://') && !url.startsWith('https://')) return false;
+    return true;
+}
+
 function formatDate(dateStr) {
     if (!dateStr) return '';
     try {
@@ -347,7 +357,7 @@ function renderBlogGrid() {
         return `
         <article onclick="showArticle(${realIndex})" class="group cursor-pointer card-glow bg-surface-container-high/30 rounded-2xl overflow-hidden border border-outline-variant/10 hover:border-primary/20">
             <div class="aspect-[16/10] bg-surface-container-highest relative overflow-hidden">
-                ${post.image ? '<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="' + post.image + '" alt="' + (post.title || '') + '" loading="lazy"/>' : '<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-surface-container-high to-surface"><span class="material-symbols-outlined text-slate-600 text-5xl group-hover:text-primary/50 transition-colors">article</span></div>'}
+                ${isValidImageUrl(post.image) ? '<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="' + post.image + '" alt="' + (post.title || '') + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<div class=\\"w-full h-full flex items-center justify-center bg-gradient-to-br from-surface-container-high to-surface\\"><span class=\\"material-symbols-outlined text-slate-600 text-5xl\\">article</span></div>\'"/>' : '<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-surface-container-high to-surface"><span class="material-symbols-outlined text-slate-600 text-5xl group-hover:text-primary/50 transition-colors">article</span></div>'}
                 <div class="absolute top-4 left-4">
                     <span class="${getTagClass(post.tag)} text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm">${post.tag || 'GERAL'}</span>
                 </div>
@@ -373,8 +383,9 @@ function showArticle(index) {
     if (!post) return;
     document.getElementById('blog-list-view').classList.add('hidden');
     document.getElementById('blog-article-view').classList.remove('hidden');
-    document.getElementById('article-hero-img').src = post.image || '';
-    document.getElementById('article-hero').style.display = post.image ? '' : 'none';
+    var validImg = isValidImageUrl(post.image);
+    document.getElementById('article-hero-img').src = validImg ? post.image : '';
+    document.getElementById('article-hero').style.display = validImg ? '' : 'none';
     const tagEl = document.getElementById('article-tag');
     tagEl.textContent = post.tag || 'GERAL';
     tagEl.className = 'text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-wider ' + getTagClass(post.tag);
